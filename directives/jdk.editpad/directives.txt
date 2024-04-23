@@ -1,0 +1,1 @@
+provides jdk.internal.editor.spi.BuildInEditorProvider with jdk.editpad.EditPadProvider;

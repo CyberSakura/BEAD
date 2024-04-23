@@ -1,0 +1,2 @@
+exports com.sun.java.accessibility.util;
+provides javax.accessibility.AccessibilityProvider with com.sun.java.accessibility.internal.ProviderImpl;

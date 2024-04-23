@@ -1,0 +1,2 @@
+exports sun.jvmstat.monitor.remote to java.rmi;
+provides sun.jvmstat.monitor.MonitoredHostService with sun.jvmstat.perfdata.monitor.protocol.rmi.MonitoredHostRmiService;

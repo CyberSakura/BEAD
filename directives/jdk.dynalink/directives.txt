@@ -1,0 +1,6 @@
+exports jdk.dynalink;
+exports jdk.dynalink.beans;
+exports jdk.dynalink.linker;
+exports jdk.dynalink.linker.support;
+exports jdk.dynalink.support;
+uses jdk.dynalink.linker.GuardingDynamicLinkerExporter;

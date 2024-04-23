@@ -1,0 +1,2 @@
+exports jdk.internal.agent to jdk.jconsole;
+uses jdk.internal.agent.spi.AgentProvider;

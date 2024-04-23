@@ -1,0 +1,1 @@
+exports sun.jvm.hotspot.debugger.remote to java.rmi;

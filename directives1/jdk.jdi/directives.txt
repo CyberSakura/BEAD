@@ -1,0 +1,8 @@
+exports com.sun.jdi;
+exports com.sun.jdi.connect;
+exports com.sun.jdi.connect.spi;
+exports com.sun.jdi.event;
+exports com.sun.jdi.request;
+uses com.sun.jdi.connect.Connector;
+uses com.sun.jdi.connect.spi.TransportService;
+provides com.sun.jdi.connect.Connector with com.sun.tools.jdi.ProcessAttachingConnector, com.sun.tools.jdi.RawCommandLineLauncher, com.sun.tools.jdi.SocketAttachingConnector, com.sun.tools.jdi.SocketListeningConnector, com.sun.tools.jdi.SunCommandLineLauncher, com.sun.tools.jdi.SharedMemoryAttachingConnector, com.sun.tools.jdi.SharedMemoryListeningConnector;

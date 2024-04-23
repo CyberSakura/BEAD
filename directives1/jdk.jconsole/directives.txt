@@ -1,0 +1,2 @@
+exports com.sun.tools.jconsole;
+uses com.sun.tools.jconsole.JConsolePlugin;

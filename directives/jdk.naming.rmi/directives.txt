@@ -1,0 +1,3 @@
+exports com.sun.jndi.url.rmi to java.naming;
+exports com.sun.jndi.rmi.registry to java.rmi;
+provides javax.naming.spi.InitialContextFactory with com.sun.jndi.rmi.registry.RegistryContextFactory;

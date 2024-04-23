@@ -1,0 +1,2 @@
+exports jdk.swing.interop;
+provides sun.swing.InteropProvider with jdk.swing.interop.internal.InteropProviderImpl;
