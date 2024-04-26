@@ -1,17 +1,11 @@
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 
 public class JavaSourceAnalyzer {
@@ -19,8 +13,8 @@ public class JavaSourceAnalyzer {
     private static final JavaParser parser = new JavaParser();
 
     public static void main(String[] args) throws Exception {
-        String zipFilePath = "E:\\Thesis\\AbuseDetection\\src.zip";
-        String outputPath = "E:\\Thesis\\AbuseDetection\\out.txt";
+        String zipFilePath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\src.zip";
+        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out.txt";
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             zipFile.stream().filter(entry -> entry.getName().endsWith(".java")).forEach(entry -> {
@@ -54,16 +48,30 @@ public class JavaSourceAnalyzer {
 
         // Write results to a file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
+            int totalPackages = packageClassMethods.size();
+            int totalClasses = 0;
+            int totalMethods = 0;
+
+
             for (var packageEntry : packageClassMethods.entrySet()) {
                 writer.write("Package: " + packageEntry.getKey() + "\n");
+                totalClasses += packageEntry.getValue().size();
+
                 for (var classEntry : packageEntry.getValue().entrySet()) {
                     writer.write("  Class: " + classEntry.getKey() + "\n");
+                    totalMethods += classEntry.getValue().size();
+
                     for (var methodEntry : classEntry.getValue().entrySet()) {
                         writer.write("    Method: " + methodEntry.getKey() + ", Access: " + methodEntry.getValue() + "\n");
                     }
                 }
                 writer.write("\n");
             }
+
+            writer.write("Summary Statistics:\n");
+            writer.write("Total Packages: " + totalPackages + "\n");
+            writer.write("Total Classes: " + totalClasses + "\n");
+            writer.write("Total Methods: " + totalMethods + "\n");
         }
     }
 }
