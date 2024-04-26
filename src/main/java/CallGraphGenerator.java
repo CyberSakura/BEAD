@@ -17,7 +17,7 @@ import java.util.List;
 public class CallGraphGenerator {
 
     public static void main(String[] args) {
-        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\flatlaf-3.4.1.jar";
+        String jarPath = "E:\\Thesis\\AbuseDetection\\TestJar\\guava-33.1.0-jre.jar";
         setupSoot(jarPath);
         generateCompleteCallGraph();
     }
@@ -54,11 +54,13 @@ public class CallGraphGenerator {
 
         CallGraph cg = Scene.v().getCallGraph();
         try (PrintWriter writer = new PrintWriter("output.txt", "UTF-8")) {
-            writer.println("All Static Calls:");
+            writer.println("All Static Calls invokes JDK:");
             for (Edge e : cg) {
                 SootMethod targetMethod = e.tgt();
                 if (targetMethod != null && targetMethod.isStatic()) {  // Check for null to prevent NullPointerException
-                    writer.println(e.getSrc().method() + " => " + targetMethod);
+                    if ((!e.getSrc().method().getDeclaringClass().toString().startsWith("jdk") && !e.getSrc().method().getDeclaringClass().toString().startsWith("java"))) {
+                        writer.println(e.getSrc().method() + " => " + targetMethod);
+                    }
                 }
             }
         } catch (Exception e) {
