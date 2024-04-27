@@ -1,3 +1,7 @@
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.io.*;
 import java.util.*;
 
@@ -87,12 +91,56 @@ public class JDKDataCombiner {
         }
     }
 
+//    public void printDataIntoExcel(){
+//        XSSFWorkbook workbook = new XSSFWorkbook();
+//        XSSFSheet sheet = workbook.createSheet("Module Data");
+//
+//        int rowNum = 0;
+//        for (JDKModule mod : modules.values()) {
+//            XSSFRow row = sheet.createRow(rowNum++);
+//            row.createCell(0).setCellValue("Module " + mod.name);
+//
+//            for (JDKPackage pkg : mod.packages.values()) {
+//                row = sheet.createRow(rowNum++);
+//                row.createCell(1).setCellValue("Package " + pkg.name + ", AccessRule: " + pkg.accessRule);
+//
+//                if (!pkg.allowedModules.isEmpty() && !pkg.allowedModules.get(0).isEmpty()) {
+//                    row.createCell(2).setCellValue("Allowed Modules: " + String.join(", ", pkg.allowedModules));
+//                }
+//
+//                for (JDKClass cls : pkg.classes.values()) {
+//                    row = sheet.createRow(rowNum++);
+//                    row.createCell(2).setCellValue("Class " + cls.name);
+//
+//                    for (JDKMethod meth : cls.methods.values()) {
+//                        row = sheet.createRow(rowNum++);
+//                        row.createCell(3).setCellValue("Method " + meth.name + ", AccessType: " + meth.accessType);
+//                    }
+//                }
+//            }
+//        }
+//
+//        try (FileOutputStream outputStream = new FileOutputStream("ModuleData.xlsx")) {
+//            workbook.write(outputStream);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                workbook.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
+
     public static void main(String[] args) {
         JDKDataCombiner combiner = new JDKDataCombiner();
         try {
             combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out1.txt");
             combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out.txt");
             combiner.printData();
+//            combiner.printDataIntoExcel();
             System.out.println("Done");
         } catch (IOException e) {
             e.printStackTrace();
