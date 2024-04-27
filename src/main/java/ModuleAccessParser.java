@@ -2,9 +2,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.nio.file.StandardOpenOption;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import component.AccessRule;
 import component.ModuleAccessRecorder;
 
 public class ModuleAccessParser {
@@ -21,6 +23,8 @@ public class ModuleAccessParser {
         try {
             parseDirectives(rootDirectoryPath, accessRecorder);
             System.out.println("Parsing complete.");
+            validateAccessRules(accessRecorder);
+            writeAccessRecorderDataToFile(accessRecorder);
         } catch (IOException e) {
             System.out.println("Error reading files: " + e.getMessage());
         }
@@ -47,16 +51,61 @@ public class ModuleAccessParser {
     }
 
     private static void parseLine(String line, String moduleName, ModuleAccessRecorder accessRecorder) {
-        String[] parts = line.split(" ");
-        String directiveType = parts[0];
-        String packageName = parts[1];
+        String[] initialParts = line.split("\\s+");
+        String directiveType = initialParts[0];
+        String packageName = initialParts[1].endsWith(";") ? initialParts[1].substring(0, initialParts[1].length() - 1) : initialParts[1];
         Set<String> allowedModules = null;
 
-        if (line.contains("to")) {
-            allowedModules = new HashSet<>(Arrays.asList(line.substring(line.indexOf("to") + 3).split(", ")));
+        // Check if there's a "to" keyword indicating specific module restrictions
+        if (line.contains(" to ")) {
+            directiveType += " to";  // Modify directiveType to reflect the presence of "to"
+            String modulesPart = line.substring(line.indexOf(" to ") + 4);
+            // Split modules on commas and trim spaces and trailing semicolons
+            String[] modules = modulesPart.split(",\\s*");
+            allowedModules = new HashSet<>();
+            for (String module : modules) {
+                // Remove trailing semicolon if present
+                String cleanedModule = module.endsWith(";") ? module.substring(0, module.length() - 1) : module;
+                allowedModules.add(cleanedModule.trim());
+            }
         }
 
         accessRecorder.addAccessRule(moduleName, packageName, directiveType, allowedModules);
+
+
+    }
+
+    private static void validateAccessRules(ModuleAccessRecorder moduleAccessRecorder) {
+        HashMap<String, HashMap<String, AccessRule>> allRules = moduleAccessRecorder.getAccessRules();
+        for (Map.Entry<String, HashMap<String, AccessRule>> moduleEntry : allRules.entrySet()) {
+            String moduleName = moduleEntry.getKey();
+            for (Map.Entry<String, AccessRule> packageEntry : moduleEntry.getValue().entrySet()) {
+                String packageName = packageEntry.getKey();
+                AccessRule rule = packageEntry.getValue();
+                String type = rule.getType();
+                Set<String> allowedModules = rule.getAllowedModules();
+
+                // Check for each case:
+                if ("exports".equals(type) && allowedModules != null && !allowedModules.isEmpty()) {
+                    System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'exports' should not have allowed modules but found: " + allowedModules);
+                } else if ("exports to".equals(type) && (allowedModules == null || allowedModules.isEmpty())) {
+                    System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'exports to' requires allowed modules but none found.");
+                } else if ("opens".equals(type) && allowedModules != null && !allowedModules.isEmpty()) {
+                    System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'opens' should not have allowed modules but found: " + allowedModules);
+                } else if ("opens to".equals(type) && (allowedModules == null || allowedModules.isEmpty())) {
+                    System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'opens to' requires allowed modules but none found.");
+                }
+            }
+        }
+
+        System.out.println("Validation complete. No errors found.");
+    }
+
+    private static void writeAccessRecorderDataToFile(ModuleAccessRecorder accessRecorder) throws IOException {
+        String content = accessRecorder.formatAccessRules();
+        Path outputPath = Paths.get("out1.txt");
+        Files.write(outputPath, content.getBytes());
+        System.out.println("Access rules written to " + outputPath);
     }
 }
 

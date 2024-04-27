@@ -73,5 +73,7 @@ public class JavaSourceAnalyzer {
             writer.write("Total Classes: " + totalClasses + "\n");
             writer.write("Total Methods: " + totalMethods + "\n");
         }
+
+        System.out.println("Analysis complete. Results written to " + outputPath);
     }
 }
