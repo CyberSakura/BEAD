@@ -82,17 +82,17 @@ public class ModuleAccessParser {
             for (Map.Entry<String, AccessRule> packageEntry : moduleEntry.getValue().entrySet()) {
                 String packageName = packageEntry.getKey();
                 AccessRule rule = packageEntry.getValue();
-                String type = rule.getType();
+                Set<String> types = rule.getTypes();
                 Set<String> allowedModules = rule.getAllowedModules();
 
                 // Check for each case:
-                if ("exports".equals(type) && allowedModules != null && !allowedModules.isEmpty()) {
+                if (types.contains("exports") && allowedModules != null && !allowedModules.isEmpty()) {
                     System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'exports' should not have allowed modules but found: " + allowedModules);
-                } else if ("exports to".equals(type) && (allowedModules == null || allowedModules.isEmpty())) {
+                } else if (types.contains("exports to")&& (allowedModules == null || allowedModules.isEmpty())) {
                     System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'exports to' requires allowed modules but none found.");
-                } else if ("opens".equals(type) && allowedModules != null && !allowedModules.isEmpty()) {
+                } else if (types.contains("opens") && allowedModules != null && !allowedModules.isEmpty()) {
                     System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'opens' should not have allowed modules but found: " + allowedModules);
-                } else if ("opens to".equals(type) && (allowedModules == null || allowedModules.isEmpty())) {
+                } else if (types.contains("opens to") && (allowedModules == null || allowedModules.isEmpty())) {
                     System.out.println("Error: Module '" + moduleName + "', Package '" + packageName + "' - 'opens to' requires allowed modules but none found.");
                 }
             }

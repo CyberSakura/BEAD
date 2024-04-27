@@ -14,7 +14,8 @@ public class ModuleAccessRecorder {
         accessRules.putIfAbsent(moduleName, new HashMap<>());
         HashMap<String, AccessRule> packageAccess = accessRules.get(moduleName);
 
-        packageAccess.put(packageName, new AccessRule(ruleType, allowedModules));
+        packageAccess.computeIfAbsent(packageName, k -> new AccessRule())
+                .addRule(ruleType, allowedModules);
     }
 
     public HashMap<String, HashMap<String, AccessRule>> getAccessRules() {
