@@ -21,4 +21,8 @@ public class JDKClass {
     public Map<String, JDKMethod> getMethods() {
         return methods;
     }
+
+    public JDKMethod getMethod(String name) {
+        return methods.get(name);
+    }
 }

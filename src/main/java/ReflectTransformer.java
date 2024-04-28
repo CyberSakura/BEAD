@@ -63,11 +63,24 @@ public class ReflectTransformer extends SceneTransformer {
         PackManager.v().getPack("wjtp").apply();
     }
 
+    public void initializeAndRun(List<String> classPaths) {
+        paths.addAll(classPaths);
+        run();
+    }
+
     private static void displayResults() {
         System.out.println("Reflection Analysis Results:");
         System.out.println("Total Reflective Invocations: " + totalReflectInvokeCount);
         fullMethodCounts.forEach((method, count) -> System.out.println("Method " + method + ": " + count));
         partMethodCounts.forEach((method, count) -> System.out.println("Method " + method + ": " + count));
+    }
+
+    public Map<String, Integer> getFullMethodCounts() {
+        return fullMethodCounts;
+    }
+
+    public Map<String, Integer> getPartMethodCounts() {
+        return partMethodCounts;
     }
 
     @Override
@@ -77,7 +90,7 @@ public class ReflectTransformer extends SceneTransformer {
 
         Set<SootMethod> appMethods = Utils.getApplicationMethods();
 
-        System.out.println("Total application methods: " + appMethods.size());
+        System.out.println("Total application methods running in reflection analyzing: " + appMethods.size());
         for (SootMethod method : appMethods) {
             if (Utils.isApplicationMethod(method)) {
                 if (method.isConcrete()) {
@@ -149,7 +162,7 @@ public class ReflectTransformer extends SceneTransformer {
             }
 
             methodReflectInvokeCount++;
-//            System.out.println(method.getSignature() + " has reflective invocation: " + invokeExpr.getMethod().getDeclaringClass() + "." + invokeExpr.getMethod().getName());
+            System.out.println(method.getSignature() + " has reflective invocation: " + invokeExpr.getMethod().getDeclaringClass() + "." + invokeExpr.getMethod().getName());
             if (invokeExpr.getMethod().getDeclaringClass().getName().equals("java.lang.reflect.Method")) {
                 if (!(invokeExpr.getBase() instanceof Local)) {
                     System.out.println("Method invocation is not on a local variable");

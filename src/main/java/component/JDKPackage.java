@@ -38,4 +38,8 @@ public class JDKPackage {
     public Map<String, JDKClass> getClasses() {
         return classes;
     }
+
+    public JDKClass getClass(String name) {
+        return classes.get(name);
+    }
 }

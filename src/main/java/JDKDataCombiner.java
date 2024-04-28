@@ -10,6 +10,19 @@ public class JDKDataCombiner {
 
     Map<String, JDKModule> modules = new HashMap<>();
 
+    public static void main(String[] args) {
+        JDKDataCombiner combiner = new JDKDataCombiner();
+        try {
+            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out1.txt");
+            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out.txt");
+            combiner.printData();
+//            combiner.printDataIntoExcel();
+            System.out.println("Done");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void parseModuleInfoFile(String filename) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
@@ -96,17 +109,26 @@ public class JDKDataCombiner {
         }
     }
 
-    public static void main(String[] args) {
-        JDKDataCombiner combiner = new JDKDataCombiner();
-        try {
-            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out1.txt");
-            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out.txt");
-            combiner.printData();
-//            combiner.printDataIntoExcel();
-            System.out.println("Done");
-        } catch (IOException e) {
-            e.printStackTrace();
+    public boolean findMethod(String packageName, String className, String methodName) {
+        JDKPackage pkg = this.modules.values().stream()
+                .map(module -> module.getPackage(packageName))
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(null);
+
+        if (pkg != null) {
+            JDKClass cls = pkg.getClass(className);
+            if (cls != null) {
+                JDKMethod method = cls.getMethod(methodName);
+                if (method != null) {
+                    System.out.println("Found method: " + methodName + "\n in package: " + packageName + "\n in class: " + className);
+                    return true;
+                }
+            }
         }
+
+        return false;
     }
+
 }
 

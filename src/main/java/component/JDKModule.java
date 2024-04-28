@@ -21,4 +21,8 @@ public class JDKModule {
     public Map<String, JDKPackage> getPackages() {
         return packages;
     }
+
+    public JDKPackage getPackage(String name) {
+        return packages.get(name);
+    }
 }
