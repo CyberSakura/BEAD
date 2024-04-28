@@ -1,3 +1,8 @@
+import component.JDKClass;
+import component.JDKMethod;
+import component.JDKModule;
+import component.JDKPackage;
+
 import java.io.*;
 import java.util.*;
 
@@ -26,7 +31,7 @@ public class JDKDataCombiner {
                     // Extract allowed modules if present
                     if (accessInfo.contains("AllowedModules:")) {
                         String modulesStr = accessInfo.substring(accessInfo.lastIndexOf("[") + 1, accessInfo.lastIndexOf("]"));
-                        pkg.allowedModules = Arrays.asList(modulesStr.split(",\\s*"));
+                        Arrays.stream(modulesStr.split(",\\s*")).forEach(pkg::addAllowedModule);
                     }
                     currentModule.addPackage(pkg);
                 }
@@ -44,8 +49,8 @@ public class JDKDataCombiner {
                 if (line.startsWith("Package:")) {
                     String packageName = line.substring(8).trim();
                     for (JDKModule module : modules.values()) {
-                        if (module.packages.containsKey(packageName)) {
-                            currentPackage = module.packages.get(packageName);
+                        if (module.getPackages().containsKey(packageName)) {
+                            currentPackage = module.getPackages().get(packageName);
                             break;
                         }
                     }
@@ -70,17 +75,17 @@ public class JDKDataCombiner {
         File outputFile = new File("data.txt");
         try (PrintWriter out = new PrintWriter(outputFile)) {
             for (JDKModule mod : modules.values()) {
-                out.println("Module " + mod.name);
-                for (JDKPackage pkg : mod.packages.values()) {
-                    out.print("----Package " + pkg.name + "; AccessRules: " + String.join(", ", pkg.accessRules));
-                    if (!pkg.allowedModules.isEmpty() && !pkg.allowedModules.get(0).isEmpty()) {
-                        out.print("; Allowed Modules: " + String.join(", ", pkg.allowedModules));
+                out.println("Module " + mod.getName());
+                for (JDKPackage pkg : mod.getPackages().values()) {
+                    out.print("----Package " + pkg.getName() + "; AccessRules: " + String.join(", ", pkg.getAccessRules()));
+                    if (!pkg.getAllowedModules().isEmpty() && !pkg.getAllowedModules().get(0).isEmpty()) {
+                        out.print("; Allowed Modules: " + String.join(", ", pkg.getAllowedModules()));
                     }
                     out.println();  // Finish the line after printing the package details
-                    for (JDKClass cls : pkg.classes.values()) {
-                        out.println("       ---- Class " + cls.name);
-                        for (JDKMethod meth : cls.methods.values()) {
-                            out.println("               ---- Method " + meth.name + "; AccessType: " + meth.accessType);
+                    for (JDKClass cls : pkg.getClasses().values()) {
+                        out.println("       ---- Class " + cls.getName());
+                        for (JDKMethod meth : cls.getMethods().values()) {
+                            out.println("               ---- Method " + meth.getName() + "; AccessType: " + meth.getAccessType());
                         }
                     }
                 }
@@ -105,57 +110,3 @@ public class JDKDataCombiner {
     }
 }
 
-class JDKModule {
-    String name;
-    Map<String, JDKPackage> packages = new HashMap<>();
-
-    public JDKModule(String name) {
-        this.name = name;
-    }
-
-    void addPackage(JDKPackage pkg) {
-        packages.put(pkg.name, pkg);
-    }
-}
-
-class JDKPackage {
-    String name;
-    Set<String> accessRules = new HashSet<>();
-    List<String> allowedModules = new ArrayList<>();
-    Map<String, JDKClass> classes = new HashMap<>();
-
-    public JDKPackage(String name) {
-        this.name = name;
-    }
-
-    void addClass(JDKClass cls) {
-        classes.put(cls.name, cls);
-    }
-
-    void addAccessRule(String rule) {
-        accessRules.add(rule);
-    }
-}
-
-class JDKClass {
-    String name;
-    Map<String, JDKMethod> methods = new HashMap<>();
-
-    public JDKClass(String name) {
-        this.name = name;
-    }
-
-    void addMethod(JDKMethod method) {
-        methods.put(method.name, method);
-    }
-}
-
-class JDKMethod {
-    String name;
-    String accessType;
-
-    public JDKMethod(String name, String accessType) {
-        this.name = name;
-        this.accessType = accessType;
-    }
-}
