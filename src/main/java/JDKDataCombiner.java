@@ -121,7 +121,7 @@ public class JDKDataCombiner {
             if (cls != null) {
                 JDKMethod method = cls.getMethod(methodName);
                 if (method != null) {
-                    System.out.println("Found method: " + methodName + "\n in package: " + packageName + "\n in class: " + className);
+//                    System.out.println("Found method: " + methodName + " in package: " + packageName + " in class: " + className);
                     return true;
                 }
             }

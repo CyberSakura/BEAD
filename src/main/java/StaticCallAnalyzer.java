@@ -4,16 +4,23 @@ import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class StaticCallAnalyzer {
+    private static List<String> paths = new ArrayList<>();
 
-    public static void main(String[] args) {
-        String jarPath = "E:\\Thesis\\AbuseDetection\\TestJar\\guava-33.1.0-jre.jar";
-        setupSoot(jarPath);
-        generateCompleteCallGraph();
+//    public static void main(String[] args) {
+//        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\cglib-3.3.0.jar";
+//        setupSoot(jarPath);
+//        Map<SootMethod, SootMethod> callMap = generateCompleteCallGraph();
+//        callMap.forEach((source, target) -> System.out.println(source + " => " + target));
+//    }
+
+    public StaticCallAnalyzer(List<String> classPaths){
+        paths.addAll(classPaths);
+        for(String path: paths){
+            setupSoot(path);
+        }
     }
 
     private static void setupSoot(String jarPath) {
@@ -31,10 +38,10 @@ public class StaticCallAnalyzer {
         Options.v().set_src_prec(Options.src_prec_class);
 
         Scene.v().loadNecessaryClasses();
-        System.out.println("Loaded necessary classes");
+        System.out.println("Loaded necessary classes for " + jarPath);
     }
 
-    private static void generateCompleteCallGraph() {
+    public Map<SootMethod, SootMethod> generateCompleteCallGraph() {
         List<SootMethod> entryPoints = new ArrayList<>();
         for (SootClass sc : Scene.v().getApplicationClasses()) {
             for (SootMethod sm : sc.getMethods()) {
@@ -46,19 +53,35 @@ public class StaticCallAnalyzer {
         Scene.v().setEntryPoints(entryPoints);
         PackManager.v().runPacks();
 
+        Map<SootMethod, SootMethod> callMap = new HashMap<>();
         CallGraph cg = Scene.v().getCallGraph();
         try (PrintWriter writer = new PrintWriter("output.txt", "UTF-8")) {
             writer.println("All Static Calls invokes JDK:");
             for (Edge e : cg) {
-                SootMethod targetMethod = e.tgt();
-                if (targetMethod != null && targetMethod.isStatic()) {  // Check for null to prevent NullPointerException
-                    if ((!e.getSrc().method().getDeclaringClass().toString().startsWith("jdk") && !e.getSrc().method().getDeclaringClass().toString().startsWith("java"))) {
-                        writer.println(e.getSrc().method() + " => " + targetMethod);
+
+                if (e.getSrc() == null || e.getSrc().method() == null) {
+                    System.out.println("Null source found in edge from " + (e.getSrc() == null ? "unknown source" : e.getSrc().method()));
+                    continue;
+                }
+
+                SootMethod srcMethod = e.getSrc().method();
+                SootMethod tgtMethod = e.tgt();
+
+                if (tgtMethod != null && tgtMethod.isStatic() && isJDKClass(tgtMethod.getDeclaringClass().toString())) {
+                    if (!isJDKClass(srcMethod.getDeclaringClass().toString())) {
+                        callMap.put(srcMethod, tgtMethod);
                     }
                 }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return callMap;
+    }
+
+    private boolean isJDKClass(String className) {
+        return className.startsWith("java.") || className.startsWith("javax.") || className.startsWith("jdk.");
     }
 }
