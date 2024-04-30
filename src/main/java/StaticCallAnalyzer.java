@@ -84,7 +84,6 @@ public class StaticCallAnalyzer {
     private boolean isJDKClass(String className) {
         return className.startsWith("java.") || className.startsWith("javax.") || className.startsWith("jdk.")
                 || className.startsWith("sun.") || className.startsWith("com.sun.") || className.startsWith("org.ietf.")
-                || className.startsWith("org.omg.") || className.startsWith("org.w3c.") || className.startsWith("org.xml.")
-                || className.startsWith("netscape.");
+                || className.startsWith("org.w3c.") || className.startsWith("org.xml.") || className.startsWith("netscape.");
     }
 }
