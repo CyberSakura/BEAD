@@ -101,7 +101,7 @@ public class ModuleAccessParser {
 
     private static void writeAccessRecorderDataToFile(ModuleAccessRecorder accessRecorder) throws IOException {
         String content = accessRecorder.formatAccessRules();
-        Path outputPath = Paths.get("out1.txt");
+        Path outputPath = Paths.get("PkgInfo.txt");
         Files.write(outputPath, content.getBytes());
         System.out.println("Access rules written to " + outputPath);
     }

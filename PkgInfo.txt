@@ -1,0 +1,429 @@
+Module: java.rmi
+  Package: java.rmi -> {Types: [exports], AllowedModules: []}
+  Package: sun.rmi.server -> {Types: [exports to], AllowedModules: [jdk.management.agent, jdk.jconsole, java.management.rmi]}
+  Package: sun.rmi.registry -> {Types: [exports to], AllowedModules: [jdk.management.agent]}
+  Package: javax.rmi.ssl -> {Types: [exports], AllowedModules: []}
+  Package: java.rmi.server -> {Types: [exports], AllowedModules: []}
+  Package: java.rmi.registry -> {Types: [exports], AllowedModules: []}
+  Package: java.rmi.dgc -> {Types: [exports], AllowedModules: []}
+  Package: sun.rmi.transport -> {Types: [exports to], AllowedModules: [jdk.management.agent, jdk.jconsole, java.management.rmi]}
+Module: jdk.management.jfr
+  Package: jdk.management.jfr -> {Types: [exports], AllowedModules: []}
+Module: jdk.jdi
+  Package: com.sun.jdi.event -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jdi.connect.spi -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jdi -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jdi.request -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jdi.connect -> {Types: [exports], AllowedModules: []}
+Module: java.xml
+  Package: org.xml.sax.ext -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.ls -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.stream -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.org.apache.xpath.internal.functions -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: com.sun.org.apache.xpath.internal.compiler -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: com.sun.org.apache.xpath.internal -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: javax.xml.transform.dom -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.xpath -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.org.apache.xml.internal.utils -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: org.w3c.dom.views -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.namespace -> {Types: [exports], AllowedModules: []}
+  Package: org.xml.sax -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.stream.util -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.bootstrap -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.org.apache.xpath.internal.objects -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: javax.xml.catalog -> {Types: [exports], AllowedModules: []}
+  Package: org.xml.sax.helpers -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.validation -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.org.apache.xpath.internal.res -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: javax.xml.transform.sax -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.transform.stax -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.parsers -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.transform -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.traversal -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.events -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.org.apache.xml.internal.dtm -> {Types: [exports to], AllowedModules: [java.xml.crypto]}
+  Package: javax.xml.transform.stream -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.datatype -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.ranges -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.stream.events -> {Types: [exports], AllowedModules: []}
+Module: jdk.xml.dom
+  Package: org.w3c.dom.xpath -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.css -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.stylesheets -> {Types: [exports], AllowedModules: []}
+  Package: org.w3c.dom.html -> {Types: [exports], AllowedModules: []}
+Module: java.datatransfer
+  Package: java.awt.datatransfer -> {Types: [exports], AllowedModules: []}
+  Package: sun.datatransfer -> {Types: [exports to], AllowedModules: [java.desktop]}
+Module: jdk.jstatd
+  Package: sun.jvmstat.monitor.remote -> {Types: [exports to], AllowedModules: [java.rmi]}
+Module: jdk.httpserver
+  Package: com.sun.net.httpserver.spi -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.net.httpserver -> {Types: [exports], AllowedModules: []}
+Module: java.desktop
+  Package: java.applet -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.image -> {Types: [exports], AllowedModules: []}
+  Package: java.beans -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.table -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.desktop -> {Types: [exports], AllowedModules: []}
+  Package: javax.print.event -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.plugins.jpeg -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.metadata -> {Types: [exports], AllowedModules: []}
+  Package: javax.accessibility -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.java.swing.plaf.windows -> {Types: [opens to], AllowedModules: [jdk.jconsole]}
+  Package: java.awt.font -> {Types: [exports], AllowedModules: []}
+  Package: javax.sound.midi.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.filechooser -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.plugins.bmp -> {Types: [exports], AllowedModules: []}
+  Package: javax.sound.sampled.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.print.attribute.standard -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.text -> {Types: [exports], AllowedModules: []}
+  Package: javax.sound.sampled -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.plaf.synth -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.text.html -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.plaf -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.plaf.nimbus -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.plaf.basic -> {Types: [exports, opens to], AllowedModules: [jdk.jconsole]}
+  Package: java.awt.event -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.tree -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.plaf.metal -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.border -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.dnd.peer -> {Types: [exports to], AllowedModules: [jdk.unsupported.desktop]}
+  Package: java.awt.image.renderable -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.plugins.tiff -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.colorchooser -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.sound.midi -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.stream -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.im.spi -> {Types: [exports], AllowedModules: []}
+  Package: java.beans.beancontext -> {Types: [exports], AllowedModules: []}
+  Package: sun.awt -> {Types: [exports to], AllowedModules: [jdk.unsupported.desktop, jdk.accessibility]}
+  Package: java.awt.geom -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.dnd -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.event -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.im -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.text.html.parser -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.color -> {Types: [exports], AllowedModules: []}
+  Package: java.awt -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.text.rtf -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.undo -> {Types: [exports], AllowedModules: []}
+  Package: java.awt.print -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing.plaf.multi -> {Types: [exports], AllowedModules: []}
+  Package: javax.imageio.event -> {Types: [exports], AllowedModules: []}
+  Package: sun.awt.dnd -> {Types: [exports to], AllowedModules: [jdk.unsupported.desktop]}
+  Package: javax.print -> {Types: [exports], AllowedModules: []}
+  Package: sun.swing -> {Types: [exports to], AllowedModules: [jdk.unsupported.desktop]}
+  Package: javax.print.attribute -> {Types: [exports], AllowedModules: []}
+  Package: javax.swing -> {Types: [exports], AllowedModules: []}
+Module: java.security.sasl
+  Package: javax.security.sasl -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.security.sasl.util -> {Types: [exports to], AllowedModules: [jdk.security.jgss]}
+Module: java.base
+  Package: sun.reflect.annotation -> {Types: [exports to], AllowedModules: [jdk.compiler]}
+  Package: java.lang.constant -> {Types: [exports], AllowedModules: []}
+  Package: sun.net.www.protocol.http -> {Types: [exports to], AllowedModules: [java.security.jgss]}
+  Package: sun.security.tools -> {Types: [exports to], AllowedModules: [jdk.jartool]}
+  Package: jdk.internal.jimage -> {Types: [exports to], AllowedModules: [jdk.jlink]}
+  Package: java.nio -> {Types: [exports], AllowedModules: []}
+  Package: java.util.zip -> {Types: [exports], AllowedModules: []}
+  Package: java.security.cert -> {Types: [exports], AllowedModules: []}
+  Package: java.nio.file -> {Types: [exports], AllowedModules: []}
+  Package: sun.reflect.generics.reflectiveObjects -> {Types: [exports to], AllowedModules: [java.desktop]}
+  Package: java.time -> {Types: [exports], AllowedModules: []}
+  Package: java.lang.ref -> {Types: [exports], AllowedModules: []}
+  Package: java.util.regex -> {Types: [exports], AllowedModules: []}
+  Package: sun.invoke.util -> {Types: [exports to], AllowedModules: [jdk.compiler, jdk.incubator.foreign]}
+  Package: javax.security.auth.callback -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.org.xml.sax.helpers -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: com.sun.crypto.provider -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki]}
+  Package: sun.security.pkcs -> {Types: [exports to], AllowedModules: [jdk.jartool, jdk.crypto.ec]}
+  Package: jdk.internal.javac -> {Types: [exports to], AllowedModules: [jdk.jshell, java.compiler, jdk.compiler]}
+  Package: java.lang.reflect -> {Types: [exports], AllowedModules: []}
+  Package: java.security -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.x509 -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki, jdk.jartool, jdk.crypto.ec]}
+  Package: jdk.internal.loader -> {Types: [exports to], AllowedModules: [java.naming, java.logging, jdk.incubator.foreign, java.instrument]}
+  Package: jdk.internal.jmod -> {Types: [exports to], AllowedModules: [jdk.compiler, jdk.jlink]}
+  Package: jdk.internal.access.foreign -> {Types: [exports to], AllowedModules: [jdk.incubator.foreign]}
+  Package: java.lang -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.rsa -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki, jdk.crypto.mscapi]}
+  Package: jdk.internal.util.random -> {Types: [exports to], AllowedModules: [jdk.random]}
+  Package: java.net.spi -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.module -> {Types: [exports to], AllowedModules: [jdk.jfr, jdk.jlink, jdk.jartool, java.management.rmi, jdk.incubator.foreign, jdk.jpackage, java.instrument]}
+  Package: sun.security.jca -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki, java.smartcardio, jdk.naming.dns, jdk.crypto.ec]}
+  Package: sun.security.timestamp -> {Types: [exports to], AllowedModules: [jdk.jartool]}
+  Package: javax.crypto -> {Types: [exports], AllowedModules: []}
+  Package: sun.util.cldr -> {Types: [exports to], AllowedModules: [jdk.jlink]}
+  Package: java.util -> {Types: [exports], AllowedModules: []}
+  Package: sun.util.resources -> {Types: [exports to], AllowedModules: [jdk.localedata]}
+  Package: javax.security.auth.x500 -> {Types: [exports], AllowedModules: []}
+  Package: sun.net.ext -> {Types: [exports to], AllowedModules: [jdk.net]}
+  Package: java.util.stream -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.util.math -> {Types: [exports to], AllowedModules: [jdk.crypto.ec]}
+  Package: java.lang.annotation -> {Types: [exports], AllowedModules: []}
+  Package: java.time.temporal -> {Types: [exports], AllowedModules: []}
+  Package: java.nio.channels -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.util.jar -> {Types: [exports to], AllowedModules: [jdk.jartool]}
+  Package: sun.security.action -> {Types: [exports to], AllowedModules: [java.security.jgss, java.desktop, jdk.incubator.foreign, jdk.crypto.ec]}
+  Package: java.nio.charset -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.org.xml.sax -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: jdk.internal.org.objectweb.asm.util -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: java.time.chrono -> {Types: [exports], AllowedModules: []}
+  Package: javax.security.auth -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.util.math.intpoly -> {Types: [exports to], AllowedModules: [jdk.crypto.ec]}
+  Package: sun.net.dns -> {Types: [exports to], AllowedModules: [java.security.jgss, jdk.naming.dns]}
+  Package: java.math -> {Types: [exports], AllowedModules: []}
+  Package: sun.net.util -> {Types: [exports to], AllowedModules: [java.desktop, java.net.http, jdk.sctp, jdk.jconsole]}
+  Package: jdk.internal.access -> {Types: [exports to], AllowedModules: [java.rmi, jdk.net, java.desktop, java.naming, jdk.charsets, java.logging, java.management, jdk.jfr, jdk.jlink, jdk.jartool, jdk.incubator.foreign]}
+  Package: java.text -> {Types: [exports], AllowedModules: []}
+  Package: sun.reflect.misc -> {Types: [exports to], AllowedModules: [java.rmi, java.desktop, java.management, java.sql.rowset, java.datatransfer, java.management.rmi]}
+  Package: sun.nio.ch -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki, jdk.net, java.management, jdk.sctp, jdk.incubator.foreign]}
+  Package: sun.nio.cs -> {Types: [exports to], AllowedModules: [jdk.charsets]}
+  Package: javax.security.auth.login -> {Types: [exports], AllowedModules: []}
+  Package: java.nio.charset.spi -> {Types: [exports], AllowedModules: []}
+  Package: java.util.spi -> {Types: [exports], AllowedModules: []}
+  Package: java.text.spi -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.validator -> {Types: [exports to], AllowedModules: [jdk.jartool]}
+  Package: sun.util.logging -> {Types: [exports to], AllowedModules: [java.desktop, java.logging, java.prefs]}
+  Package: sun.security.provider.certpath -> {Types: [exports to], AllowedModules: [java.naming, jdk.jartool]}
+  Package: java.security.spec -> {Types: [exports], AllowedModules: []}
+  Package: java.nio.file.spi -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.util.xml.impl -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: java.net -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.provider -> {Types: [exports to], AllowedModules: [java.rmi, java.security.jgss, jdk.crypto.cryptoki, jdk.security.auth, jdk.crypto.ec]}
+  Package: java.security.interfaces -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.org.objectweb.asm.commons -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: sun.security.internal.spec -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki, jdk.crypto.mscapi]}
+  Package: java.time.format -> {Types: [exports], AllowedModules: []}
+  Package: java.util.concurrent -> {Types: [exports], AllowedModules: []}
+  Package: javax.security.auth.spi -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.logger -> {Types: [exports to], AllowedModules: [java.logging]}
+  Package: jdk.internal.vm -> {Types: [exports to], AllowedModules: [jdk.management.agent, jdk.internal.jvmstat]}
+  Package: jdk.internal.util.xml -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: java.util.concurrent.locks -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.perf -> {Types: [exports to], AllowedModules: [jdk.management.agent, java.management, jdk.internal.jvmstat]}
+  Package: sun.util.locale.provider -> {Types: [exports to], AllowedModules: [java.desktop, jdk.jlink, jdk.localedata]}
+  Package: jdk.internal.ref -> {Types: [exports to], AllowedModules: [java.desktop, jdk.incubator.foreign]}
+  Package: javax.net -> {Types: [exports], AllowedModules: []}
+  Package: java.util.function -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.util -> {Types: [exports to], AllowedModules: [java.rmi, jdk.crypto.mscapi, java.xml.crypto, java.smartcardio, java.security.jgss, jdk.crypto.cryptoki, java.desktop, java.naming, jdk.security.auth, java.security.sasl, jdk.jartool, jdk.security.jgss, jdk.crypto.ec]}
+  Package: jdk.internal.event -> {Types: [exports to], AllowedModules: [jdk.jfr]}
+  Package: sun.security.internal.interfaces -> {Types: [exports to], AllowedModules: [jdk.crypto.cryptoki]}
+  Package: sun.net -> {Types: [exports to], AllowedModules: [java.net.http, jdk.naming.dns]}
+  Package: java.util.random -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.vm.vector -> {Types: [exports to], AllowedModules: [jdk.incubator.vector]}
+  Package: jdk.internal.misc -> {Types: [exports to], AllowedModules: [java.rmi, jdk.incubator.vector, jdk.jshell, jdk.charsets, java.logging, java.management, jdk.jfr, jdk.unsupported, jdk.incubator.foreign, jdk.internal.vm.ci, java.security.jgss, jdk.crypto.cryptoki, java.desktop, java.naming, jdk.nio.mapmode, java.net.http, jdk.compiler, jdk.attach]}
+  Package: sun.net.www -> {Types: [exports to], AllowedModules: [java.net.http, jdk.jartool]}
+  Package: java.lang.runtime -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.vm.annotation -> {Types: [exports to], AllowedModules: [jdk.incubator.vector, jdk.jfr, jdk.unsupported, jdk.incubator.foreign, jdk.internal.vm.ci, java.instrument]}
+  Package: java.time.zone -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.util -> {Types: [exports to], AllowedModules: [jdk.incubator.foreign]}
+  Package: java.lang.invoke -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.platform -> {Types: [exports to], AllowedModules: [jdk.management, jdk.jfr]}
+  Package: sun.nio.fs -> {Types: [exports to], AllowedModules: [jdk.net, jdk.zipfs]}
+  Package: javax.security.cert -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.security.ntlm -> {Types: [exports to], AllowedModules: [java.security.sasl]}
+  Package: java.util.concurrent.atomic -> {Types: [exports], AllowedModules: []}
+  Package: javax.crypto.spec -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.invoke -> {Types: [exports to], AllowedModules: [jdk.incubator.foreign]}
+  Package: java.lang.module -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.org.objectweb.asm.tree -> {Types: [exports to], AllowedModules: [jdk.jfr, jdk.jlink]}
+  Package: java.io -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.jimage.decompressor -> {Types: [exports to], AllowedModules: [jdk.jlink]}
+  Package: jdk.internal.org.objectweb.asm -> {Types: [exports to], AllowedModules: [jdk.jfr, jdk.jlink, jdk.jartool]}
+  Package: java.util.jar -> {Types: [exports], AllowedModules: []}
+  Package: java.nio.channels.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.crypto.interfaces -> {Types: [exports], AllowedModules: []}
+  Package: javax.net.ssl -> {Types: [exports], AllowedModules: []}
+  Package: jdk.internal.reflect -> {Types: [exports to], AllowedModules: [java.sql, jdk.dynalink, java.logging, java.sql.rowset, jdk.unsupported, jdk.incubator.foreign, jdk.internal.vm.ci]}
+  Package: java.nio.file.attribute -> {Types: [exports], AllowedModules: []}
+Module: jdk.javadoc
+  Package: jdk.javadoc.doclet -> {Types: [exports], AllowedModules: []}
+Module: jdk.management.agent
+  Package: jdk.internal.agent -> {Types: [exports to], AllowedModules: [jdk.jconsole]}
+Module: jdk.jshell
+  Package: jdk.jshell -> {Types: [exports], AllowedModules: []}
+  Package: jdk.jshell.spi -> {Types: [exports], AllowedModules: []}
+  Package: jdk.jshell.execution -> {Types: [exports], AllowedModules: []}
+  Package: jdk.jshell.tool -> {Types: [exports], AllowedModules: []}
+Module: java.sql.rowset
+  Package: javax.sql.rowset -> {Types: [exports], AllowedModules: []}
+  Package: javax.sql.rowset.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.sql.rowset.serial -> {Types: [exports], AllowedModules: []}
+Module: jdk.jsobject
+  Package: netscape.javascript -> {Types: [exports], AllowedModules: []}
+Module: jdk.sctp
+  Package: com.sun.nio.sctp -> {Types: [exports], AllowedModules: []}
+Module: java.smartcardio
+  Package: javax.smartcardio -> {Types: [exports], AllowedModules: []}
+Module: jdk.unsupported
+  Package: com.sun.nio.file -> {Types: [exports], AllowedModules: []}
+  Package: sun.reflect -> {Types: [exports, opens], AllowedModules: []}
+  Package: sun.misc -> {Types: [exports, opens], AllowedModules: []}
+Module: java.security.jgss
+  Package: sun.security.jgss.krb5 -> {Types: [exports to], AllowedModules: [jdk.security.auth]}
+  Package: sun.security.jgss -> {Types: [exports to], AllowedModules: [jdk.security.jgss]}
+  Package: org.ietf.jgss -> {Types: [exports], AllowedModules: []}
+  Package: sun.security.jgss.krb5.internal -> {Types: [exports to], AllowedModules: [jdk.security.jgss]}
+  Package: sun.security.krb5.internal -> {Types: [exports to], AllowedModules: [jdk.security.jgss]}
+  Package: sun.net.www.protocol.http.spnego -> {Types: [opens to], AllowedModules: [java.base]}
+  Package: sun.security.krb5.internal.ktab -> {Types: [exports to], AllowedModules: [jdk.security.auth]}
+  Package: sun.security.krb5 -> {Types: [exports to], AllowedModules: [jdk.security.auth]}
+  Package: javax.security.auth.kerberos -> {Types: [exports], AllowedModules: []}
+Module: java.compiler
+  Package: javax.annotation.processing -> {Types: [exports], AllowedModules: []}
+  Package: javax.lang.model.util -> {Types: [exports], AllowedModules: []}
+  Package: javax.tools -> {Types: [exports], AllowedModules: []}
+  Package: javax.lang.model -> {Types: [exports], AllowedModules: []}
+  Package: javax.lang.model.type -> {Types: [exports], AllowedModules: []}
+  Package: javax.lang.model.element -> {Types: [exports], AllowedModules: []}
+Module: jdk.nio.mapmode
+  Package: jdk.nio.mapmode -> {Types: [exports], AllowedModules: []}
+Module: jdk.dynalink
+  Package: jdk.dynalink.support -> {Types: [exports], AllowedModules: []}
+  Package: jdk.dynalink.beans -> {Types: [exports], AllowedModules: []}
+  Package: jdk.dynalink -> {Types: [exports], AllowedModules: []}
+  Package: jdk.dynalink.linker.support -> {Types: [exports], AllowedModules: []}
+  Package: jdk.dynalink.linker -> {Types: [exports], AllowedModules: []}
+Module: jdk.unsupported.desktop
+  Package: jdk.swing.interop -> {Types: [exports], AllowedModules: []}
+Module: jdk.accessibility
+  Package: com.sun.java.accessibility.util -> {Types: [exports], AllowedModules: []}
+Module: jdk.security.jgss
+  Package: com.sun.security.jgss -> {Types: [exports], AllowedModules: []}
+Module: java.sql
+  Package: java.sql -> {Types: [exports], AllowedModules: []}
+  Package: javax.sql -> {Types: [exports], AllowedModules: []}
+Module: jdk.incubator.vector
+  Package: jdk.incubator.vector -> {Types: [exports], AllowedModules: []}
+Module: jdk.hotspot.agent
+  Package: sun.jvm.hotspot.debugger.remote -> {Types: [exports to], AllowedModules: [java.rmi]}
+Module: java.logging
+  Package: java.util.logging -> {Types: [exports], AllowedModules: []}
+Module: java.transaction.xa
+  Package: javax.transaction.xa -> {Types: [exports], AllowedModules: []}
+Module: java.xml.crypto
+  Package: javax.xml.crypto.dsig.keyinfo -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.crypto -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.crypto.dsig.dom -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.crypto.dsig -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.crypto.dom -> {Types: [exports], AllowedModules: []}
+  Package: javax.xml.crypto.dsig.spec -> {Types: [exports], AllowedModules: []}
+Module: jdk.jfr
+  Package: jdk.jfr.internal.management -> {Types: [exports to], AllowedModules: [jdk.management.jfr]}
+  Package: jdk.jfr -> {Types: [exports], AllowedModules: []}
+  Package: jdk.jfr.consumer -> {Types: [exports], AllowedModules: []}
+Module: jdk.internal.vm.ci
+  Package: jdk.vm.ci.meta -> {Types: [exports to], AllowedModules: [jdk.internal.vm.compiler]}
+  Package: jdk.vm.ci.services -> {Types: [exports to], AllowedModules: [jdk.internal.vm.compiler, jdk.internal.vm.compiler.management]}
+  Package: jdk.vm.ci.code -> {Types: [exports to], AllowedModules: [jdk.internal.vm.compiler]}
+  Package: jdk.vm.ci.hotspot -> {Types: [exports to], AllowedModules: [jdk.internal.vm.compiler]}
+  Package: jdk.vm.ci.runtime -> {Types: [exports to], AllowedModules: [jdk.internal.vm.compiler, jdk.internal.vm.compiler.management]}
+Module: jdk.net
+  Package: jdk.net -> {Types: [exports], AllowedModules: []}
+  Package: jdk.nio -> {Types: [exports], AllowedModules: []}
+Module: jdk.random
+  Package: jdk.random -> {Types: [exports to], AllowedModules: [java.base]}
+Module: java.naming
+  Package: javax.naming.directory -> {Types: [exports], AllowedModules: []}
+  Package: javax.naming.ldap.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.naming.ldap -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jndi.toolkit.url -> {Types: [exports to], AllowedModules: [jdk.naming.rmi, jdk.naming.dns]}
+  Package: javax.naming.spi -> {Types: [exports], AllowedModules: []}
+  Package: javax.naming -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jndi.toolkit.ctx -> {Types: [exports to], AllowedModules: [jdk.naming.dns]}
+  Package: javax.naming.event -> {Types: [exports], AllowedModules: []}
+Module: jdk.internal.ed
+  Package: jdk.internal.editor.spi -> {Types: [exports to], AllowedModules: [jdk.jshell, jdk.editpad]}
+  Package: jdk.internal.editor.external -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+Module: java.prefs
+  Package: java.util.prefs -> {Types: [exports], AllowedModules: []}
+Module: java.net.http
+  Package: java.net.http -> {Types: [exports], AllowedModules: []}
+Module: jdk.compiler
+  Package: com.sun.tools.javac.tree -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jshell]}
+  Package: com.sun.tools.javac.main -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jshell]}
+  Package: com.sun.tools.javac.parser -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: com.sun.tools.javac.platform -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jdeps]}
+  Package: com.sun.tools.javac.file -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jdeps]}
+  Package: com.sun.tools.javac.api -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jshell]}
+  Package: com.sun.source.util -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.tools.javac.jvm -> {Types: [exports to], AllowedModules: [jdk.javadoc]}
+  Package: com.sun.tools.doclint -> {Types: [exports to], AllowedModules: [jdk.javadoc]}
+  Package: com.sun.source.tree -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.tools.javac.model -> {Types: [exports to], AllowedModules: [jdk.javadoc]}
+  Package: com.sun.tools.javac.comp -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jshell]}
+  Package: com.sun.tools.javac -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.tools.javac.code -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jshell]}
+  Package: com.sun.tools.javac.resources -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.shellsupport.doc -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: com.sun.tools.javac.util -> {Types: [exports to], AllowedModules: [jdk.javadoc, jdk.jshell, jdk.jdeps]}
+  Package: com.sun.source.doctree -> {Types: [exports], AllowedModules: []}
+Module: jdk.internal.opt
+  Package: jdk.internal.joptsimple -> {Types: [exports to], AllowedModules: [jdk.jshell, jdk.jlink]}
+Module: jdk.naming.rmi
+  Package: com.sun.jndi.rmi.registry -> {Types: [exports to], AllowedModules: [java.rmi]}
+  Package: com.sun.jndi.url.rmi -> {Types: [exports to], AllowedModules: [java.naming]}
+Module: jdk.jconsole
+  Package: com.sun.tools.jconsole -> {Types: [exports], AllowedModules: []}
+Module: jdk.attach
+  Package: sun.tools.attach -> {Types: [exports to], AllowedModules: [jdk.jcmd]}
+  Package: com.sun.tools.attach -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.tools.attach.spi -> {Types: [exports], AllowedModules: []}
+Module: jdk.internal.le
+  Package: jdk.internal.org.jline.utils -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.reader -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.keymap -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.terminal -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.terminal.impl -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.reader.impl.completer -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.reader.impl -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.terminal.spi -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+  Package: jdk.internal.org.jline.reader.impl.history -> {Types: [exports to], AllowedModules: [jdk.jshell]}
+Module: java.management
+  Package: com.sun.jmx.remote.security -> {Types: [exports to], AllowedModules: [jdk.management.agent, java.management.rmi]}
+  Package: javax.management.modelmbean -> {Types: [exports], AllowedModules: []}
+  Package: sun.management -> {Types: [exports to], AllowedModules: [jdk.management, jdk.management.agent, jdk.jconsole]}
+  Package: sun.management.counter -> {Types: [exports to], AllowedModules: [jdk.management.agent]}
+  Package: sun.management.spi -> {Types: [exports to], AllowedModules: [jdk.management.jfr, jdk.management]}
+  Package: sun.management.counter.perf -> {Types: [exports to], AllowedModules: [jdk.management.agent]}
+  Package: java.lang.management -> {Types: [exports], AllowedModules: []}
+  Package: javax.management.timer -> {Types: [exports], AllowedModules: []}
+  Package: javax.management -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jmx.remote.util -> {Types: [exports to], AllowedModules: [java.management.rmi]}
+  Package: javax.management.openmbean -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jmx.remote.internal -> {Types: [exports to], AllowedModules: [jdk.management.agent, java.management.rmi]}
+  Package: javax.management.monitor -> {Types: [exports], AllowedModules: []}
+  Package: javax.management.loading -> {Types: [exports], AllowedModules: []}
+  Package: javax.management.remote -> {Types: [exports], AllowedModules: []}
+  Package: javax.management.relation -> {Types: [exports], AllowedModules: []}
+Module: jdk.incubator.foreign
+  Package: jdk.incubator.foreign -> {Types: [exports], AllowedModules: []}
+Module: jdk.internal.jvmstat
+  Package: sun.jvmstat.monitor.event -> {Types: [exports to], AllowedModules: [jdk.jcmd, jdk.jstatd]}
+  Package: sun.jvmstat.perfdata.monitor -> {Types: [exports to], AllowedModules: [jdk.jstatd]}
+  Package: sun.jvmstat.monitor -> {Types: [exports to], AllowedModules: [jdk.jcmd, jdk.jconsole, jdk.attach, jdk.jstatd]}
+Module: java.instrument
+  Package: java.lang.instrument -> {Types: [exports], AllowedModules: []}
+  Package: sun.instrument -> {Types: [exports to], AllowedModules: [java.base]}
+Module: jdk.management
+  Package: com.sun.management -> {Types: [exports], AllowedModules: []}
+Module: jdk.security.auth
+  Package: com.sun.security.auth.module -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.security.auth.callback -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.security.auth -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.security.auth.login -> {Types: [exports], AllowedModules: []}
+Module: java.scripting
+  Package: javax.script -> {Types: [exports], AllowedModules: []}
+Module: jdk.jdeps
+  Package: com.sun.tools.classfile -> {Types: [exports to], AllowedModules: [jdk.jlink]}
+Module: jdk.jartool
+  Package: jdk.security.jarsigner -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jarsigner -> {Types: [exports], AllowedModules: []}
+Module: java.management.rmi
+  Package: com.sun.jmx.remote.protocol.rmi -> {Types: [exports to], AllowedModules: [java.management]}
+  Package: javax.management.remote.rmi -> {Types: [exports], AllowedModules: []}
+  Package: com.sun.jmx.remote.internal.rmi -> {Types: [exports to], AllowedModules: [jdk.management.agent]}
+Module: jdk.naming.dns
+  Package: com.sun.jndi.url.dns -> {Types: [exports to], AllowedModules: [java.naming]}

@@ -13,8 +13,8 @@ public class JDKDataCombiner {
     public static void main(String[] args) {
         JDKDataCombiner combiner = new JDKDataCombiner();
         try {
-            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out1.txt");
-            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out.txt");
+            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
+            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
             combiner.printData();
 //            combiner.printDataIntoExcel();
             System.out.println("Done");
@@ -71,11 +71,9 @@ public class JDKDataCombiner {
                     currentClass = new JDKClass(line.substring(8).trim());
                     currentPackage.addClass(currentClass);
                 } else if (line.contains("Method:")) {
-                    String[] parts = line.substring(11).trim().split(",");
-                    String methodName = parts[0].trim();
-                    String accessType = (parts.length > 1 && parts[1].length() > "Access: ".length())
-                            ? parts[1].substring("Access: ".length()).trim()
-                            : "default";
+                    int accessIndex = line.indexOf(", Access: ");
+                    String methodName = line.substring(11, accessIndex).trim();
+                    String accessType = line.substring(accessIndex + 9).trim();
 
                     JDKMethod method = new JDKMethod(methodName, accessType);
                     currentClass.addMethod(method);
@@ -109,7 +107,7 @@ public class JDKDataCombiner {
         }
     }
 
-    public boolean findMethod(String packageName, String className, String methodName) {
+    public String findStaticInvokedMethod(String packageName, String className, String methodName) {
         JDKPackage pkg = this.modules.values().stream()
                 .map(module -> module.getPackage(packageName))
                 .filter(Objects::nonNull)
@@ -122,13 +120,67 @@ public class JDKDataCombiner {
                 JDKMethod method = cls.getMethod(methodName);
                 if (method != null) {
 //                    System.out.println("Found method: " + methodName + " in package: " + packageName + " in class: " + className);
-                    return true;
+                    return method.getName();
+                }else{
+                    for(JDKMethod m : cls.getMethods().values()){
+                        if(m.getName().substring(0, m.getName().indexOf("(")).equals(methodName.substring(0, methodName.indexOf("(")))){
+                            if(isMethodMatch(m.getName(), methodName)){
+                                return m.getName();
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        return false;
+        return null;
     }
+
+    public String findReflectiveInvokedMethod(String packageName, String className, String methodName) {
+        JDKPackage pkg = this.modules.values().stream()
+                .map(module -> module.getPackage(packageName))
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(null);
+
+        if (pkg != null) {
+            JDKClass cls = pkg.getClass(className);
+            if (cls != null) {
+                for(JDKMethod m : cls.getMethods().values()){
+                    if(m.getName().contains(methodName)){
+                        return m.getName();
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public boolean isTypeMatch(String typeFromSignature, String typeFromQuery) {
+        return typeFromSignature.contains(typeFromQuery) || typeFromQuery.contains(typeFromSignature);
+    }
+
+    public boolean isMethodMatch(String storedSignature, String querySignature) {
+        String paramsStored = storedSignature.substring(storedSignature.indexOf('(') + 1, storedSignature.indexOf(')'));
+        String paramsQuery = querySignature.substring(querySignature.indexOf('(') + 1, querySignature.indexOf(')'));
+
+        String[] paramsStoredArray = paramsStored.split(", ");
+        String[] paramsQueryArray = paramsQuery.split(", ");
+
+        if (paramsStoredArray.length != paramsQueryArray.length) {
+            return false;
+        }
+
+        for (int i = 0; i < paramsStoredArray.length; i++) {
+            if (!isTypeMatch(paramsStoredArray[i], paramsQueryArray[i])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
 }
 

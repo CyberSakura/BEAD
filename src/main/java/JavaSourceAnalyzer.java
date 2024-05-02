@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.zip.ZipFile;
 
 public class JavaSourceAnalyzer {
@@ -14,7 +15,7 @@ public class JavaSourceAnalyzer {
 
     public static void main(String[] args) throws Exception {
         String zipFilePath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\src.zip";
-        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\out.txt";
+        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt";
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             zipFile.stream().filter(entry -> entry.getName().endsWith(".java")).forEach(entry -> {
@@ -35,8 +36,20 @@ public class JavaSourceAnalyzer {
                             // Process methods in the class
                             cls.getMethods().forEach(method -> {
                                 String methodName = method.getNameAsString();
+                                String methodSignature = methodName + method.getParameters().stream()
+                                        .map(p -> p.getType().asString())
+                                        .collect(Collectors.joining(", ", "(", ")"));
                                 String accessSpecifier = method.getAccessSpecifier().asString();
-                                packageClassMethods.get(packageName).get(className).put(methodName, accessSpecifier);
+
+                                if (accessSpecifier.isEmpty()) {
+                                    if (cls.isInterface()) {
+                                        accessSpecifier = "public";
+                                    } else {
+                                        accessSpecifier = "package-private";
+                                    }
+                                }
+
+                                packageClassMethods.get(packageName).get(className).put(methodSignature, accessSpecifier);
                             });
                         });
                     }
