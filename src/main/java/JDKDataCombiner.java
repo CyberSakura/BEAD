@@ -157,16 +157,12 @@ public class JDKDataCombiner {
         return null;
     }
 
-    public boolean isTypeMatch(String typeFromSignature, String typeFromQuery) {
-        return typeFromSignature.contains(typeFromQuery) || typeFromQuery.contains(typeFromSignature);
-    }
-
     public boolean isMethodMatch(String storedSignature, String querySignature) {
         String paramsStored = storedSignature.substring(storedSignature.indexOf('(') + 1, storedSignature.indexOf(')'));
         String paramsQuery = querySignature.substring(querySignature.indexOf('(') + 1, querySignature.indexOf(')'));
 
         String[] paramsStoredArray = paramsStored.split(", ");
-        String[] paramsQueryArray = paramsQuery.split(", ");
+        String[] paramsQueryArray = paramsQuery.split(",");
 
         if (paramsStoredArray.length != paramsQueryArray.length) {
             return false;
@@ -181,6 +177,28 @@ public class JDKDataCombiner {
         return true;
     }
 
+    public boolean isTypeMatch(String typeFromSignature, String typeFromQuery) {
+        return normalizeType(typeFromSignature).equals(normalizeType(typeFromQuery));
+    }
 
+    private String normalizeType(String type) {
+        String cleanType = type.replaceAll("<.*?>", "").replaceAll("\\[\\]", "");
+
+        if (cleanType.matches("int|double|float|long|short|byte|boolean|char")) {
+            return cleanType;
+        }
+
+        try {
+            Class<?> clazz = Class.forName(cleanType);
+            return clazz.getCanonicalName();
+        } catch (ClassNotFoundException e) {
+            try {
+                Class<?> clazz = Class.forName("java.lang." + cleanType);
+                return clazz.getCanonicalName();
+            } catch (ClassNotFoundException ex) {
+                return type;
+            }
+        }
+    }
 }
 
