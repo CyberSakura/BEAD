@@ -185,15 +185,6 @@ public class ReflectTransformer extends SceneTransformer {
                             }
 
                         }
-                        for (ValueBox box : assignStmt.getUseBoxes()) {
-                            if (box.getValue() instanceof FieldRef) {
-                                System.out.println("\t\tField reference found: " + box.getValue().toString());
-                                FieldRef fieldRef = (FieldRef) box.getValue();
-                                for (Tag tag : fieldRef.getField().getTags()) {
-                                    System.out.println("\t\t\tTag: " + tag.toString());
-                                }
-                            }
-                        }
                     }
 
                 }

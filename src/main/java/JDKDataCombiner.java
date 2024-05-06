@@ -13,8 +13,8 @@ public class JDKDataCombiner {
     public static void main(String[] args) {
         JDKDataCombiner combiner = new JDKDataCombiner();
         try {
-            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
-            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
+            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
+            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
             combiner.printData();
 //            combiner.printDataIntoExcel();
             System.out.println("Done");

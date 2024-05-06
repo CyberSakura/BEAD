@@ -15,7 +15,7 @@ public class JavaSourceAnalyzer {
 
     public static void main(String[] args) throws Exception {
         String zipFilePath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\src.zip";
-        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt";
+        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt";
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             zipFile.stream().filter(entry -> entry.getName().endsWith(".java")).forEach(entry -> {

@@ -54,15 +54,12 @@ public class ModuleAccessParser {
         String packageName = initialParts[1].endsWith(";") ? initialParts[1].substring(0, initialParts[1].length() - 1) : initialParts[1];
         Set<String> allowedModules = null;
 
-        // Check if there's a "to" keyword indicating specific module restrictions
         if (line.contains(" to ")) {
-            directiveType += " to";  // Modify directiveType to reflect the presence of "to"
+            directiveType += " to";
             String modulesPart = line.substring(line.indexOf(" to ") + 4);
-            // Split modules on commas and trim spaces and trailing semicolons
             String[] modules = modulesPart.split(",\\s*");
             allowedModules = new HashSet<>();
             for (String module : modules) {
-                // Remove trailing semicolon if present
                 String cleanedModule = module.endsWith(";") ? module.substring(0, module.length() - 1) : module;
                 allowedModules.add(cleanedModule.trim());
             }
@@ -101,7 +98,7 @@ public class ModuleAccessParser {
 
     private static void writeAccessRecorderDataToFile(ModuleAccessRecorder accessRecorder) throws IOException {
         String content = accessRecorder.formatAccessRules();
-        Path outputPath = Paths.get("PkgInfo.txt");
+        Path outputPath = Paths.get("ModuleInfo.txt");
         Files.write(outputPath, content.getBytes());
         System.out.println("Access rules written to " + outputPath);
     }

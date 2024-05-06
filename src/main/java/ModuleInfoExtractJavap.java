@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.regex.*;
 
 public class ModuleInfoExtractJavap {
-    private static final String MODULES_DIR = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\Extracted Module Classes";  // module-info.class文件所在目录
+    private static final String MODULES_DIR = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\Extracted Module Classes";
 
     public static void main(String[] args) {
         File modulesDir = new File(MODULES_DIR);
@@ -25,11 +25,10 @@ public class ModuleInfoExtractJavap {
             }
         });
 
-        // 输出或处理Map中的数据
         moduleContents.forEach((module, lines) -> {
             try {
                 Path moduleDirectory = Paths.get(outputPath, module);
-                Files.createDirectories(moduleDirectory); // Ensure the directory exists
+                Files.createDirectories(moduleDirectory);
 
                 Path outputFile = moduleDirectory.resolve("directives.txt");
                 try (BufferedWriter writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
@@ -67,7 +66,7 @@ public class ModuleInfoExtractJavap {
                     line = line.trim().replaceAll("\\s+", " ");
                     line = line.trim().replace('$', '.');
                     if (line.isEmpty()) {
-                        continue; // Skip empty or whitespace-only lines
+                        continue;
                     }
                     if (line.startsWith("module")) {
                         insideModule = true;
@@ -75,24 +74,24 @@ public class ModuleInfoExtractJavap {
                         insideModule = false;
                     } else if (insideModule) {
                         Matcher matcher = pattern.matcher(line);
-                        if (matcher.find()) { // Start of a new directive
-                            if (currentDeclaration.length() > 0) { // There's a buffered directive
-                                outputLines.add(currentDeclaration.toString().trim()); // Add buffered directive
-                                currentDeclaration.setLength(0); // Clear the buffer
+                        if (matcher.find()) {
+                            if (currentDeclaration.length() > 0) {
+                                outputLines.add(currentDeclaration.toString().trim());
+                                currentDeclaration.setLength(0);
                             }
-                            currentDeclaration.append(line.trim()); // Start buffering the new directive
-                        } else if (currentDeclaration.length() > 0) { // Continuing an existing directive
+                            currentDeclaration.append(line.trim());
+                        } else if (currentDeclaration.length() > 0) {
                             if (line.startsWith("with ")) {
-                                currentDeclaration.append(" ").append(line.trim()); // Ensure no extra space before 'with'
+                                currentDeclaration.append(" ").append(line.trim());
                             } else {
                                 currentDeclaration.append(" ").append(line.trim());
                             }
                         }
 
                         if (line.endsWith(";")) {
-                            if (currentDeclaration.length() > 0) { // Complete directive ending with a semicolon
-                                outputLines.add(currentDeclaration.toString().trim()); // Add complete directive
-                                currentDeclaration.setLength(0); // Clear the buffer
+                            if (currentDeclaration.length() > 0) {
+                                outputLines.add(currentDeclaration.toString().trim());
+                                currentDeclaration.setLength(0);
                             }
                         }
                     }

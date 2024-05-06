@@ -60,7 +60,7 @@ public class StaticCallAnalyzer {
             for (Edge e : cg) {
 
                 if (e.getSrc() == null || e.getSrc().method() == null) {
-                    System.out.println("Null source found in edge from " + (e.getSrc() == null ? "unknown source" : e.getSrc().method()));
+//                    System.out.println("Null source found in edge from " + (e.getSrc() == null ? "unknown source" : e.getSrc().method()));
                     continue;
                 }
 
@@ -69,6 +69,7 @@ public class StaticCallAnalyzer {
 
                 if (tgtMethod != null && tgtMethod.isStatic() && isJDKClass(tgtMethod.getDeclaringClass().toString())) {
                     if (!isJDKClass(srcMethod.getDeclaringClass().toString())) {
+                        System.out.println("Found static invoke: " + srcMethod + " => " + tgtMethod);
                         callMap.put(srcMethod, tgtMethod);
                     }
                 }
