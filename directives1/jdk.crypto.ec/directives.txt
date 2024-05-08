@@ -1,1 +1,0 @@
-provides java.security.Provider with sun.security.ec.SunEC;

@@ -1,1 +1,0 @@
-exports jdk.internal.joptsimple to jdk.jlink, jdk.jshell;

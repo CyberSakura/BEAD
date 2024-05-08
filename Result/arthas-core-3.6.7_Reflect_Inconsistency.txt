@@ -1,1 +1,1 @@
-Found inconsistent reflectively method invoke: java.lang.ClassLoader.defineClass, because the project tries to reflectively invoke this method, but java.lang.ClassLoader.defineClass is protected
+Found inconsistent reflective method invoke: java.lang.ClassLoader.defineClass, because the project tries to reflectively invoke this method, but java.lang.ClassLoader.defineClass is protected

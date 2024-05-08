@@ -51,7 +51,7 @@ public class StaticCallAnalyzer {
                 .reduce("", (acc, name) -> acc + name + "_") + "Static_Invoke.txt";
     }
 
-    public Map<SootMethod, SootMethod> generateCompleteCallGraph() {
+    public Map<SootMethod, Set<SootMethod>> generateCompleteCallGraph() {
         List<SootMethod> entryPoints = new ArrayList<>();
         for (SootClass sc : Scene.v().getApplicationClasses()) {
             for (SootMethod sm : sc.getMethods()) {
@@ -63,7 +63,7 @@ public class StaticCallAnalyzer {
         Scene.v().setEntryPoints(entryPoints);
         PackManager.v().runPacks();
 
-        Map<SootMethod, SootMethod> callMap = new HashMap<>();
+        Map<SootMethod, Set<SootMethod>> callMap = new HashMap<>();
         CallGraph cg = Scene.v().getCallGraph();
         try (PrintWriter writer = new PrintWriter(new File("Result", outputFileName), "UTF-8")) {
             writer.println("All Static Calls invokes JDK:");
@@ -79,7 +79,7 @@ public class StaticCallAnalyzer {
                 if (tgtMethod != null && tgtMethod.isStatic() && isJDKClass(tgtMethod.getDeclaringClass().toString())) {
                     if (!isJDKClass(srcMethod.getDeclaringClass().toString())) {
                         writer.println("Found static invoke: " + srcMethod + " => " + tgtMethod);
-                        callMap.put(srcMethod, tgtMethod);
+                        callMap.computeIfAbsent(srcMethod, k -> new HashSet<>()).add(tgtMethod);
                         staticInvokeCount++;
                     }
                 }

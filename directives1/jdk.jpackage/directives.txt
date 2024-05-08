@@ -1,5 +1,0 @@
-uses jdk.jpackage.internal.Bundler;
-uses jdk.jpackage.internal.Bundlers;
-provides java.util.spi.ToolProvider with jdk.jpackage.internal.JPackageToolProvider;
-provides jdk.jpackage.internal.Bundler with jdk.jpackage.internal.WinAppBundler, jdk.jpackage.internal.WinExeBundler, jdk.jpackage.internal.WinMsiBundler;
-provides jdk.jpackage.internal.Bundlers with jdk.jpackage.internal.BasicBundlers;

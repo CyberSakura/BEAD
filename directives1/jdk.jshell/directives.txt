@@ -1,8 +1,0 @@
-exports jdk.jshell;
-exports jdk.jshell.execution;
-exports jdk.jshell.spi;
-exports jdk.jshell.tool;
-uses jdk.jshell.spi.ExecutionControlProvider;
-uses jdk.internal.editor.spi.BuildInEditorProvider;
-provides javax.tools.Tool with jdk.internal.jshell.tool.JShellToolProvider;
-provides jdk.jshell.spi.ExecutionControlProvider with jdk.jshell.execution.JdiExecutionControlProvider, jdk.jshell.execution.LocalExecutionControlProvider, jdk.jshell.execution.FailOverExecutionControlProvider;

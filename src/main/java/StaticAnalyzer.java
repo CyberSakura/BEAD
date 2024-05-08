@@ -10,9 +10,9 @@ public class StaticAnalyzer {
     private static List<String> paths = new ArrayList<>();
 
     public static void main(String[] args) {
-        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\lombok-1.18.16.jar";
+        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\dataflow-3.32.0.jar";
         setupSoot(jarPath);
-        Map<SootMethod, SootMethod> callMap = generateCompleteCallGraph();
+        Map<SootMethod, Set<SootMethod>> callMap = generateCompleteCallGraph();
         callMap.forEach((source, target) -> System.out.println(source + " => " + target));
     }
 
@@ -34,7 +34,7 @@ public class StaticAnalyzer {
         System.out.println("Loaded necessary classes for " + jarPath);
     }
 
-    public static Map<SootMethod, SootMethod> generateCompleteCallGraph() {
+    public static Map<SootMethod, Set<SootMethod>> generateCompleteCallGraph() {
         List<SootMethod> entryPoints = new ArrayList<>();
         for (SootClass sc : Scene.v().getApplicationClasses()) {
             for (SootMethod sm : sc.getMethods()) {
@@ -46,7 +46,7 @@ public class StaticAnalyzer {
         Scene.v().setEntryPoints(entryPoints);
         PackManager.v().runPacks();
 
-        Map<SootMethod, SootMethod> callMap = new HashMap<>();
+        Map<SootMethod, Set<SootMethod>> callMap = new HashMap<>();
         CallGraph cg = Scene.v().getCallGraph();
         try (PrintWriter writer = new PrintWriter("output.txt", "UTF-8")) {
             writer.println("All Static Calls invokes JDK:");
@@ -62,7 +62,7 @@ public class StaticAnalyzer {
 
                 if (tgtMethod != null && tgtMethod.isStatic() && isJDKClass(tgtMethod.getDeclaringClass().toString())) {
                     if (!isJDKClass(srcMethod.getDeclaringClass().toString())) {
-                        callMap.put(srcMethod, tgtMethod);
+                        callMap.computeIfAbsent(srcMethod, k -> new HashSet<>()).add(tgtMethod);
                     }
                 }
 

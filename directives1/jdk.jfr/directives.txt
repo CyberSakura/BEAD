@@ -1,3 +1,0 @@
-exports jdk.jfr;
-exports jdk.jfr.consumer;
-exports jdk.jfr.internal.management to jdk.management.jfr;

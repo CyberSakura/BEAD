@@ -1,5 +1,0 @@
-exports jdk.javadoc.doclet;
-provides java.util.spi.ToolProvider with jdk.javadoc.internal.tool.JavadocToolProvider;
-provides javax.tools.DocumentationTool with jdk.javadoc.internal.api.JavadocTool;
-provides javax.tools.Tool with jdk.javadoc.internal.api.JavadocTool;
-provides com.sun.tools.doclint.DocLint with jdk.javadoc.internal.doclint.DocLint;

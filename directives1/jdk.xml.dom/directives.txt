@@ -1,4 +1,0 @@
-exports org.w3c.dom.css;
-exports org.w3c.dom.html;
-exports org.w3c.dom.stylesheets;
-exports org.w3c.dom.xpath;

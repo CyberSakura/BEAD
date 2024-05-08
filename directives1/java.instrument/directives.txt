@@ -1,2 +1,0 @@
-exports java.lang.instrument;
-exports sun.instrument to java.base;

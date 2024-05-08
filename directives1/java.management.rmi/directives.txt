@@ -1,5 +1,0 @@
-exports javax.management.remote.rmi;
-exports com.sun.jmx.remote.protocol.rmi to java.management;
-exports com.sun.jmx.remote.internal.rmi to jdk.management.agent;
-provides javax.management.remote.JMXConnectorProvider with com.sun.jmx.remote.protocol.rmi.ClientProvider;
-provides javax.management.remote.JMXConnectorServerProvider with com.sun.jmx.remote.protocol.rmi.ServerProvider;

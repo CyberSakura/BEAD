@@ -20,7 +20,7 @@ public class InconsistentAnalyzer {
             combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
             combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
 
-            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\lombok-1.18.16.jar");
+            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\msgpack-core-0.9.0.jar");
 
             outputReflectFileName = createReflectFileName(classFileDirectories);
             outputStaticFileName = createStaticFileName(classFileDirectories);
@@ -45,7 +45,7 @@ public class InconsistentAnalyzer {
 
             System.out.println("Analyzing static method invoke...");
             StaticCallAnalyzer staticCallAnalyzer = new StaticCallAnalyzer(classFileDirectories);
-            Map<SootMethod, SootMethod> staticCallMap = staticCallAnalyzer.generateCompleteCallGraph();
+            Map<SootMethod, Set<SootMethod>> staticCallMap = staticCallAnalyzer.generateCompleteCallGraph();
             System.out.println("Analyzing static method invoke done");
 
             System.out.println("--------------------");
@@ -115,22 +115,22 @@ public class InconsistentAnalyzer {
                             if (accessRules.contains("exports")) {
                                 if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
                                     String accessType = pkg.getClass(className).getMethod(retrieveMethod).getAccessType();
-                                    reflectWriter.println("Found inconsistent reflectively method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + normalizedMethod + " is " + accessType);
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + normalizedMethod + " is " + accessType);
                                     hasInconsistency = true;
                                 }
                             } else if (accessRules.contains("opens to")) {
                                 if (!pkg.getAllowedModules().contains(pkg.getName())) {
-                                    reflectWriter.println("Found inconsistent reflectively method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
                                     hasInconsistency = true;
                                 }else {
                                     if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-                                        reflectWriter.println("Found inconsistent reflectively method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is opened, while " + normalizedMethod + " is not public");
+                                        reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is opened, while " + normalizedMethod + " is not public");
                                         hasInconsistency = true;
                                     }
                                 }
                             } else if (accessRules.contains("exports to")) {
                                 if (!pkg.getAllowedModules().contains(pkg.getName())) {
-                                    reflectWriter.println("Found inconsistent reflectively method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
                                     hasInconsistency = true;
                                 } else {
                                     if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
@@ -142,15 +142,32 @@ public class InconsistentAnalyzer {
                         }else{
                             if (accessRules.contains("exports") && accessRules.contains("opens to")){
                                 if(!pkg.getAllowedModules().contains(pkg.getName())){
-                                    reflectWriter.println("Found inconsistent reflectively method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is exported and only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is exported and only opens to " + pkg.getAllowedModules());
                                     hasInconsistency = true;
                                 }
                             }
                         }
                     }
                 }else{
-                    reflectWriter.println("Found inconsistent reflectively method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but either " + packageName + " doesn't exported or opened in module declaration, or the method " + normalizedMethod + " doesn't exist anymore in JDK 17");
-                    hasInconsistency = true;
+                    if(isJDKClass(normalizedMethod)){
+                        JDKPackage pkg = findPackage(combiner, packageName);
+
+                        if(pkg != null){
+                            Set<String> accessRules = pkg.getAccessRules();
+                            if (accessRules.size() == 1) {
+                                if (accessRules.contains("opens to")) {
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    hasInconsistency = true;
+                                } else if (accessRules.contains("exports to")) {
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    hasInconsistency = true;
+                                } else{
+                                    reflectWriter.println("Found inconsistent reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + normalizedMethod + " does not exist in JDK 17");
+                                    hasInconsistency = true;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -159,88 +176,93 @@ public class InconsistentAnalyzer {
         return hasInconsistency;
     }
 
-    public boolean checkStaticInconsistency(JDKDataCombiner combiner, Map<SootMethod, SootMethod> staticCallMap) {
+    public boolean checkStaticInconsistency(JDKDataCombiner combiner, Map<SootMethod, Set<SootMethod>> staticCallMap) {
         boolean hasInconsistency = false;
 
-        for (SootMethod caller : staticCallMap.keySet()) {
-            SootMethod callee = staticCallMap.get(caller);
-            String calleeClass = callee.getDeclaringClass().toString();
+        for (Map.Entry<SootMethod, Set<SootMethod>> entry : staticCallMap.entrySet()) {
+            Set<SootMethod> callees = entry.getValue();
 
-            String packageName = calleeClass.substring(0, calleeClass.lastIndexOf('.'));
-            String className = calleeClass.substring(calleeClass.lastIndexOf('.') + 1);
-            String methodName = staticCallMap.get(caller).getSubSignature().substring(staticCallMap.get(caller).getSubSignature().indexOf(" ") + 1);
+            for(SootMethod callee: callees){
+                String calleeClass = callee.getDeclaringClass().toString();
 
-            String retrieveMethod = combiner.findStaticInvokedMethod(packageName, className, methodName);
-            if (retrieveMethod != null) {
-                JDKPackage pkg = findPackage(combiner, packageName);
+                String packageName = calleeClass.substring(0, calleeClass.lastIndexOf('.'));
+                String className = calleeClass.substring(calleeClass.lastIndexOf('.') + 1);
+                String methodName = callee.getSubSignature().substring(callee.getSubSignature().indexOf(" ") + 1);
 
-                if(pkg != null){
-                    Set<String> accessRules = pkg.getAccessRules();
-                    if (accessRules.size() == 1) {
-                        if (accessRules.contains("exports")) {
-                            if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public") && !pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("default")) {
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + calleeClass + "." + methodName + " is " + pkg.getClass(className).getMethod(retrieveMethod).getAccessType());
-                                hasInconsistency = true;
-                            }
-                        } else if (accessRules.contains("opens")) {
-                            staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but current package " + pkg.getName() + " is only opened");
-                            hasInconsistency = true;
-                        } else if (accessRules.contains("opens to")) {
-                            if(!pkg.getAllowedModules().contains(pkg.getName())) {
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
-                                hasInconsistency = true;
-                            }else{
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because " + pkg.getName() + "is not exported, but the project tries to statically invoke this method");
-                                hasInconsistency = true;
-                            }
-                        } else if (accessRules.contains("exports to")) {
-                            if (!pkg.getAllowedModules().contains(pkg.getName())) {
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
-                                hasInconsistency = true;
-                            } else {
-                                if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported, while " + calleeClass + "." + methodName + " is not public");
-                                    hasInconsistency = true;
-                                }
-                            }
-                        }
-                    }else{
-                        if(accessRules.contains("exports") && accessRules.contains("opens to")){
-                            if(!pkg.getAllowedModules().contains(pkg.getName())){
-                                if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")){
-                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported and only opens to " + calleeClass + "but the invoked method is not public");
-                                    hasInconsistency = true;
-                                }
-                            }
-                        }else if(accessRules.contains("exports") && accessRules.contains("opens")){
-                            if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")){
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported and opened, but the invoked method is not public");
-                                hasInconsistency = true;
-                            }
-                        }
-                    }
-                }else{
-                    staticWriter.println("Found inconsistent reflectively method invoke: " + retrieveMethod + ", because the project tries to reflectively invoke this method, but the package " + packageName + " is not declared opened or exported in the module-info.java file, or the method " + retrieveMethod + " doesn't exist anymore in JDK 17");
-                    hasInconsistency = true;
-                }
-            }else{
-                if(isJDKClass(calleeClass)){
+                String retrieveMethod = combiner.findStaticInvokedMethod(packageName, className, methodName);
+                if (retrieveMethod != null) {
                     JDKPackage pkg = findPackage(combiner, packageName);
 
                     if(pkg != null){
                         Set<String> accessRules = pkg.getAccessRules();
                         if (accessRules.size() == 1) {
-                            if (accessRules.contains("opens to")) {
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + calleeClass + " only opens to " + pkg.getAllowedModules());
+                            if (accessRules.contains("exports")) {
+                                if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public") && !pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("default")) {
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + calleeClass + "." + methodName + " is " + pkg.getClass(className).getMethod(retrieveMethod).getAccessType());
+                                    hasInconsistency = true;
+                                }
+                            } else if (accessRules.contains("opens")) {
+                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but current package " + pkg.getName() + " is only opened");
                                 hasInconsistency = true;
+                            } else if (accessRules.contains("opens to")) {
+                                if(!pkg.getAllowedModules().contains(pkg.getName())) {
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    hasInconsistency = true;
+                                }else{
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because " + pkg.getName() + "is not exported, but the project tries to statically invoke this method");
+                                    hasInconsistency = true;
+                                }
                             } else if (accessRules.contains("exports to")) {
-                                staticWriter.println("Found inconsistent static method invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + calleeClass + " only exports to " + pkg.getAllowedModules());
-                                hasInconsistency = true;
+                                if (!pkg.getAllowedModules().contains(pkg.getName())) {
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    hasInconsistency = true;
+                                } else {
+                                    if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
+                                        staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported, while " + calleeClass + "." + methodName + " is not public");
+                                        hasInconsistency = true;
+                                    }
+                                }
+                            }
+                        }else{
+                            if(accessRules.contains("exports") && accessRules.contains("opens to")){
+                                if(!pkg.getAllowedModules().contains(pkg.getName())){
+                                    if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")){
+                                        staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported and only opens to " + calleeClass + "but the invoked method is not public");
+                                        hasInconsistency = true;
+                                    }
+                                }
+                            }else if(accessRules.contains("exports") && accessRules.contains("opens")){
+                                if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")){
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported and opened, but the invoked method is not public");
+                                    hasInconsistency = true;
+                                }
+                            }
+                        }
+                    }else{
+                        staticWriter.println("Found inconsistent static method invoke: " + retrieveMethod + ", because the project tries to statically  invoke this method, but the package " + packageName + " is not declared opened or exported in the module-info.java file, or the method " + retrieveMethod + " doesn't exist anymore in JDK 17");
+                        hasInconsistency = true;
+                    }
+                }else{
+                    if(isJDKClass(calleeClass)){
+                        JDKPackage pkg = findPackage(combiner, packageName);
+
+                        if(pkg != null){
+                            Set<String> accessRules = pkg.getAccessRules();
+                            if (accessRules.size() == 1) {
+                                if (accessRules.contains("opens to")) {
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    hasInconsistency = true;
+                                } else if (accessRules.contains("exports to")) {
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    hasInconsistency = true;
+                                }
                             }
                         }
                     }
                 }
+
             }
+
         }
 
         return hasInconsistency;

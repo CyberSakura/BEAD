@@ -1,2 +1,0 @@
-exports jdk.management.jfr;
-provides sun.management.spi.PlatformMBeanProvider with jdk.management.jfr.internal.FlightRecorderMXBeanProvider;

@@ -1,3 +1,0 @@
-exports java.sql;
-exports javax.sql;
-uses java.sql.Driver;
