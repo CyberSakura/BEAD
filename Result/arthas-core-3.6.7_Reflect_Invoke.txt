@@ -1,0 +1,43 @@
+Total application methods running in reflection analyzing: 4283
+Could not find class name for reflective invocation at r30 = virtualinvoke r29.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getLoggers", $r2)
+Could not find class name for reflective invocation at r4 = virtualinvoke r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("updateLevel", $r3)
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+Could not find class name for reflective invocation at $r19 = virtualinvoke $r18.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("getPerf", $r15)
+	with class: com.taobao.arthas.agent334.AgentBootstrap
+	Found reflective invocation of com.taobao.arthas.agent334.AgentBootstrap.resetArthasClassLoader
+Class com.taobao.arthas.core.server.ArthasBootstrap invokes com.taobao.arthas.agent334.AgentBootstrap
+	with class: com.taobao.eagleeye.EagleEye
+	Found reflective invocation of com.taobao.eagleeye.EagleEye.getTraceId
+Class com.taobao.arthas.core.util.ThreadUtil invokes com.taobao.eagleeye.EagleEye
+	with class: com.taobao.eagleeye.EagleEye
+	Found reflective invocation of com.taobao.eagleeye.EagleEye.getTraceId
+Class com.taobao.arthas.core.util.ThreadUtil invokes com.taobao.eagleeye.EagleEye
+	with class: com.taobao.eagleeye.EagleEye
+	Found reflective invocation of com.taobao.eagleeye.EagleEye.getRpcId
+Class com.taobao.arthas.core.util.ThreadUtil invokes com.taobao.eagleeye.EagleEye
+	with class: com.taobao.eagleeye.EagleEye
+	Found reflective invocation of com.taobao.eagleeye.EagleEye.getRpcId
+Class com.taobao.arthas.core.util.ThreadUtil invokes com.taobao.eagleeye.EagleEye
+	Found reflective invocation of Ljava/lang/ClassLoader;.defineClass
+	Class com.taobao.arthas.core.util.reflect.ArthasReflectUtils invokes Ljava/lang/ClassLoader;
+	Found reflective invocation of Ljava/lang/ClassLoader;.defineClass
+	Class com.taobao.arthas.core.util.reflect.ArthasReflectUtils invokes Ljava/lang/ClassLoader;
+	Found reflective invocation of Ljava/lang/ClassLoader;.defineClass
+	Class com.taobao.arthas.core.util.reflect.ArthasReflectUtils invokes Ljava/lang/ClassLoader;
+	Found reflective invocation of Ljava/lang/ClassLoader;.defineClass
+	Class com.taobao.arthas.core.util.reflect.ArthasReflectUtils invokes Ljava/lang/ClassLoader;
+Reflection Analysis Results:
+Total Reflective Invocations: 483
+Total Non-String Constant Method Names: 2
+Total Method Names without Class Name: 3
+Total Full Method Names: 9
+Full Method Invoke:
+Method com.taobao.arthas.agent334.AgentBootstrap.resetArthasClassLoader: 1
+Method com.taobao.eagleeye.EagleEye.getTraceId: 2
+Method com.taobao.eagleeye.EagleEye.getRpcId: 2
+Method Ljava/lang/ClassLoader;.defineClass: 4
+Partial Method Invoke:
+Method getLoggers: 1
+Method updateLevel: 1
+Method getPerf: 1

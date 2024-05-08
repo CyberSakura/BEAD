@@ -3,28 +3,17 @@ import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
-import java.io.File;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class StaticCallAnalyzer {
+public class StaticAnalyzer {
     private static List<String> paths = new ArrayList<>();
-    private String outputFileName;
-    private int staticInvokeCount = 0;
 
-//    public static void main(String[] args) {
-//        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\cglib-3.3.0.jar";
-//        setupSoot(jarPath);
-//        Map<SootMethod, SootMethod> callMap = generateCompleteCallGraph();
-//        callMap.forEach((source, target) -> System.out.println(source + " => " + target));
-//    }
-
-    public StaticCallAnalyzer(List<String> classPaths){
-        paths.addAll(classPaths);
-        outputFileName = createFileName(classPaths);
-        for(String path: paths){
-            setupSoot(path);
-        }
+    public static void main(String[] args) {
+        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\lombok-1.18.16.jar";
+        setupSoot(jarPath);
+        Map<SootMethod, SootMethod> callMap = generateCompleteCallGraph();
+        callMap.forEach((source, target) -> System.out.println(source + " => " + target));
     }
 
     private static void setupSoot(String jarPath) {
@@ -37,7 +26,7 @@ public class StaticCallAnalyzer {
         Options.v().set_output_format(Options.output_format_none);
         Options.v().set_allow_phantom_refs(true);
         Options.v().set_no_bodies_for_excluded(true);
-        Options.v().set_exclude(Collections.singletonList("java.*"));
+        Options.v().set_exclude(new ArrayList<String>());
         Options.v().set_process_dir(Collections.singletonList(jarPath));
         Options.v().set_src_prec(Options.src_prec_class);
 
@@ -45,13 +34,7 @@ public class StaticCallAnalyzer {
         System.out.println("Loaded necessary classes for " + jarPath);
     }
 
-    private String createFileName(List<String> classPaths) {
-        return classPaths.stream()
-                .map(path -> path.substring(path.lastIndexOf('\\') + 1).replace(".jar", ""))
-                .reduce("", (acc, name) -> acc + name + "_") + "Static_Invoke.txt";
-    }
-
-    public Map<SootMethod, SootMethod> generateCompleteCallGraph() {
+    public static Map<SootMethod, SootMethod> generateCompleteCallGraph() {
         List<SootMethod> entryPoints = new ArrayList<>();
         for (SootClass sc : Scene.v().getApplicationClasses()) {
             for (SootMethod sm : sc.getMethods()) {
@@ -65,11 +48,12 @@ public class StaticCallAnalyzer {
 
         Map<SootMethod, SootMethod> callMap = new HashMap<>();
         CallGraph cg = Scene.v().getCallGraph();
-        try (PrintWriter writer = new PrintWriter(new File("Result", outputFileName), "UTF-8")) {
+        try (PrintWriter writer = new PrintWriter("output.txt", "UTF-8")) {
             writer.println("All Static Calls invokes JDK:");
             for (Edge e : cg) {
 
                 if (e.getSrc() == null || e.getSrc().method() == null) {
+                    System.out.println("Null source found in edge from " + (e.getSrc() == null ? "unknown source" : e.getSrc().method()));
                     continue;
                 }
 
@@ -78,24 +62,19 @@ public class StaticCallAnalyzer {
 
                 if (tgtMethod != null && tgtMethod.isStatic() && isJDKClass(tgtMethod.getDeclaringClass().toString())) {
                     if (!isJDKClass(srcMethod.getDeclaringClass().toString())) {
-                        writer.println("Found static invoke: " + srcMethod + " => " + tgtMethod);
                         callMap.put(srcMethod, tgtMethod);
-                        staticInvokeCount++;
                     }
                 }
 
             }
-
-            writer.println("\nTotal static calls: " + staticInvokeCount);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println("Static call invoke result has stored in " + outputFileName);
         return callMap;
     }
 
-    private boolean isJDKClass(String className) {
+    private static boolean isJDKClass(String className) {
         return className.startsWith("java.") || className.startsWith("javax.") || className.startsWith("jdk.")
                 || className.startsWith("sun.") || className.startsWith("com.sun.") || className.startsWith("org.ietf.")
                 || className.startsWith("org.w3c.") || className.startsWith("org.xml.") || className.startsWith("netscape.");

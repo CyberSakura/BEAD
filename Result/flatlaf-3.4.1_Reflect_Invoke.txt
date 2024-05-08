@@ -1,0 +1,47 @@
+Total application methods running in reflection analyzing: 3472
+	with class: sun.java2d.SunGraphicsEnvironment
+	Found reflective invocation of sun.java2d.SunGraphicsEnvironment.isUIScaleOn
+Class com.formdev.flatlaf.util.UIScale invokes sun.java2d.SunGraphicsEnvironment
+	Found reflective invocation of Ljavax/swing/UIManager;.createLookAndFeel
+	Class com.formdev.flatlaf.FlatLaf invokes Ljavax/swing/UIManager;
+	with class: sun.swing.SwingUtilities2$AATextInfo
+	Found reflective invocation of sun.swing.SwingUtilities2$AATextInfo.getAATextInfo
+Class com.formdev.flatlaf.FlatLaf invokes sun.swing.SwingUtilities2$AATextInfo
+	Found reflective invocation of Ljavax/swing/PopupFactory;.getPopup
+	Class com.formdev.flatlaf.ui.FlatPopupFactory invokes Ljavax/swing/PopupFactory;
+Could not find class name for reflective invocation at r38 = virtualinvoke $r19.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getSystemIcon", $r16)
+Could not find class name for reflective invocation at r8 = virtualinvoke $r7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getIcon", $r5)
+Could not find class name for reflective invocation at r8 = virtualinvoke $r7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getIcon", $r5)
+Could not find class name for reflective invocation at r26 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getUI", $r1)
+Could not find class name for reflective invocation at r15 = virtualinvoke $r6.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getChooserShortcutPanelFiles", $r5)
+	with class: sun.awt.shell.ShellFolder
+	Found reflective invocation of sun.awt.shell.ShellFolder.get
+Class com.formdev.flatlaf.ui.JavaCompatibility2 invokes sun.awt.shell.ShellFolder
+Could not find class name for reflective invocation at r15 = virtualinvoke $r7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getChooserComboBoxFiles", $r6)
+	with class: sun.awt.shell.ShellFolder
+	Found reflective invocation of sun.awt.shell.ShellFolder.get
+Class com.formdev.flatlaf.ui.JavaCompatibility2 invokes sun.awt.shell.ShellFolder
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+First argument of getDeclaredMethod is not a string constant
+Reflection Analysis Results:
+Total Reflective Invocations: 144
+Total Non-String Constant Method Names: 7
+Total Method Names without Class Name: 6
+Total Full Method Names: 6
+Full Method Invoke:
+Method sun.java2d.SunGraphicsEnvironment.isUIScaleOn: 1
+Method Ljavax/swing/UIManager;.createLookAndFeel: 1
+Method sun.swing.SwingUtilities2$AATextInfo.getAATextInfo: 1
+Method Ljavax/swing/PopupFactory;.getPopup: 1
+Method sun.awt.shell.ShellFolder.get: 2
+Partial Method Invoke:
+Method getSystemIcon: 1
+Method getIcon: 2
+Method getUI: 1
+Method getChooserShortcutPanelFiles: 1
+Method getChooserComboBoxFiles: 1

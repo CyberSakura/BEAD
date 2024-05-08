@@ -1,0 +1,1 @@
+Found inconsistent static method invoke: sun.management.ManagementFactoryHelper, because the project tries to statically invoke this method, but sun.management.ManagementFactoryHelper only exports to [jdk.management, jdk.management.agent, jdk.jconsole]

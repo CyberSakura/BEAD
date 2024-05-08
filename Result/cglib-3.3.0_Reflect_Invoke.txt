@@ -1,0 +1,13 @@
+Total application methods running in reflection analyzing: 1434
+First argument of getDeclaredMethod is not a string constant
+	with class: java.lang.ClassLoader
+	Found reflective invocation of java.lang.ClassLoader.defineClass
+Class net.sf.cglib.core.ReflectUtils$1 invokes java.lang.ClassLoader
+First argument of getDeclaredMethod is not a string constant
+Reflection Analysis Results:
+Total Reflective Invocations: 216
+Total Non-String Constant Method Names: 2
+Total Method Names without Class Name: 0
+Total Full Method Names: 1
+Full Method Invoke:
+Method java.lang.ClassLoader.defineClass: 1
