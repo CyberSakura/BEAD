@@ -1,0 +1,30 @@
+Total application methods running in reflection analyzing: 2958
+	Found reflective invocation of Lcom/sun/tools/javac/code/Symbol$CompletionFailure;.getDetailValue
+	Class com.google.errorprone.ErrorProneAnalyzer invokes Lcom/sun/tools/javac/code/Symbol$CompletionFailure;
+	Found reflective invocation of Lcom/sun/tools/javac/comp/Resolve;.findIdent
+	Class com.google.errorprone.util.FindIdentifiers invokes Lcom/sun/tools/javac/comp/Resolve;
+	Found reflective invocation of Lcom/sun/tools/javac/comp/Resolve;.findIdent
+	Class com.google.errorprone.util.FindIdentifiers invokes Lcom/sun/tools/javac/comp/Resolve;
+	Found reflective invocation of Lcom/sun/tools/javac/comp/Resolve;.findIdent
+	Class com.google.errorprone.util.FindIdentifiers invokes Lcom/sun/tools/javac/comp/Resolve;
+	Found reflective invocation of Lcom/sun/tools/javac/comp/Resolve;.findIdent
+	Class com.google.errorprone.util.FindIdentifiers invokes Lcom/sun/tools/javac/comp/Resolve;
+Could not find class name for reflective invocation at $r10 = virtualinvoke $r6.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getRawCharacters", $r3)
+	Found reflective invocation of Ljava/lang/Runtime;.version
+	Class com.google.errorprone.util.RuntimeVersion invokes Ljava/lang/Runtime;
+Could not find class name for reflective invocation at $r7 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("major", $r4)
+	Found reflective invocation of Lcom/sun/tools/javac/util/Log;.error
+	Class com.google.errorprone.ErrorProneError invokes Lcom/sun/tools/javac/util/Log;
+Reflection Analysis Results:
+Total Reflective Invocations: 767
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 2
+Total Full Method Names: 7
+Full Method Invoke:
+Method Lcom/sun/tools/javac/code/Symbol$CompletionFailure;.getDetailValue: 1
+Method Lcom/sun/tools/javac/comp/Resolve;.findIdent: 4
+Method Ljava/lang/Runtime;.version: 1
+Method Lcom/sun/tools/javac/util/Log;.error: 1
+Partial Method Invoke:
+Method getRawCharacters: 1
+Method major: 1

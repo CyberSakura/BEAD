@@ -1,0 +1,20 @@
+Total application methods running in reflection analyzing: 1276
+Could not find class name for reflective invocation at r7 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("cleaner", $r1)
+Could not find class name for reflective invocation at r7 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("cleaner", $r1)
+Could not find class name for reflective invocation at r10 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("clean", $r1)
+Could not find class name for reflective invocation at r10 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("clean", $r1)
+Could not find class name for reflective invocation at r9 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("invokeCleaner", $r1)
+	with class: java.nio.MemoryBlock
+	Found reflective invocation of java.nio.MemoryBlock.wrapFromJni
+Class org.msgpack.core.buffer.DirectBufferAccess invokes java.nio.MemoryBlock
+Reflection Analysis Results:
+Total Reflective Invocations: 57
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 5
+Total Full Method Names: 1
+Full Method Invoke:
+Method java.nio.MemoryBlock.wrapFromJni: 1
+Partial Method Invoke:
+Method cleaner: 2
+Method clean: 2
+Method invokeCleaner: 1

@@ -1,0 +1,15 @@
+Total application methods running in reflection analyzing: 6430
+	Found reflective invocation of Ljavax/swing/JRootPane;.setUseTrueDoubleBuffering
+	Class com.github.weisj.darklaf.ui.DarkPopupFactory invokes Ljavax/swing/JRootPane;
+	Found reflective invocation of Ljavax/swing/JRootPane;.setUseTrueDoubleBuffering
+	Class com.github.weisj.darklaf.ui.DarkPopupFactory invokes Ljavax/swing/JRootPane;
+Could not find class name for reflective invocation at r18 = virtualinvoke r3.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("loadActionMap", $r4)
+Reflection Analysis Results:
+Total Reflective Invocations: 55
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 1
+Total Full Method Names: 2
+Full Method Invoke:
+Method Ljavax/swing/JRootPane;.setUseTrueDoubleBuffering: 2
+Partial Method Invoke:
+Method loadActionMap: 1

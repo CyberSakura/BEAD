@@ -1,0 +1,2 @@
+Found inconsistent reflective method invoke: com.sun.tools.javac.comp.Resolve.findIdent, because the project tries to reflectively invoke this method, but com.sun.tools.javac.comp only exports to [jdk.javadoc, jdk.jshell]
+Found inconsistent reflective method invoke: com.sun.tools.javac.util.Log.error, because the project tries to reflectively invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]

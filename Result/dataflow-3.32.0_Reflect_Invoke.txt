@@ -1,0 +1,6 @@
+Total application methods running in reflection analyzing: 1943
+Reflection Analysis Results:
+Total Reflective Invocations: 78
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 0
+Total Full Method Names: 0

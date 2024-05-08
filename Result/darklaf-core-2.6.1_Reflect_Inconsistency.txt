@@ -1,0 +1,1 @@
+Found inconsistent reflective method invoke: javax.swing.JRootPane.setUseTrueDoubleBuffering, because the project tries to reflectively invoke this method, but javax.swing.JRootPane.setUseTrueDoubleBuffering is package-private
