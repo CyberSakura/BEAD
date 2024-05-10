@@ -15,6 +15,8 @@ public class InconsistentAnalyzer {
 
     public static void main(String[] args) {
         JDKDataCombiner combiner = new JDKDataCombiner();
+        long startTime, endTime;
+        double reflectDuration, staticDuration, reflectInconsistencyDuration, staticInconsistencyDuration;
 
         try {
             combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
@@ -37,15 +39,21 @@ public class InconsistentAnalyzer {
             System.out.println("--------------------");
 
             System.out.println("Analyzing reflectively method invoke...");
+            startTime = System.nanoTime();
             ReflectTransformer transformer = new ReflectTransformer();
             transformer.initializeAndRun(classFileDirectories);
+            endTime = System.nanoTime();
+            reflectDuration = (endTime - startTime) / 1e6;
             System.out.println("Analyzing reflectively method invoke done");
 
             System.out.println("--------------------");
 
             System.out.println("Analyzing static method invoke...");
+            startTime = System.nanoTime();
             StaticCallAnalyzer staticCallAnalyzer = new StaticCallAnalyzer(classFileDirectories);
             Map<SootMethod, Set<SootMethod>> staticCallMap = staticCallAnalyzer.generateCompleteCallGraph();
+            endTime = System.nanoTime();
+            staticDuration = (endTime - startTime) / 1e6;
             System.out.println("Analyzing static method invoke done");
 
             System.out.println("--------------------");
@@ -55,21 +63,32 @@ public class InconsistentAnalyzer {
 
             System.out.println("--------------------");
             System.out.println("Checking reflective inconsistency...");
+            startTime = System.nanoTime();
             boolean reflectiveInconsistency =inconsistentAnalyzer.checkReflectiveInconsistency(combiner, transformer);
             if(!reflectiveInconsistency){
                 System.out.println("\nNo reflective inconsistency found");
             }
+            endTime = System.nanoTime();
+            reflectInconsistencyDuration = (endTime - startTime) / 1e6;
             System.out.println("\nChecking reflective inconsistency done, result has been stored in " + outputReflectFileName);
 
             System.out.println("--------------------");
             System.out.println("Checking static inconsistency...");
+            startTime = System.nanoTime();
             boolean staticInconsistency = inconsistentAnalyzer.checkStaticInconsistency(combiner, staticCallMap);
             if(!staticInconsistency){
                 System.out.println("\nNo static inconsistency found");
             }
+            endTime = System.nanoTime();
+            staticInconsistencyDuration = (endTime - startTime) / 1e6;
             System.out.println("\nChecking static inconsistency done, result has been stored in " + outputStaticFileName);
             System.out.println("--------------------");
 
+
+            System.out.println("Reflective method invoke analysis duration: " + reflectDuration + " ms");
+            System.out.println("Static method invoke analysis duration: " + staticDuration + " ms");
+            System.out.println("Reflective inconsistency analysis duration: " + reflectInconsistencyDuration + " ms");
+            System.out.println("Static inconsistency analysis duration: " + staticInconsistencyDuration + " ms");
             System.out.println("Inconsistency analysis done");
         } catch (IOException e) {
             e.printStackTrace();
