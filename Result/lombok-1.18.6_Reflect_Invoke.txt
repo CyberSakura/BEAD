@@ -1,0 +1,25 @@
+Total application methods running in reflection analyzing: 297
+	with class: lombok.launch.Main
+	Found reflective invocation of lombok.launch.Main.getShadowClassLoader
+Class lombok.delombok.ant.Tasks$Delombok invokes lombok.launch.Main
+	with class: lombok.launch.Main
+	Found reflective invocation of lombok.launch.Main.getShadowClassLoader
+Class lombok.delombok.ant.Tasks$Delombok invokes lombok.launch.Main
+Could not find class name for reflective invocation at r28 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("execute", $r4)
+	with class: lombok.core.AgentLauncher
+	Found reflective invocation of lombok.core.AgentLauncher.runAgents
+Class lombok.launch.Agent invokes lombok.core.AgentLauncher
+	with class: lombok.core.Main
+	Found reflective invocation of lombok.core.Main.main
+Class lombok.launch.Main invokes lombok.core.Main
+Reflection Analysis Results:
+Total Reflective Invocations: 72
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 1
+Total Full Method Names: 4
+Full Method Invoke:
+Method lombok.launch.Main.getShadowClassLoader: 2
+Method lombok.core.AgentLauncher.runAgents: 1
+Method lombok.core.Main.main: 1
+Partial Method Invoke:
+Method execute: 1

@@ -1,0 +1,22 @@
+Total application methods running in reflection analyzing: 309
+	Found reflective invocation of Ljava/net/URLClassLoader;.addURL
+	Class org.gridkit.lab.jvm.attach.AttachAPI invokes Ljava/net/URLClassLoader;
+	Found reflective invocation of Ljava/net/URLClassLoader;.addURL
+	Class org.gridkit.lab.jvm.attach.AttachAPI invokes Ljava/net/URLClassLoader;
+Could not find class name for reflective invocation at r15 = virtualinvoke r14.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("executeJCmd", $r2)
+Could not find class name for reflective invocation at r15 = virtualinvoke r14.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("executeJCmd", $r2)
+Could not find class name for reflective invocation at r28 = virtualinvoke r27.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("executeCommand", $r4)
+Could not find class name for reflective invocation at r28 = virtualinvoke r27.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("executeCommand", $r4)
+Could not find class name for reflective invocation at r30 = virtualinvoke r29.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("execute", $r3)
+Could not find class name for reflective invocation at r30 = virtualinvoke r29.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("execute", $r3)
+Reflection Analysis Results:
+Total Reflective Invocations: 32
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 6
+Total Full Method Names: 2
+Full Method Invoke:
+Method Ljava/net/URLClassLoader;.addURL: 2
+Partial Method Invoke:
+Method executeJCmd: 2
+Method executeCommand: 2
+Method execute: 2

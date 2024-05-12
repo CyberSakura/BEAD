@@ -1,0 +1,13 @@
+Total application methods running in reflection analyzing: 1151
+	Found reflective invocation of Lcom/sun/tools/javac/tree/JCTree$JCImport;.getQualifiedIdentifier
+	Class com.google.googlejavaformat.java.RemoveUnusedImports invokes Lcom/sun/tools/javac/tree/JCTree$JCImport;
+Could not find class name for reflective invocation at $r10 = virtualinvoke $r6.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getRawCharacters", $r3)
+Reflection Analysis Results:
+Total Reflective Invocations: 15
+Total Non-String Constant Method Names: 0
+Total Method Names without Class Name: 1
+Total Full Method Names: 1
+Full Method Invoke:
+Method Lcom/sun/tools/javac/tree/JCTree$JCImport;.getQualifiedIdentifier: 1
+Partial Method Invoke:
+Method getRawCharacters: 1

@@ -10,7 +10,7 @@ public class StaticAnalyzer {
     private static List<String> paths = new ArrayList<>();
 
     public static void main(String[] args) {
-        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\dataflow-3.32.0.jar";
+        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\jide-plaf-3.6.10.jar";
         setupSoot(jarPath);
         Map<SootMethod, Set<SootMethod>> callMap = generateCompleteCallGraph();
         callMap.forEach((source, target) -> System.out.println(source + " => " + target));

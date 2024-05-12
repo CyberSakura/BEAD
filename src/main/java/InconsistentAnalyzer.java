@@ -22,7 +22,7 @@ public class InconsistentAnalyzer {
             combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
             combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
 
-            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\msgpack-core-0.9.0.jar");
+            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\jide-plaf-3.6.10.jar");
 
             outputReflectFileName = createReflectFileName(classFileDirectories);
             outputStaticFileName = createStaticFileName(classFileDirectories);
@@ -268,7 +268,10 @@ public class InconsistentAnalyzer {
                         if(pkg != null){
                             Set<String> accessRules = pkg.getAccessRules();
                             if (accessRules.size() == 1) {
-                                if (accessRules.contains("opens to")) {
+                                if (accessRules.contains("opens")){
+                                    staticWriter.println("Found inconsistent static method invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + calleeClass + " is only opened");
+                                    hasInconsistency = true;
+                                }else if(accessRules.contains("opens to")) {
                                     staticWriter.println("Found inconsistent static method invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
                                     hasInconsistency = true;
                                 } else if (accessRules.contains("exports to")) {

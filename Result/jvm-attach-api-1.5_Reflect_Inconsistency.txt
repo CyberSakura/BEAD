@@ -1,0 +1,1 @@
+Found inconsistent reflective method invoke: java.net.URLClassLoader.addURL, because the project tries to reflectively invoke this method, but java.net.URLClassLoader.addURL is protected
