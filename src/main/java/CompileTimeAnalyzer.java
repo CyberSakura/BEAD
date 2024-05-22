@@ -7,10 +7,10 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class StaticCallAnalyzer {
+public class CompileTimeAnalyzer {
     private static List<String> paths = new ArrayList<>();
     private String outputFileName;
-    private int staticInvokeCount = 0;
+    private int compileTimeInvokeCount = 0;
 
 //    public static void main(String[] args) {
 //        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\cglib-3.3.0.jar";
@@ -19,7 +19,7 @@ public class StaticCallAnalyzer {
 //        callMap.forEach((source, target) -> System.out.println(source + " => " + target));
 //    }
 
-    public StaticCallAnalyzer(List<String> classPaths){
+    public CompileTimeAnalyzer(List<String> classPaths){
         paths.addAll(classPaths);
         outputFileName = createFileName(classPaths);
         for(String path: paths){
@@ -48,7 +48,7 @@ public class StaticCallAnalyzer {
     private String createFileName(List<String> classPaths) {
         return classPaths.stream()
                 .map(path -> path.substring(path.lastIndexOf('\\') + 1).replace(".jar", ""))
-                .reduce("", (acc, name) -> acc + name + "_") + "Static_Invoke.txt";
+                .reduce("", (acc, name) -> acc + name + "_") + "Compile_Time_Invoke.txt";
     }
 
     public Map<SootMethod, Set<SootMethod>> generateCompleteCallGraph() {
@@ -66,7 +66,7 @@ public class StaticCallAnalyzer {
         Map<SootMethod, Set<SootMethod>> callMap = new HashMap<>();
         CallGraph cg = Scene.v().getCallGraph();
         try (PrintWriter writer = new PrintWriter(new File("Result", outputFileName), "UTF-8")) {
-            writer.println("All Static Calls invokes JDK:");
+            writer.println("All Compile-time Calls invokes JDK:");
             for (Edge e : cg) {
 
                 if (e.getSrc() == null || e.getSrc().method() == null) {
@@ -78,20 +78,20 @@ public class StaticCallAnalyzer {
 
                 if (tgtMethod != null && tgtMethod.isStatic() && isJDKClass(tgtMethod.getDeclaringClass().toString())) {
                     if (!isJDKClass(srcMethod.getDeclaringClass().toString())) {
-                        writer.println("Found static invoke: " + srcMethod + " => " + tgtMethod);
+                        writer.println("Found compile-time invoke: " + srcMethod + " => " + tgtMethod);
                         callMap.computeIfAbsent(srcMethod, k -> new HashSet<>()).add(tgtMethod);
-                        staticInvokeCount++;
+                        compileTimeInvokeCount++;
                     }
                 }
 
             }
 
-            writer.println("\nTotal static calls: " + staticInvokeCount);
+            writer.println("\nTotal compile-time calls: " + compileTimeInvokeCount);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println("Static call invoke result has stored in " + outputFileName);
+        System.out.println("Compile-time invoke result has stored in " + outputFileName);
         return callMap;
     }
 

@@ -1,3 +1,0 @@
-Found inconsistent static method invoke: sun.management.ManagementFactoryHelper, because the project tries to statically invoke this method, but sun.management only exports to [jdk.management, jdk.management.agent, jdk.jconsole]
-Found inconsistent static method invoke: sun.management.ManagementFactoryHelper.getHotspotThreadMBean(), because the project tries to statically invoke this method, but sun.management only exports to [jdk.management, jdk.management.agent, jdk.jconsole]
-Found inconsistent static method invoke: sun.management.counter.perf.PerfInstrumentation, because the project tries to statically invoke this method, but sun.management.counter.perf only exports to [jdk.management.agent]

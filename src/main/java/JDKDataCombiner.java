@@ -107,7 +107,7 @@ public class JDKDataCombiner {
         }
     }
 
-    public String findStaticInvokedMethod(String packageName, String className, String methodName) {
+    public String findCompileTimeInvokedMethod(String packageName, String className, String methodName) {
         JDKPackage pkg = this.modules.values().stream()
                 .map(module -> module.getPackage(packageName))
                 .filter(Objects::nonNull)
