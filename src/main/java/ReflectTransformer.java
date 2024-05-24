@@ -24,7 +24,7 @@ public class ReflectTransformer extends SceneTransformer {
     private static int nonStringConstantMethodNameCount = 0;
     private static int methodNameWithoutClassNameCount = 0;
     private static int fullMethodNameCount = 0;
-    private static Map<String, Integer> fullMethodCounts = new LinkedHashMap<>();
+    private static Map<SootMethod, Map<String, Integer>> fullMethodCounts = new LinkedHashMap<>();
     private static Map<String, Integer> partMethodCounts = new LinkedHashMap<>();
 
     public static void main(String[] args) {
@@ -101,7 +101,10 @@ public class ReflectTransformer extends SceneTransformer {
 
             if(!fullMethodCounts.isEmpty()){
                 writer.println("Full Method Invoke:");
-                fullMethodCounts.forEach((method, count) -> writer.println("Method " + method + ": " + count));
+                fullMethodCounts.forEach((declaringClass, methods) -> {
+                    writer.println("Class " + declaringClass + " invokes:");
+                    methods.forEach((method, count) -> writer.println("\tMethod " + method + ": " + count));
+                });
             }
 
             if(!partMethodCounts.isEmpty()){
@@ -111,7 +114,7 @@ public class ReflectTransformer extends SceneTransformer {
         }
     }
 
-    public Map<String, Integer> getFullMethodCounts() {
+    public Map<SootMethod, Map<String,Integer>> getFullMethodCounts() {
         return fullMethodCounts;
     }
 
@@ -264,7 +267,7 @@ public class ReflectTransformer extends SceneTransformer {
                         writer.println("\tFound reflective invocation of " + fullMethodName);
                         writer.println("Class " + method.getDeclaringClass() + " invokes " + classNameConst.value);
                         foundClassName = true;
-                        incrementFullMethodCounts(fullMethodName);
+                        incrementFullMethodCounts(method, fullMethodName);
                         fullMethodNameCount++;
                     }
                 } else if (classLoaderClass != null) {
@@ -277,7 +280,7 @@ public class ReflectTransformer extends SceneTransformer {
                                 writer.println("\tFound reflective invocation of " + fullMethodName);
                                 writer.println("Class " + method.getDeclaringClass() + " invokes " + classNameConst.value);
                                 foundClassName = true;
-                                incrementFullMethodCounts(fullMethodName);
+                                incrementFullMethodCounts(method, fullMethodName);
                                 fullMethodNameCount++;
                             }
                         }
@@ -297,14 +300,14 @@ public class ReflectTransformer extends SceneTransformer {
                                         writer.println("\tFound reflective invocation of " + fullMethodName);
 
                                         foundClassName = true;
-                                        incrementFullMethodCounts(fullMethodName);
+                                        incrementFullMethodCounts(method, fullMethodName);
                                         fullMethodNameCount++;
                                     } else if (rightOpBase instanceof FieldRef) {
                                         FieldRef fieldRef = (FieldRef) rightOpBase;
                                         String fullMethodName = fieldRef.getField().getType() + "." + reflectedMethodName.value;
                                         writer.println("\tFound reflective invocation of " + fullMethodName);
                                         foundClassName = true;
-                                        incrementFullMethodCounts(fullMethodName);
+                                        incrementFullMethodCounts(method, fullMethodName);
                                         fullMethodNameCount++;
                                     }
                                 }
@@ -325,7 +328,7 @@ public class ReflectTransformer extends SceneTransformer {
                 writer.println("\tFound reflective invocation of " + fullMethodName);
                 writer.println("\tClass " + method.getDeclaringClass() + " invokes " + classConstant.getValue());
                 foundClassName = true;
-                incrementFullMethodCounts(fullMethodName);
+                incrementFullMethodCounts(method, fullMethodName);
                 fullMethodNameCount++;
             }
         }
@@ -347,16 +350,12 @@ public class ReflectTransformer extends SceneTransformer {
                 invokeExpr.getMethod().getDeclaringClass().getPackageName().startsWith("java.lang.invoke");
     }
 
-    private void incrementFullMethodCounts(String fullMethodName) {
-        Integer count = null;
-        if (fullMethodCounts.containsKey(fullMethodName)) {
-            count = fullMethodCounts.get(fullMethodName);
-        } else {
-            count = 0;
-        }
+    private void incrementFullMethodCounts(SootMethod method, String fullMethodName) {
+        Map<String, Integer> methodCounts = fullMethodCounts.getOrDefault(method, new HashMap<>());
+        int count = methodCounts.getOrDefault(fullMethodName, 0);
         count++;
-        fullMethodCounts.put(fullMethodName, count);
-
+        methodCounts.put(fullMethodName, count);
+        fullMethodCounts.put(method, methodCounts);
     }
 
     private void incrementPartMethodCounts(String methodNameOnly) {

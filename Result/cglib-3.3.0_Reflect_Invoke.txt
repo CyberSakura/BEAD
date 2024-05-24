@@ -10,4 +10,5 @@ Total Non-String Constant Method Names: 2
 Total Method Names without Class Name: 0
 Total Full Method Names: 1
 Full Method Invoke:
-Method java.lang.ClassLoader.defineClass: 1
+Class <net.sf.cglib.core.ReflectUtils$1: java.lang.Object run()> invokes:
+	Method java.lang.ClassLoader.defineClass: 1
