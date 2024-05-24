@@ -136,6 +136,15 @@ public class JDKDataCombiner {
         return null;
     }
 
+    public String returnCurrentModule(String packageName){
+        for(JDKModule module : modules.values()){
+            if(module.getPackages().containsKey(packageName)){
+                return module.getName();
+            }
+        }
+        return null;
+    }
+
     public String findReflectiveInvokedMethod(String packageName, String className, String methodName) {
         JDKPackage pkg = this.modules.values().stream()
                 .map(module -> module.getPackage(packageName))

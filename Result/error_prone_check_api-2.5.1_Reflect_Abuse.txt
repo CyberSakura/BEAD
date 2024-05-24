@@ -1,0 +1,8 @@
+Detected abuse under module jdk.compiler
+Involved Method: com.sun.tools.javac.comp.Resolve.findIdent in target class: Resolve from package com.sun.tools.javac.comp
+Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.comp only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Method: com.sun.tools.javac.util.Log.error in target class: Log from package com.sun.tools.javac.util
+Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------

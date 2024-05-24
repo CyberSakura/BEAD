@@ -126,6 +126,7 @@ public class AbuseAnalyzer {
                 String retrieveMethod = combiner.findReflectiveInvokedMethod(packageName, className, methodName);
                 if (retrieveMethod != null) {
                     JDKPackage pkg = findPackage(combiner, packageName);
+                    String currentModule = combiner.returnCurrentModule(packageName);
 
                     if(pkg != null){
                         Set<String> accessRules = pkg.getAccessRules();
@@ -133,26 +134,41 @@ public class AbuseAnalyzer {
                             if (accessRules.contains("exports")) {
                                 if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
                                     String accessType = pkg.getClass(className).getMethod(retrieveMethod).getAccessType();
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + normalizedMethod + " is " + accessType);
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + normalizedMethod + " is " + accessType);
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             } else if (accessRules.contains("opens to")) {
                                 if (!pkg.getAllowedModules().contains(pkg.getName())) {
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }else {
                                     if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-                                        reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is opened, while " + normalizedMethod + " is not public");
+                                        reflectWriter.println("Detected abuse under module " + currentModule);
+                                        reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                        reflectWriter.println("Reason: The project tries to reflectively invoke this method, and although " + pkg.getName() + " is opened, but " + normalizedMethod + " is not public");
+                                        reflectWriter.println("-------------------------------------------------");
                                         hasInconsistency = true;
                                     }
                                 }
                             } else if (accessRules.contains("exports to")) {
                                 if (!pkg.getAllowedModules().contains(pkg.getName())) {
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only exports to " + pkg.getAllowedModules());
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 } else {
                                     if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-                                        reflectWriter.println("Found abuse under reflectively method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is exported, while " + normalizedMethod + " is not public");
+                                        reflectWriter.println("Detected abuse under module " + currentModule);
+                                        reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                        reflectWriter.println("Reason: The project tries to reflectively invoke this method, and although " + pkg.getName() + " is exported, but " + normalizedMethod + " is not public");
+                                        reflectWriter.println("-------------------------------------------------");
                                         hasInconsistency = true;
                                     }
                                 }
@@ -160,7 +176,10 @@ public class AbuseAnalyzer {
                         }else{
                             if (accessRules.contains("exports") && accessRules.contains("opens to")){
                                 if(!pkg.getAllowedModules().contains(pkg.getName())){
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because although " + pkg.getName() + " is exported and only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " is exported and only exports to " + pkg.getAllowedModules());
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             }
@@ -169,18 +188,28 @@ public class AbuseAnalyzer {
                 }else{
                     if(isJDKClass(normalizedMethod)){
                         JDKPackage pkg = findPackage(combiner, packageName);
+                        String currentModule = combiner.returnCurrentModule(packageName);
 
                         if(pkg != null){
                             Set<String> accessRules = pkg.getAccessRules();
                             if (accessRules.size() == 1) {
                                 if (accessRules.contains("opens to")) {
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only opens to " + pkg.getAllowedModules());
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 } else if (accessRules.contains("exports to")) {
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only exports to " + pkg.getAllowedModules());
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 } else{
-                                    reflectWriter.println("Found abuse under reflective method invoke: " + normalizedMethod + ", because the project tries to reflectively invoke this method, but " + normalizedMethod + " does not exist in JDK 17");
+                                    reflectWriter.println("Detected abuse under module " + currentModule);
+                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
+                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + normalizedMethod + " does not exist in JDK 17");
+                                    reflectWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             }
@@ -208,6 +237,7 @@ public class AbuseAnalyzer {
                 String methodName = callee.getSubSignature().substring(callee.getSubSignature().indexOf(" ") + 1);
 
                 String retrieveMethod = combiner.findCompileTimeInvokedMethod(packageName, className, methodName);
+                String currentModule = combiner.returnCurrentModule(packageName);
                 if (retrieveMethod != null) {
                     JDKPackage pkg = findPackage(combiner, packageName);
 
@@ -216,27 +246,44 @@ public class AbuseAnalyzer {
                         if (accessRules.size() == 1) {
                             if (accessRules.contains("exports")) {
                                 if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public") && !pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("default")) {
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + calleeClass + "." + methodName + " is " + pkg.getClass(className).getMethod(retrieveMethod).getAccessType());
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time,  but " + calleeClass + "." + methodName + " is " + pkg.getClass(className).getMethod(retrieveMethod).getAccessType());
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             } else if (accessRules.contains("opens")) {
-                                compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but current package " + pkg.getName() + " is only opened");
+                                compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + packageName + " is only opened");
+                                compileTimeWriter.println("-------------------------------------------------");
                                 hasInconsistency = true;
                             } else if (accessRules.contains("opens to")) {
                                 if(!pkg.getAllowedModules().contains(pkg.getName())) {
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + packageName + " only opens to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }else{
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because " + pkg.getName() + "is not exported, but the project tries to statically invoke this method");
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, because " + pkg.getName() + "is not exported, but the project tries to invoke this method during compile time");
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             } else if (accessRules.contains("exports to")) {
                                 if (!pkg.getAllowedModules().contains(pkg.getName())) {
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time,  but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 } else {
                                     if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-                                        compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported, while " + calleeClass + "." + methodName + " is not public");
+                                        compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                        compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                        compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but although " + pkg.getName() + " is exported, while " + calleeClass + "." + methodName + " is not public");
                                         hasInconsistency = true;
                                     }
                                 }
@@ -245,19 +292,28 @@ public class AbuseAnalyzer {
                             if(accessRules.contains("exports") && accessRules.contains("opens to")){
                                 if(!pkg.getAllowedModules().contains(pkg.getName())){
                                     if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")){
-                                        compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported and only opens to " + calleeClass + "but the invoked method is not public");
+                                        compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                        compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                        compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + packageName + " only opens to " + pkg.getAllowedModules() + " and the invoked method is not public");
+                                        compileTimeWriter.println("-------------------------------------------------");
                                         hasInconsistency = true;
                                     }
                                 }
                             }else if(accessRules.contains("exports") && accessRules.contains("opens")){
                                 if(!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")){
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + "." + methodName + ", because although " + pkg.getName() + " is exported and opened, but the invoked method is not public");
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + packageName + " is only exported and opened, but the invoked method is not public");
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             }
                         }
                     }else{
-                        compileTimeWriter.println("Found abuse under compile-time invoke: " + retrieveMethod + ", because the project tries to statically  invoke this method, but the package " + packageName + " is not declared opened or exported in the module-info.java file, or the method " + retrieveMethod + " doesn't exist anymore in JDK 17");
+                        compileTimeWriter.println("Detected abuse under module " + currentModule);
+                        compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                        compileTimeWriter.println("Reason: The project tries to invoke target method " + retrieveMethod + " at compile time, but " + packageName + " is not declared opened or exported in the module-info.java file, or the method " + retrieveMethod + " doesn't exist anymore in JDK 17");
+                        compileTimeWriter.println("-------------------------------------------------");
                         hasInconsistency = true;
                     }
                 }else{
@@ -268,13 +324,22 @@ public class AbuseAnalyzer {
                             Set<String> accessRules = pkg.getAccessRules();
                             if (accessRules.size() == 1) {
                                 if (accessRules.contains("opens")){
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + calleeClass + " is only opened");
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + calleeClass + " is only opened");
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }else if(accessRules.contains("opens to")) {
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only opens to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + calleeClass + " only opens to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 } else if (accessRules.contains("exports to")) {
-                                    compileTimeWriter.println("Found abuse under compile-time invoke: " + calleeClass + ", because the project tries to statically invoke this method, but " + pkg.getName() + " only exports to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("Detected abuse under module " + currentModule);
+                                    compileTimeWriter.println("Involved Source Method: " + entry.getKey().getSignature() + "; Involved Target Method: " +  methodName + " in target class: " + calleeClass + " from package " + packageName);
+                                    compileTimeWriter.println("Reason: The project tries to invoke target method " + methodName + " at compile time, but " + calleeClass + " only exports to " + pkg.getAllowedModules());
+                                    compileTimeWriter.println("-------------------------------------------------");
                                     hasInconsistency = true;
                                 }
                             }
