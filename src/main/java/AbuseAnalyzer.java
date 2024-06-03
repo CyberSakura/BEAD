@@ -21,7 +21,7 @@ public class AbuseAnalyzer {
             combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
             combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
 
-            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\cglib-3.3.0.jar");
+            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\error_prone_check_api-2.5.1.jar");
 
             outputReflectFileName = createReflectFileName(classFileDirectories);
             outputCompileTimeFileName = createCompileTimeFileName(classFileDirectories);
@@ -49,7 +49,7 @@ public class AbuseAnalyzer {
 
             System.out.println("Analyzing compile-time method invoke...");
             startTime = System.nanoTime();
-            CompileTimeAnalyzer compileTimeAnalyzer = new CompileTimeAnalyzer(classFileDirectories);
+            StaticAnalyzer compileTimeAnalyzer = new StaticAnalyzer(classFileDirectories);
             Map<SootMethod, Set<SootMethod>> compileTimeCallMap = compileTimeAnalyzer.generateCompleteCallGraph();
             endTime = System.nanoTime();
             compileTimeDuration = (endTime - startTime) / 1e6;
@@ -235,113 +235,6 @@ public class AbuseAnalyzer {
             }
 
         }
-//        for (String fullMethod : transformer.getFullMethodCounts().keySet()) {
-//            String normalizedMethod = normalizeClassName(fullMethod);
-//            if (!normalizedMethod.matches("[\\w.]+\\.[\\w]+\\.[\\w]+\\.[\\w]+")) {
-//                continue;
-//            }
-//
-//            String packageName = normalizedMethod.substring(0, normalizedMethod.lastIndexOf('.', normalizedMethod.lastIndexOf('.') - 1));
-//            String className = normalizedMethod.substring(normalizedMethod.lastIndexOf('.', normalizedMethod.lastIndexOf('.') - 1) + 1, normalizedMethod.lastIndexOf('.'));
-//            String methodName = normalizedMethod.substring(normalizedMethod.lastIndexOf('.') + 1);
-//
-//            if(isJDKClass(normalizedMethod)){
-//                String retrieveMethod = combiner.findReflectiveInvokedMethod(packageName, className, methodName);
-//                if (retrieveMethod != null) {
-//                    JDKPackage pkg = findPackage(combiner, packageName);
-//                    String currentModule = combiner.returnCurrentModule(packageName);
-//
-//                    if(pkg != null){
-//                        Set<String> accessRules = pkg.getAccessRules();
-//                        if (accessRules.size() == 1) {
-//                            if (accessRules.contains("exports")) {
-//                                if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-//                                    String accessType = pkg.getClass(className).getMethod(retrieveMethod).getAccessType();
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + normalizedMethod + " is " + accessType);
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                }
-//                            } else if (accessRules.contains("opens to")) {
-//                                if (!pkg.getAllowedModules().contains(pkg.getName())) {
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only opens to " + pkg.getAllowedModules());
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                }else {
-//                                    if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-//                                        reflectWriter.println("Detected abuse under module " + currentModule);
-//                                        reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                        reflectWriter.println("Reason: The project tries to reflectively invoke this method, and although " + pkg.getName() + " is opened, but " + normalizedMethod + " is not public");
-//                                        reflectWriter.println("-------------------------------------------------");
-//                                        hasInconsistency = true;
-//                                    }
-//                                }
-//                            } else if (accessRules.contains("exports to")) {
-//                                if (!pkg.getAllowedModules().contains(pkg.getName())) {
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only exports to " + pkg.getAllowedModules());
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                } else {
-//                                    if (!pkg.getClass(className).getMethod(retrieveMethod).getAccessType().equals("public")) {
-//                                        reflectWriter.println("Detected abuse under module " + currentModule);
-//                                        reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                        reflectWriter.println("Reason: The project tries to reflectively invoke this method, and although " + pkg.getName() + " is exported, but " + normalizedMethod + " is not public");
-//                                        reflectWriter.println("-------------------------------------------------");
-//                                        hasInconsistency = true;
-//                                    }
-//                                }
-//                            }
-//                        }else{
-//                            if (accessRules.contains("exports") && accessRules.contains("opens to")){
-//                                if(!pkg.getAllowedModules().contains(pkg.getName())){
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " is exported and only exports to " + pkg.getAllowedModules());
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }else{
-//                    if(isJDKClass(normalizedMethod)){
-//                        JDKPackage pkg = findPackage(combiner, packageName);
-//                        String currentModule = combiner.returnCurrentModule(packageName);
-//
-//                        if(pkg != null){
-//                            Set<String> accessRules = pkg.getAccessRules();
-//                            if (accessRules.size() == 1) {
-//                                if (accessRules.contains("opens to")) {
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only opens to " + pkg.getAllowedModules());
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                } else if (accessRules.contains("exports to")) {
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + packageName + " only exports to " + pkg.getAllowedModules());
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                } else{
-//                                    reflectWriter.println("Detected abuse under module " + currentModule);
-//                                    reflectWriter.println("Involved Method: " + normalizedMethod + " in target class: " + className + " from package " + packageName);
-//                                    reflectWriter.println("Reason: The project tries to reflectively invoke this method, but " + normalizedMethod + " does not exist in JDK 17");
-//                                    reflectWriter.println("-------------------------------------------------");
-//                                    hasInconsistency = true;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//
-//        }
 
         return hasInconsistency;
     }
