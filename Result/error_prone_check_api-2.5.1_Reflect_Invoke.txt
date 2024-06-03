@@ -21,10 +21,14 @@ Total Non-String Constant Method Names: 0
 Total Method Names without Class Name: 2
 Total Full Method Names: 7
 Full Method Invoke:
-Method Lcom/sun/tools/javac/code/Symbol$CompletionFailure;.getDetailValue: 1
-Method Lcom/sun/tools/javac/comp/Resolve;.findIdent: 4
-Method Ljava/lang/Runtime;.version: 1
-Method Lcom/sun/tools/javac/util/Log;.error: 1
+Class <com.google.errorprone.ErrorProneAnalyzer: java.lang.Object getDetailValue(com.sun.tools.javac.code.Symbol$CompletionFailure)> invokes:
+	Method Lcom/sun/tools/javac/code/Symbol$CompletionFailure;.getDetailValue: 1
+Class <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector,com.sun.tools.javac.comp.Env)> invokes:
+	Method Lcom/sun/tools/javac/comp/Resolve;.findIdent: 4
+Class <com.google.errorprone.util.RuntimeVersion: int getMajor()> invokes:
+	Method Ljava/lang/Runtime;.version: 1
+Class <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log)> invokes:
+	Method Lcom/sun/tools/javac/util/Log;.error: 1
 Partial Method Invoke:
 Method getRawCharacters: 1
 Method major: 1

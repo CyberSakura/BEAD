@@ -12,13 +12,6 @@ public class CompileTimeAnalyzer {
     private String outputFileName;
     private int compileTimeInvokeCount = 0;
 
-//    public static void main(String[] args) {
-//        String jarPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\cglib-3.3.0.jar";
-//        setupSoot(jarPath);
-//        Map<SootMethod, SootMethod> callMap = generateCompleteCallGraph();
-//        callMap.forEach((source, target) -> System.out.println(source + " => " + target));
-//    }
-
     public CompileTimeAnalyzer(List<String> classPaths){
         paths.addAll(classPaths);
         outputFileName = createFileName(classPaths);

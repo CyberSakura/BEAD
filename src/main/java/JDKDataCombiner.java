@@ -4,6 +4,7 @@ import component.JDKModule;
 import component.JDKPackage;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class JDKDataCombiner {
@@ -11,10 +12,15 @@ public class JDKDataCombiner {
     Map<String, JDKModule> modules = new HashMap<>();
 
     public static void main(String[] args) {
+        String userDir = System.getProperty("user.dir");
         JDKDataCombiner combiner = new JDKDataCombiner();
+        String moduleInfoFilePath = Paths.get(userDir, "ModuleInfo.txt").toString();
+        String pkgInfoFilePath = Paths.get(userDir, "PkgInfo.txt").toString();
+
+
         try {
-            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
-            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
+            combiner.parseModuleInfoFile(moduleInfoFilePath);
+            combiner.parsePkgInfoFile(pkgInfoFilePath);
             combiner.printData();
 //            combiner.printDataIntoExcel();
             System.out.println("Done");

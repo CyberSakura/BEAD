@@ -1,8 +1,10 @@
 Detected abuse under module jdk.compiler
+Source method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector,com.sun.tools.javac.comp.Env)> from class: com.google.errorprone.util.FindIdentifiers
 Involved Method: com.sun.tools.javac.comp.Resolve.findIdent in target class: Resolve from package com.sun.tools.javac.comp
-Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.comp only exports to [jdk.javadoc, jdk.jshell]
+Abuse Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.comp only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
+Source method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log)> from class: com.google.errorprone.ErrorProneError
 Involved Method: com.sun.tools.javac.util.Log.error in target class: Log from package com.sun.tools.javac.util
-Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+Abuse Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
 -------------------------------------------------

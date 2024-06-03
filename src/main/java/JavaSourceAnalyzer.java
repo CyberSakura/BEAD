@@ -4,6 +4,7 @@ import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -14,8 +15,9 @@ public class JavaSourceAnalyzer {
     private static final JavaParser parser = new JavaParser();
 
     public static void main(String[] args) throws Exception {
-        String zipFilePath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\src.zip";
-        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt";
+        String userDir = System.getProperty("user.dir");
+        String zipFilePath = Paths.get(userDir, "src.zip").toString();
+        String outputPath = Paths.get(userDir, "PkgInfo.txt").toString();
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             zipFile.stream().filter(entry -> entry.getName().endsWith(".java")).forEach(entry -> {

@@ -10,7 +10,7 @@ public class ModuleInfoExtractJavap {
     public static void main(String[] args) {
         File modulesDir = new File(MODULES_DIR);
         File[] moduleFiles = modulesDir.listFiles((dir, name) -> name.endsWith("module-info.class"));
-        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\directives1";
+        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\directives";
 
         if (moduleFiles == null) {
             System.out.println("No module-info.class files found.");

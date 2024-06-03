@@ -4,6 +4,8 @@ import soot.SootMethod;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class AbuseAnalyzer {
@@ -13,15 +15,20 @@ public class AbuseAnalyzer {
     private static String outputCompileTimeFileName;
 
     public static void main(String[] args) {
+        String userDir = System.getProperty("user.dir");
         JDKDataCombiner combiner = new JDKDataCombiner();
         long startTime, endTime;
         double reflectDuration, compileTimeDuration, reflectAbuseDuration, compileTimeAbuseDuration;
+        String moduleInfoPath = Paths.get(userDir, "ModuleInfo.txt").toString();
+        String pkgInfoPath = Paths.get(userDir, "PkgInfo.txt").toString();
+        String classFileDir = Paths.get(userDir, "TestJar", "error_prone_check_api-2.5.1.jar").toString();    // Modify this line to the path of the input jar file directory
+                                                                                                                    //  The input Jar File should be placed in the TestJar folder
 
         try {
-            combiner.parseModuleInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\ModuleInfo.txt");
-            combiner.parsePkgInfoFile("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\PkgInfo.txt");
+            combiner.parseModuleInfoFile(moduleInfoPath);
+            combiner.parsePkgInfoFile(pkgInfoPath);
 
-            List<String> classFileDirectories = Arrays.asList("C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\TestJar\\error_prone_check_api-2.5.1.jar");
+            List<String> classFileDirectories = Arrays.asList(classFileDir);
 
             outputReflectFileName = createReflectFileName(classFileDirectories);
             outputCompileTimeFileName = createCompileTimeFileName(classFileDirectories);
@@ -49,7 +56,7 @@ public class AbuseAnalyzer {
 
             System.out.println("Analyzing compile-time method invoke...");
             startTime = System.nanoTime();
-            StaticAnalyzer compileTimeAnalyzer = new StaticAnalyzer(classFileDirectories);
+            CompileTimeAnalyzer compileTimeAnalyzer = new CompileTimeAnalyzer(classFileDirectories);
             Map<SootMethod, Set<SootMethod>> compileTimeCallMap = compileTimeAnalyzer.generateCompleteCallGraph();
             endTime = System.nanoTime();
             compileTimeDuration = (endTime - startTime) / 1e6;

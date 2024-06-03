@@ -1,468 +1,468 @@
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.TypeAnnotations$AnnotationType getAnnotationType(com.sun.source.tree.AnnotationTree,com.sun.tools.javac.code.Symbol,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.TypeAnnotations from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.TypeAnnotations only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.TypeAnnotations$AnnotationType getAnnotationType(com.sun.source.tree.AnnotationTree,com.sun.tools.javac.code.Symbol,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeAnnotations from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeAnnotations only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer$ClassAndMethod: com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer$ClassAndMethod make(com.sun.tools.javac.code.Symbol$MethodSymbol,com.sun.tools.javac.code.Types)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: java.lang.Object constValue(com.sun.source.tree.Tree)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitAssignment(com.sun.source.tree.AssignmentTree,java.lang.Void)>; Involved Target Method: symbol(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method symbol(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: com.google.errorprone.fixes.SuggestedFix renameMethodInvocation(com.sun.source.tree.MethodInvocationTree,java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type getType(com.sun.tools.javac.code.Type,boolean,java.util.List)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type getType(com.sun.tools.javac.code.Type,boolean,java.util.List)>; Involved Target Method: 'from'(java.lang.Iterable) in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method 'from'(java.lang.Iterable) at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type getType(com.sun.tools.javac.code.Type,boolean,java.util.List)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: boolean lambda$requiresParentheses$0(com.google.errorprone.util.ErrorProneToken)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.InferredNullability: com.google.common.collect.ImmutableMap getNullnessGenerics(com.sun.source.tree.MethodInvocationTree)>; Involved Target Method: symbol(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method symbol(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Type binaryNumericPromotion(com.sun.tools.javac.code.Type,com.sun.tools.javac.code.Type,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.Reachability$CanCompleteNormallyVisitor: com.sun.source.tree.Tree skipLabel(com.sun.tools.javac.tree.JCTree)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.tree.JCTree$Tag from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.tree.JCTree$Tag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitMethodInvocation(com.sun.source.tree.MethodInvocationTree,java.lang.Void)>; Involved Target Method: symbol(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method symbol(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: com.google.errorprone.fixes.SuggestedFix renameMethod(com.sun.source.tree.MethodTree,java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void <init>(com.google.errorprone.scanner.ScannerSupplier)>; Involved Target Method: create() in target class: com.sun.tools.javac.api.JavacTool from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method create() at compile time,  but com.sun.tools.javac.api only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$11: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$11: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.Signatures$1: java.lang.String visitWildcardType(com.sun.tools.javac.code.Type$WildcardType,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.BoundKind from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.BoundKind only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$KindSelector from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$KindSelector only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.MaskedClassLoader$1: javax.tools.JavaFileManager make(com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.BaseFileManager from package com.sun.tools.javac.file
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.BaseFileManager only exports to [jdk.javadoc, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.MaskedClassLoader$1: javax.tools.JavaFileManager make(com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.JavacFileManager from package com.sun.tools.javac.file
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.JavacFileManager only exports to [jdk.javadoc, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.source.tree.MethodTree findMethod(com.sun.tools.javac.code.Symbol$MethodSymbol,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: 'from'(java.lang.Iterable) in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method 'from'(java.lang.Iterable) at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: com.sun.tools.javac.code.Type visitCompoundAssignment(com.sun.source.tree.CompoundAssignmentTree,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean lambda$addRemainingModifiers$1(com.google.errorprone.util.ErrorProneToken)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: java.util.List getTokensAfterOpeningBrace(java.util.List)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.suppliers.Suppliers$22: com.sun.tools.javac.code.Type get(com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.ErrorProneError: java.lang.String formatMessage(java.lang.String,javax.tools.JavaFileObject,com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition,java.lang.Throwable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.DiagnosticSource from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.DiagnosticSource only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.matchers.Matchers: boolean lambda$isBoxedPrimitiveType$2a1768db$1(com.sun.tools.javac.code.Type,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitReturn(com.sun.source.tree.ReturnTree,java.lang.Void)>; Involved Target Method: symbolFor(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method symbolFor(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Symbol$ClassSymbol getSymbolFromString(com.sun.tools.javac.code.Symbol$ModuleSymbol,com.sun.tools.javac.util.Name)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$Kind from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$Kind only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler$RefactoringTask: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler$RefactoringTask: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler$RefactoringTask: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log$WriterKind from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log$WriterKind only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void setupMessageBundle(com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JavacMessages from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JavacMessages only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void setupMessageBundle(com.sun.tools.javac.util.Context)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.JavacMessages from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.JavacMessages only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: void qualifyDocReference(com.google.errorprone.fixes.SuggestedFix$Builder,com.sun.source.util.DocTreePath,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ErrorProneTokens: void <init>(java.lang.String,int,com.sun.tools.javac.util.Context)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.parser.ScannerFactory from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.parser.ScannerFactory only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ErrorProneTokens: void <init>(java.lang.String,int,com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.ScannerFactory from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.ScannerFactory only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Type getUpperBound(com.sun.tools.javac.code.Type,com.sun.tools.javac.code.Types)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: create() in target class: com.sun.tools.javac.api.JavacTool from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method create() at compile time,  but com.sun.tools.javac.api only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.main.Arguments from package com.sun.tools.javac.main
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.main.Arguments only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.main.Arguments from package com.sun.tools.javac.main
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.main.Arguments only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: java.util.stream.Stream lambda$matchingMethods$5(com.sun.tools.javac.util.Name,com.sun.tools.javac.util.Filter,com.sun.tools.javac.code.Type)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Scope$LookupKind from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Scope$LookupKind only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.MemberEnter from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.MemberEnter only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.MemberEnter from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.MemberEnter only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.Comments$1: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.parser.Tokens$Comment$CommentStyle from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.parser.Tokens$Comment$CommentStyle only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.Comments$1: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$Comment$CommentStyle from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$Comment$CommentStyle only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
 Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$10: java.lang.String visitWildcardType(com.sun.tools.javac.code.Type$WildcardType,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.BoundKind from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.BoundKind only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: java.util.EnumSet lambda$static$0()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: java.util.EnumSet lambda$static$0()>; Involved Target Method: valueOf(java.lang.String) in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method valueOf(java.lang.String) at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Modules from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Modules only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.tree.TreeMaker from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.tree.TreeMaker only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Names from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Names only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Modules from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Modules only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.tree.TreeMaker from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.tree.TreeMaker only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Names from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Names only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.Comments: com.google.common.collect.ImmutableList findCommentsForArguments(com.sun.source.tree.Tree,java.util.List,int,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void addTaskListener(com.sun.source.util.JavacTask,com.google.errorprone.scanner.ScannerSupplier,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void addTaskListener(com.sun.source.util.JavacTask,com.google.errorprone.scanner.ScannerSupplier,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers$2: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers$2: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log,com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticType from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticType only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log,com.sun.tools.javac.util.Context)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log,com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$AdditionPosition$1: int pos(com.sun.source.tree.ClassTree,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type arrayTypeForType(com.sun.tools.javac.code.Type)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector,com.sun.tools.javac.comp.Env)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector,com.sun.tools.javac.comp.Env)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: java.lang.String qualifyType(com.google.errorprone.VisitorState,com.google.errorprone.fixes.SuggestedFix$Builder,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$KindSelector from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$KindSelector only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitVariable(com.sun.source.tree.VariableTree,java.lang.Void)>; Involved Target Method: symbolFor(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
-Reason: The project tries to invoke target method symbolFor(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: void onDescribed(com.google.errorprone.matchers.Description)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticType from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticType only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: void onDescribed(com.google.errorprone.matchers.Description)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: void onDescribed(com.google.errorprone.matchers.Description)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: int getThrowsPosition(com.sun.source.tree.MethodTree,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.MoreAnnotations$2: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TargetType from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TargetType only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.MoreAnnotations$2: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.code.TargetType from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.code.TargetType only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: com.sun.tools.javac.code.Type visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoopTree,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: com.sun.tools.javac.code.Type visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoopTree,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.BoundKind from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.BoundKind only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: boolean isAndroidCompatible()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: boolean isAndroidCompatible()>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.matchers.Matchers: boolean lambda$booleanConstant$a43f0f38$1(boolean,com.sun.source.tree.ExpressionTree,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
--------------------------------------------------
-Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$7: java.lang.Void visitParam(com.sun.source.doctree.ParamTree,java.lang.Void)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.BoundKind only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
 Involved Source Method: <com.google.errorprone.util.ErrorProneTokens: com.google.common.collect.ImmutableList getTokens()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: com.google.errorprone.fixes.SuggestedFix renameTypeParameter(com.sun.source.tree.TypeParameterTree,com.sun.source.tree.Tree,java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: int getThrowsPosition(com.sun.source.tree.MethodTree,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.MoreAnnotations: boolean isAnnotationOnType(com.sun.tools.javac.code.Symbol,com.sun.tools.javac.code.TypeAnnotationPosition)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TargetType from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TargetType only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type arrayTypeForType(com.sun.tools.javac.code.Type)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.VisitorState: javax.lang.model.util.Elements getElements()>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.model.JavacElements from package com.sun.tools.javac.model
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.model.JavacElements only exports to [jdk.javadoc]
+Involved Source Method: <com.google.errorprone.matchers.Matchers: boolean lambda$isBoxedPrimitiveType$2a1768db$1(com.sun.tools.javac.code.Type,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: java.lang.String qualifyType(com.google.errorprone.VisitorState,com.google.errorprone.fixes.SuggestedFix$Builder,com.sun.tools.javac.code.Symbol)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$KindSelector from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$KindSelector only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.matchers.Matchers: boolean lambda$booleanConstant$a43f0f38$1(boolean,com.sun.source.tree.ExpressionTree,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: void addSuppressWarnings(com.google.errorprone.fixes.SuggestedFix$Builder,com.google.errorprone.VisitorState,java.lang.String,java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: java.util.List getTokensAfterOpeningBrace(java.util.List)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.source.tree.ClassTree findClass(com.sun.tools.javac.code.Symbol$ClassSymbol,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: void qualifyDocReference(com.google.errorprone.fixes.SuggestedFix$Builder,com.sun.source.util.DocTreePath,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: boolean typeIsBoolean(com.sun.tools.javac.code.Type)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.util.Comments$1: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$Comment$CommentStyle from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$Comment$CommentStyle only exports to [jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
-Involved Source Method: <com.google.errorprone.ErrorProneAnalyzer: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.main.JavaCompiler from package com.sun.tools.javac.main
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.main.JavaCompiler only exports to [jdk.javadoc, jdk.jshell]
+Involved Source Method: <com.google.errorprone.util.Comments$1: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.parser.Tokens$Comment$CommentStyle from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.parser.Tokens$Comment$CommentStyle only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitReturn(com.sun.source.tree.ReturnTree,java.lang.Void)>; Involved Target Method: symbolFor(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method symbolFor(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.InferredNullability: com.google.common.collect.ImmutableMap getNullnessGenerics(com.sun.source.tree.MethodInvocationTree)>; Involved Target Method: symbol(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method symbol(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void addTaskListener(com.sun.source.util.JavacTask,com.google.errorprone.scanner.ScannerSupplier,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void addTaskListener(com.sun.source.util.JavacTask,com.google.errorprone.scanner.ScannerSupplier,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean lambda$addRemainingModifiers$1(com.google.errorprone.util.ErrorProneToken)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$11: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$11: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitAssignment(com.sun.source.tree.AssignmentTree,java.lang.Void)>; Involved Target Method: symbol(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method symbol(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: java.util.EnumSet lambda$static$0()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: java.util.EnumSet lambda$static$0()>; Involved Target Method: valueOf(java.lang.String) in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method valueOf(java.lang.String) at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Type getUpperBound(com.sun.tools.javac.code.Type,com.sun.tools.javac.code.Types)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ErrorProneTokens: void <init>(java.lang.String,int,com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.ScannerFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.ScannerFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ErrorProneTokens: void <init>(java.lang.String,int,com.sun.tools.javac.util.Context)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.parser.ScannerFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.parser.ScannerFactory only exports to [jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
 Involved Source Method: <com.google.errorprone.ErrorProneAnalyzer: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
 Involved Source Method: <com.google.errorprone.ErrorProneAnalyzer: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.ErrorProneAnalyzer: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.main.JavaCompiler from package com.sun.tools.javac.main
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.main.JavaCompiler only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
 Involved Source Method: <com.google.errorprone.ErrorProneAnalyzer: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.main.JavaCompiler from package com.sun.tools.javac.main
-Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.main.JavaCompiler only exports to [jdk.javadoc, jdk.jshell]
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.main.JavaCompiler only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
 Detected abuse under module jdk.compiler
 Involved Source Method: <com.google.errorprone.ErrorProneAnalyzer: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
-Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.ErrorProneError: java.lang.String formatMessage(java.lang.String,javax.tools.JavaFileObject,com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition,java.lang.Throwable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.DiagnosticSource from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.DiagnosticSource only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.TypeAnnotations$AnnotationType getAnnotationType(com.sun.source.tree.AnnotationTree,com.sun.tools.javac.code.Symbol,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeAnnotations from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeAnnotations only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.TypeAnnotations$AnnotationType getAnnotationType(com.sun.source.tree.AnnotationTree,com.sun.tools.javac.code.Symbol,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.TypeAnnotations from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.TypeAnnotations only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$7: java.lang.Void visitParam(com.sun.source.doctree.ParamTree,java.lang.Void)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer$ClassAndMethod: com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer$ClassAndMethod make(com.sun.tools.javac.code.Symbol$MethodSymbol,com.sun.tools.javac.code.Types)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector,com.sun.tools.javac.comp.Env)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector,com.sun.tools.javac.comp.Env)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes$AdditionPosition$1: int pos(com.sun.source.tree.ClassTree,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.Reachability$CanCompleteNormallyVisitor: com.sun.source.tree.Tree skipLabel(com.sun.tools.javac.tree.JCTree)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.tree.JCTree$Tag from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.tree.JCTree$Tag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler$RefactoringTask: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler$RefactoringTask: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log$WriterKind from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log$WriterKind only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler$RefactoringTask: void finished(com.sun.source.util.TaskEvent)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: java.util.stream.Stream lambda$matchingMethods$5(com.sun.tools.javac.util.Name,com.sun.tools.javac.util.Filter,com.sun.tools.javac.code.Type)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Scope$LookupKind from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Scope$LookupKind only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Symbol$ClassSymbol getSymbolFromString(com.sun.tools.javac.code.Symbol$ModuleSymbol,com.sun.tools.javac.util.Name)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$Kind from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$Kind only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log,com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log,com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticType from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticType only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.ErrorProneError: void logFatalError(com.sun.tools.javac.util.Log,com.sun.tools.javac.util.Context)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Names from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Names only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Modules from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Modules only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.tree.TreeMaker from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.tree.TreeMaker only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Modules from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Modules only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.tree.TreeMaker from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.tree.TreeMaker only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState$SharedState: void <init>(com.sun.tools.javac.util.Context,com.google.errorprone.DescriptionListener,com.google.errorprone.StatisticsCollector,java.util.Map,com.google.errorprone.ErrorProneOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Names from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Names only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: void addSuppressWarnings(com.google.errorprone.fixes.SuggestedFix$Builder,com.google.errorprone.VisitorState,java.lang.String,java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.Signatures$1: java.lang.String visitWildcardType(com.sun.tools.javac.code.Type$WildcardType,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.BoundKind from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.BoundKind only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$KindSelector from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$KindSelector only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: java.lang.String qualifyType(com.google.errorprone.VisitorState,com.google.errorprone.fixes.SuggestedFix$Builder,com.sun.tools.javac.code.Symbol)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$KindSelector from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$KindSelector only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: java.lang.String qualifyType(com.google.errorprone.VisitorState,com.google.errorprone.fixes.SuggestedFix$Builder,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Kinds$KindSelector from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Kinds$KindSelector only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void <init>(com.google.errorprone.scanner.ScannerSupplier)>; Involved Target Method: create() in target class: com.sun.tools.javac.api.JavacTool from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method create() at compile time,  but com.sun.tools.javac.api only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.MemberEnter from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.MemberEnter only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.MemberEnter from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.MemberEnter only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.FindIdentifiers: com.sun.tools.javac.code.Symbol findIdent(java.lang.String,com.google.errorprone.VisitorState,com.sun.tools.javac.code.Kinds$KindSelector)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: boolean isAndroidCompatible()>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: boolean isAndroidCompatible()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: boolean lambda$requiresParentheses$0(com.google.errorprone.util.ErrorProneToken)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.suppliers.Suppliers$22: com.sun.tools.javac.code.Type get(com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Symtab from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Symtab only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.NullnessPropagationTransfer: com.google.errorprone.dataflow.nullnesspropagation.Nullness visitMethodInvocation(org.checkerframework.shaded.dataflow.cfg.node.MethodInvocationNode,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates,com.google.errorprone.dataflow.nullnesspropagation.AbstractNullnessPropagationTransfer$Updates)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.code.Types from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.code.Types only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: com.sun.tools.javac.code.Type visitCompoundAssignment(com.sun.source.tree.CompoundAssignmentTree,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.MoreAnnotations$2: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.code.TargetType from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.code.TargetType only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.MoreAnnotations$2: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TargetType from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TargetType only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.main.Arguments from package com.sun.tools.javac.main
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.main.Arguments only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: create() in target class: com.sun.tools.javac.api.JavacTool from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method create() at compile time,  but com.sun.tools.javac.api only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: boolean compilesWithFix(com.google.errorprone.fixes.Fix,com.google.errorprone.VisitorState,com.google.common.collect.ImmutableList,boolean,int,int)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.main.Arguments from package com.sun.tools.javac.main
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.main.Arguments only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: com.google.errorprone.fixes.SuggestedFix renameMethod(com.sun.source.tree.MethodTree,java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: javax.lang.model.util.Elements getElements()>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.model.JavacElements from package com.sun.tools.javac.model
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.model.JavacElements only exports to [jdk.javadoc]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitVariable(com.sun.source.tree.VariableTree,java.lang.Void)>; Involved Target Method: symbolFor(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method symbolFor(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type getType(com.sun.tools.javac.code.Type,boolean,java.util.List)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type getType(com.sun.tools.javac.code.Type,boolean,java.util.List)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.VisitorState: com.sun.tools.javac.code.Type getType(com.sun.tools.javac.code.Type,boolean,java.util.List)>; Involved Target Method: 'from'(java.lang.Iterable) in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method 'from'(java.lang.Iterable) at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void setupMessageBundle(com.sun.tools.javac.util.Context)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.JavacMessages from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.JavacMessages only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.BaseErrorProneJavaCompiler: void setupMessageBundle(com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JavacMessages from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JavacMessages only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.MoreAnnotations: boolean isAnnotationOnType(com.sun.tools.javac.code.Symbol,com.sun.tools.javac.code.TypeAnnotationPosition)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TargetType from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TargetType only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: com.sun.tools.javac.code.Type visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoopTree,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.Type from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.Type only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: com.sun.tools.javac.code.Type visitEnhancedForLoop(com.sun.source.tree.EnhancedForLoopTree,java.lang.Void)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.BoundKind from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.BoundKind only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.source.tree.MethodTree findMethod(com.sun.tools.javac.code.Symbol$MethodSymbol,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers$2: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers$2: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers$TargetTypeVisitor: boolean typeIsBoolean(com.sun.tools.javac.code.Type)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Type binaryNumericPromotion(com.sun.tools.javac.code.Type,com.sun.tools.javac.code.Type,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.dataflow.nullnesspropagation.inference.NullnessQualifierInference: java.lang.Void visitMethodInvocation(com.sun.source.tree.MethodInvocationTree,java.lang.Void)>; Involved Target Method: symbol(com.sun.tools.javac.tree.JCTree) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method symbol(com.sun.tools.javac.tree.JCTree) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: void onDescribed(com.google.errorprone.matchers.Description)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: void onDescribed(com.google.errorprone.matchers.Description)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.JCDiagnostic$DiagnosticType from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.JCDiagnostic$DiagnosticType only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.JavacErrorDescriptionListener: void onDescribed(com.google.errorprone.matchers.Description)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.JCDiagnostic$Factory from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.JCDiagnostic$Factory only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.Comments: com.google.common.collect.ImmutableList findCommentsForArguments(com.sun.source.tree.Tree,java.util.List,int,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: com.google.errorprone.fixes.SuggestedFix renameTypeParameter(com.sun.source.tree.TypeParameterTree,com.sun.source.tree.Tree,java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.MaskedClassLoader$1: javax.tools.JavaFileManager make(com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.BaseFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.BaseFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.MaskedClassLoader$1: javax.tools.JavaFileManager make(com.sun.tools.javac.util.Context)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.JavacFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.JavacFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.source.tree.ClassTree findClass(com.sun.tools.javac.code.Symbol$ClassSymbol,com.google.errorprone.VisitorState)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Enter from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Enter only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.comp.Resolve from package com.sun.tools.javac.comp
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.comp.Resolve only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: com.sun.tools.javac.code.Symbol$MethodSymbol resolveExistingMethod(com.google.errorprone.VisitorState,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.util.Name,java.lang.Iterable,java.lang.Iterable)>; Involved Target Method: 'from'(java.lang.Iterable) in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method 'from'(java.lang.Iterable) at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.fixes.SuggestedFixes: com.google.errorprone.fixes.SuggestedFix renameMethodInvocation(com.sun.source.tree.MethodInvocationTree,java.lang.String,com.google.errorprone.VisitorState)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.errorprone.util.ASTHelpers: java.lang.Object constValue(com.sun.source.tree.Tree)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.code.TypeTag from package com.sun.tools.javac.code
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.code.TypeTag only exports to [jdk.javadoc, jdk.jshell]
 -------------------------------------------------
