@@ -1,14 +1,16 @@
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
 public class ExtractModuleInfoClasses {
     private static final String JDK_JMODS_PATH = "C:\\Program Files\\Java\\jdk-17\\jmods";
-    private static final String OUTPUT_DIR = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\Extracted Module Classes";
 
     public static void main(String[] args) {
+        String userDir = System.getProperty("user.dir");
+        String outputPath = Paths.get(userDir, "Extracted Module Classes").toString();
         File jmodsDir = new File(JDK_JMODS_PATH);
         File[] jmodFiles = jmodsDir.listFiles((dir, name) -> name.endsWith(".jmod"));
 
@@ -19,7 +21,7 @@ public class ExtractModuleInfoClasses {
 
         System.out.println("Found " + jmodFiles.length + " .jmod files.");
         for (File jmodFile : jmodFiles) {
-            extractModuleInfoClass(jmodFile, OUTPUT_DIR);
+            extractModuleInfoClass(jmodFile, outputPath);
         }
     }
 

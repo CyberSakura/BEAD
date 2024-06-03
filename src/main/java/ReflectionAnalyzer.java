@@ -6,7 +6,6 @@ import soot.jimple.*;
 import soot.jimple.internal.JAssignStmt;
 import soot.jimple.internal.JInvokeStmt;
 import soot.options.Options;
-import soot.tagkit.Tag;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.SimpleLocalDefs;
@@ -15,7 +14,7 @@ import soot.util.Chain;
 import java.io.*;
 import java.util.*;
 
-public class ReflectTransformer extends SceneTransformer {
+public class ReflectionAnalyzer extends SceneTransformer {
     private static final String CLASS_FILE_LIST = "class_file_directory_list.txt";
     private static List<String> paths = new ArrayList<>();
     private static String outputFileName;
@@ -44,7 +43,7 @@ public class ReflectTransformer extends SceneTransformer {
             e.printStackTrace();
         }
 
-        ReflectTransformer transformer = new ReflectTransformer();
+        ReflectionAnalyzer transformer = new ReflectionAnalyzer();
 
         transformer.run();
         displayResults();

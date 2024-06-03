@@ -5,12 +5,13 @@ import java.util.*;
 import java.util.regex.*;
 
 public class ModuleInfoExtractJavap {
-    private static final String MODULES_DIR = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\Extracted Module Classes";
 
     public static void main(String[] args) {
-        File modulesDir = new File(MODULES_DIR);
+        String userDir = System.getProperty("user.dir");
+        String modules_dir = Paths.get(userDir, "Extracted Module Classes").toString();
+        String outputPath = Paths.get(userDir, "directives").toString();
+        File modulesDir = new File(modules_dir);
         File[] moduleFiles = modulesDir.listFiles((dir, name) -> name.endsWith("module-info.class"));
-        String outputPath = "C:\\Users\\cyb19\\IdeaProjects\\AbuseDetection\\directives";
 
         if (moduleFiles == null) {
             System.out.println("No module-info.class files found.");
