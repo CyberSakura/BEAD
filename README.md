@@ -40,18 +40,22 @@ BEAD reports abuse instances based on previous combined information, thus helpin
       (Note: The input should be configured in the run configuration of the IDE, or the path should be manually set in the code.)
     - Output: `ModuleInfo.txt` file which stored the module information of the input JDK source code.
 
-4. **Combine Module and Package Information**: Run `JDKDataCombiner.java` to combine module and package information. 
+4. **Analyze Package Information**: Run `JavaSourceAnalyzer.java` to analyze package information of the input JDK source code.
+    - Input: The path of `src.zip` file.
+    - Output: `PkgInfo.txt` file which stored the package information of the input JDK source code.
+
+5. **Combine Module and Package Information**: Run `JDKDataCombiner.java` to combine module and package information. 
     - Input: The path of `ModuleInfo.txt` and `PkgInfo.txt`.
     - Output: `data.txt` file which stored the combined information based on `ModuleInfo.txt` and `PkgInfo.txt`.
 
-5. **Analyze Reflection Invocations**: Run `ReflectionAnalyzer.java` to analyze reflection and compile-time invocations.
+6. **Analyze Reflection Invocations**: Run `ReflectionAnalyzer.java` to analyze reflection and compile-time invocations.
     - Input: The path of the jar package of the program used to analyze. (Note: The path should be absolute path listed in `class_file_directory_list.txt`.)
     - Output: Reflection Invocation Analysis Result of input jar file and stored in `Result` directory, formatted as `XXX_Reflect_Invoke.txt`.
 
-6. **Analyze Compile-time Invocations**: `CompileTimeAnalyzer.java` is run within `AbuseAnalyzer.java`. Therefore, run `AbuseAnalyzer.java` to analyze compile-time invocations.
+7. **Analyze Compile-time Invocations**: `CompileTimeAnalyzer.java` is run within `AbuseAnalyzer.java`. Therefore, run `AbuseAnalyzer.java` to analyze compile-time invocations.
     - Output: Compile-time Invocation Analysis Result stored in `Result` directory, formatted as `XXX_Compile_Invoke.txt`.
 
-7. **Analyze Encapsulation Abuse**: Run `AbuseAnalyzer.java` to analyze encapsulation abuse.
+8. **Analyze Encapsulation Abuse**: Run `AbuseAnalyzer.java` to analyze encapsulation abuse.
     - Input: The path of `ModuleInfo.txt`, `PkgInfo.txt`, and input jar file name inside `TestJar` directory.
     - Output: Encapsulation Abuse Analysis Result stored in `Result` directory, formatted as `XXX_Reflect_Abuse.txt` and `XXX_Compile_Abuse.txt`.
 
