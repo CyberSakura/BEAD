@@ -1,1 +1,6 @@
-Found abuse under reflective method invoke: javax.swing.JRootPane.setUseTrueDoubleBuffering, because the project tries to reflectively invoke this method, but javax.swing.JRootPane.setUseTrueDoubleBuffering is package-private
+Detected abuse under module java.desktop
+Source method: <com.github.weisj.darklaf.ui.DarkPopupFactory: void linuxOpacityFix(javax.swing.JRootPane)> from class: com.github.weisj.darklaf.ui.DarkPopupFactory
+Involved Method: javax.swing.JRootPane.setUseTrueDoubleBuffering in target class: JRootPane from package javax.swing
+Abuse Reason: The project tries to reflectively invoke this method, but javax.swing.JRootPane.setUseTrueDoubleBuffering is package-private
+-------------------------------------------------
+Total Reflective Abuses: 1

@@ -1,3 +1,13 @@
-Found abuse under compile-time invoke: sun.management.ManagementFactoryHelper, because the project tries to statically invoke this method, but sun.management only exports to [jdk.management, jdk.management.agent, jdk.jconsole]
-Found abuse under compile-time invoke: sun.management.ManagementFactoryHelper.getHotspotThreadMBean(), because the project tries to statically invoke this method, but sun.management only exports to [jdk.management, jdk.management.agent, jdk.jconsole]
-Found abuse under compile-time invoke: sun.management.counter.perf.PerfInstrumentation, because the project tries to statically invoke this method, but sun.management.counter.perf only exports to [jdk.management.agent]
+Detected abuse under module java.management
+Involved Source Method: <com.taobao.arthas.core.command.monitor200.PerfCounterCommand: java.util.List getPerfCounters()>; Involved Target Method: <clinit>() in target class: sun.management.counter.perf.PerfInstrumentation from package sun.management.counter.perf
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.management.counter.perf.PerfInstrumentation only exports to [jdk.management.agent]
+-------------------------------------------------
+Detected abuse under module java.management
+Involved Source Method: <com.taobao.arthas.core.command.monitor200.ThreadSampler: java.util.Map getInternalThreadCpuTimes()>; Involved Target Method: getHotspotThreadMBean() in target class: sun.management.ManagementFactoryHelper from package sun.management
+Abuse Reason: The project tries to invoke target method getHotspotThreadMBean() at compile time,  but sun.management only exports to [jdk.management, jdk.management.agent, jdk.jconsole]
+-------------------------------------------------
+Detected abuse under module java.management
+Involved Source Method: <com.taobao.arthas.core.command.monitor200.ThreadSampler: java.util.Map getInternalThreadCpuTimes()>; Involved Target Method: <clinit>() in target class: sun.management.ManagementFactoryHelper from package sun.management
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.management.ManagementFactoryHelper only exports to [jdk.management, jdk.management.agent, jdk.jconsole]
+-------------------------------------------------
+Total Compile-Time Abuses: 3

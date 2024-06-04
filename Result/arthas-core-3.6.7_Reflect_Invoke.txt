@@ -33,10 +33,13 @@ Total Non-String Constant Method Names: 2
 Total Method Names without Class Name: 3
 Total Full Method Names: 9
 Full Method Invoke:
-Method com.taobao.arthas.agent334.AgentBootstrap.resetArthasClassLoader: 1
-Method com.taobao.eagleeye.EagleEye.getTraceId: 2
-Method com.taobao.eagleeye.EagleEye.getRpcId: 2
-Method Ljava/lang/ClassLoader;.defineClass: 4
+Class <com.taobao.arthas.core.server.ArthasBootstrap: void cleanUpSpyReference()> invokes:
+	Method com.taobao.arthas.agent334.AgentBootstrap.resetArthasClassLoader: 1
+Class <com.taobao.arthas.core.util.ThreadUtil: void getEagleeyeTraceInfo(java.lang.ClassLoader,java.lang.Thread,com.taobao.arthas.core.command.model.StackModel)> invokes:
+	Method com.taobao.eagleeye.EagleEye.getTraceId: 2
+	Method com.taobao.eagleeye.EagleEye.getRpcId: 2
+Class <com.taobao.arthas.core.util.reflect.ArthasReflectUtils: java.lang.Class defineClass(java.lang.ClassLoader,java.lang.String,byte[])> invokes:
+	Method Ljava/lang/ClassLoader;.defineClass: 4
 Partial Method Invoke:
 Method getLoggers: 1
 Method updateLevel: 1

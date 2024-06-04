@@ -1,18 +1,73 @@
-Found abuse under compile-time invoke: sun.swing.MenuItemLayoutHelper, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.MenuItemLayoutHelper, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2.getSystemMnemonicKeyMask(), because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.SwingUtilities2, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.FilePane, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
-Found abuse under compile-time invoke: sun.swing.FilePane, because the project tries to statically invoke this method, but sun.swing only exports to [jdk.unsupported.desktop]
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: int stringWidth(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String)>; Involved Target Method: stringWidth(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String) in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method stringWidth(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String) at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: int stringWidth(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String)>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: void setSkipClickCount(java.awt.Component,int)>; Involved Target Method: setSkipClickCount(java.awt.Component,int) in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method setSkipClickCount(java.awt.Component,int) at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: void setSkipClickCount(java.awt.Component,int)>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.ui.filechooser.DarkFileChooserUIBridge$DirectoryComboBoxModel: void addItem(java.io.File)>; Involved Target Method: <clinit>() in target class: sun.swing.FilePane from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.FilePane only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.ui.filechooser.DarkFileChooserUIBridge$DirectoryComboBoxModel: void addItem(java.io.File)>; Involved Target Method: usesShellFolder(javax.swing.JFileChooser) in target class: sun.swing.FilePane from package sun.swing
+Abuse Reason: The project tries to invoke target method usesShellFolder(javax.swing.JFileChooser) at compile time, but sun.swing.FilePane only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: java.lang.String clipStringIfNecessary(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String,int)>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: java.lang.String clipStringIfNecessary(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String,int)>; Involved Target Method: clipStringIfNecessary(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String,int) in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method clipStringIfNecessary(javax.swing.JComponent,java.awt.FontMetrics,java.lang.String,int) at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: void drawString(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int)>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: void drawString(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int)>; Involved Target Method: drawString(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int) in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method drawString(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int) at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: boolean tabbedPaneChangeFocusTo(java.awt.Component)>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: boolean tabbedPaneChangeFocusTo(java.awt.Component)>; Involved Target Method: compositeRequestFocus(java.awt.Component) in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method compositeRequestFocus(java.awt.Component) at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: void drawStringUnderlineCharAt(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int,int)>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: void drawStringUnderlineCharAt(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int,int)>; Involved Target Method: drawStringUnderlineCharAt(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int,int) in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method drawStringUnderlineCharAt(javax.swing.JComponent,java.awt.Graphics,java.lang.String,int,int,int) at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.ui.menu.DarkMenuItemUIBase: sun.swing.MenuItemLayoutHelper getMenuItemLayoutHelper(javax.swing.Icon,javax.swing.Icon,int,javax.swing.JMenuItem,java.awt.Rectangle)>; Involved Target Method: <clinit>() in target class: sun.swing.MenuItemLayoutHelper from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.MenuItemLayoutHelper only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.ui.menu.DarkMenuItemUIBase: sun.swing.MenuItemLayoutHelper getMenuItemLayoutHelper(javax.swing.Icon,javax.swing.Icon,int,javax.swing.JMenuItem,java.awt.Rectangle)>; Involved Target Method: useCheckAndArrow(javax.swing.JMenuItem) in target class: sun.swing.MenuItemLayoutHelper from package sun.swing
+Abuse Reason: The project tries to invoke target method useCheckAndArrow(javax.swing.JMenuItem) at compile time, but sun.swing.MenuItemLayoutHelper only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: int getFocusAcceleratorKeyMask()>; Involved Target Method: <clinit>() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.swing.SwingUtilities2 only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Detected abuse under module java.desktop
+Involved Source Method: <com.github.weisj.darklaf.util.SwingUtil: int getFocusAcceleratorKeyMask()>; Involved Target Method: getSystemMnemonicKeyMask() in target class: sun.swing.SwingUtilities2 from package sun.swing
+Abuse Reason: The project tries to invoke target method getSystemMnemonicKeyMask() at compile time,  but sun.swing only exports to [jdk.unsupported.desktop]
+-------------------------------------------------
+Total Compile-Time Abuses: 18

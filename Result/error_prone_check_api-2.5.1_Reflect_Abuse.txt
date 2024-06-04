@@ -8,3 +8,4 @@ Source method: <com.google.errorprone.ErrorProneError: void logFatalError(com.su
 Involved Method: com.sun.tools.javac.util.Log.error in target class: Log from package com.sun.tools.javac.util
 Abuse Reason: The project tries to reflectively invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
 -------------------------------------------------
+Total Reflective Abuses: 2

@@ -10,6 +10,7 @@ Total Non-String Constant Method Names: 0
 Total Method Names without Class Name: 1
 Total Full Method Names: 2
 Full Method Invoke:
-Method Ljavax/swing/JRootPane;.setUseTrueDoubleBuffering: 2
+Class <com.github.weisj.darklaf.ui.DarkPopupFactory: void linuxOpacityFix(javax.swing.JRootPane)> invokes:
+	Method Ljavax/swing/JRootPane;.setUseTrueDoubleBuffering: 2
 Partial Method Invoke:
 Method loadActionMap: 1

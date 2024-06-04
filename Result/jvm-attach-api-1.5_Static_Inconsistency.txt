@@ -1,4 +1,0 @@
-Found inconsistent static method invoke: sun.management.counter.perf.PerfInstrumentation, because the project tries to statically invoke this method, but sun.management.counter.perf only exports to [jdk.management.agent]
-Found inconsistent static method invoke: jdk.internal.perf.Perf.getPerf(), because the project tries to statically invoke this method, but jdk.internal.perf only exports to [jdk.management.agent, java.management, jdk.internal.jvmstat]
-Found inconsistent static method invoke: sun.management.counter.Units, because the project tries to statically invoke this method, but sun.management.counter only exports to [jdk.management.agent]
-Found inconsistent static method invoke: sun.management.counter.Variability, because the project tries to statically invoke this method, but sun.management.counter only exports to [jdk.management.agent]

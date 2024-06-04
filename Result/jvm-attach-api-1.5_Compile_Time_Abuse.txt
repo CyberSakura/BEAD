@@ -1,0 +1,17 @@
+Detected abuse under module java.base
+Involved Source Method: <org.gridkit.lab.jvm.perfdata.JStatData: sun.management.counter.perf.PerfInstrumentation attach(int)>; Involved Target Method: getPerf() in target class: jdk.internal.perf.Perf from package jdk.internal.perf
+Abuse Reason: The project tries to invoke target method getPerf() at compile time,  but jdk.internal.perf only exports to [jdk.management.agent, java.management, jdk.internal.jvmstat]
+-------------------------------------------------
+Detected abuse under module java.management
+Involved Source Method: <org.gridkit.lab.jvm.perfdata.JStatData: sun.management.counter.perf.PerfInstrumentation attach(int)>; Involved Target Method: <clinit>() in target class: sun.management.counter.perf.PerfInstrumentation from package sun.management.counter.perf
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.management.counter.perf.PerfInstrumentation only exports to [jdk.management.agent]
+-------------------------------------------------
+Detected abuse under module java.management
+Involved Source Method: <org.gridkit.lab.jvm.perfdata.JStatData$PerfIntr: void <clinit>()>; Involved Target Method: <clinit>() in target class: sun.management.counter.Units from package sun.management.counter
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.management.counter.Units only exports to [jdk.management.agent]
+-------------------------------------------------
+Detected abuse under module java.management
+Involved Source Method: <org.gridkit.lab.jvm.perfdata.JStatData$PerfIntr: void <clinit>()>; Involved Target Method: <clinit>() in target class: sun.management.counter.Variability from package sun.management.counter
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but sun.management.counter.Variability only exports to [jdk.management.agent]
+-------------------------------------------------
+Total Compile-Time Abuses: 4

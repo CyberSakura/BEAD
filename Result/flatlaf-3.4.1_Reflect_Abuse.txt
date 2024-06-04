@@ -1,0 +1,6 @@
+Detected abuse under module java.desktop
+Source method: <com.formdev.flatlaf.ui.FlatPopupFactory: javax.swing.Popup getHeavyWeightPopup(java.awt.Component,java.awt.Component,int,int)> from class: com.formdev.flatlaf.ui.FlatPopupFactory
+Involved Method: javax.swing.PopupFactory.getPopup in target class: PopupFactory from package javax.swing
+Abuse Reason: The project tries to reflectively invoke this method, but javax.swing.PopupFactory.getPopup is protected
+-------------------------------------------------
+Total Reflective Abuses: 1

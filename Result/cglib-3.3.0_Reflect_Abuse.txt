@@ -3,3 +3,4 @@ Source method: <net.sf.cglib.core.ReflectUtils$1: java.lang.Object run()> from c
 Involved Method: java.lang.ClassLoader.defineClass in target class: ClassLoader from package java.lang
 Abuse Reason: The project tries to reflectively invoke this method, but java.lang.ClassLoader.defineClass is protected
 -------------------------------------------------
+Total Reflective Abuses: 1

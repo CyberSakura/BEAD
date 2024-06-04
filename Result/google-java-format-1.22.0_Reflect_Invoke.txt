@@ -8,6 +8,7 @@ Total Non-String Constant Method Names: 0
 Total Method Names without Class Name: 1
 Total Full Method Names: 1
 Full Method Invoke:
-Method Lcom/sun/tools/javac/tree/JCTree$JCImport;.getQualifiedIdentifier: 1
+Class <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCFieldAccess getQualifiedIdentifier(com.sun.tools.javac.tree.JCTree$JCImport)> invokes:
+	Method Lcom/sun/tools/javac/tree/JCTree$JCImport;.getQualifiedIdentifier: 1
 Partial Method Invoke:
 Method getRawCharacters: 1

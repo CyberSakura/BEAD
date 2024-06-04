@@ -1,0 +1,6 @@
+Detected abuse under module java.base
+Source method: <org.gridkit.lab.jvm.attach.AttachAPI: void <clinit>()> from class: org.gridkit.lab.jvm.attach.AttachAPI
+Involved Method: java.net.URLClassLoader.addURL in target class: URLClassLoader from package java.net
+Abuse Reason: The project tries to reflectively invoke this method, but java.net.URLClassLoader.addURL is protected
+-------------------------------------------------
+Total Reflective Abuses: 1

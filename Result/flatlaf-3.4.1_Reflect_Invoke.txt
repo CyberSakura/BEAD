@@ -34,11 +34,18 @@ Total Non-String Constant Method Names: 7
 Total Method Names without Class Name: 6
 Total Full Method Names: 6
 Full Method Invoke:
-Method sun.java2d.SunGraphicsEnvironment.isUIScaleOn: 1
-Method Ljavax/swing/UIManager;.createLookAndFeel: 1
-Method sun.swing.SwingUtilities2$AATextInfo.getAATextInfo: 1
-Method Ljavax/swing/PopupFactory;.getPopup: 1
-Method sun.awt.shell.ShellFolder.get: 2
+Class <com.formdev.flatlaf.util.UIScale: boolean isSystemScalingEnabled()> invokes:
+	Method sun.java2d.SunGraphicsEnvironment.isUIScaleOn: 1
+Class <com.formdev.flatlaf.FlatLaf: void initializeAqua()> invokes:
+	Method Ljavax/swing/UIManager;.createLookAndFeel: 1
+Class <com.formdev.flatlaf.FlatLaf: void putAATextInfo(javax.swing.UIDefaults)> invokes:
+	Method sun.swing.SwingUtilities2$AATextInfo.getAATextInfo: 1
+Class <com.formdev.flatlaf.ui.FlatPopupFactory: javax.swing.Popup getHeavyWeightPopup(java.awt.Component,java.awt.Component,int,int)> invokes:
+	Method Ljavax/swing/PopupFactory;.getPopup: 1
+Class <com.formdev.flatlaf.ui.JavaCompatibility2: java.io.File[] getChooserShortcutPanelFiles(javax.swing.filechooser.FileSystemView)> invokes:
+	Method sun.awt.shell.ShellFolder.get: 1
+Class <com.formdev.flatlaf.ui.JavaCompatibility2: java.io.File[] getChooserComboBoxFiles(javax.swing.filechooser.FileSystemView)> invokes:
+	Method sun.awt.shell.ShellFolder.get: 1
 Partial Method Invoke:
 Method getSystemIcon: 1
 Method getIcon: 2

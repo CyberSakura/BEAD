@@ -1,0 +1,177 @@
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.JavacFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.JavacFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.parser.ParserFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.parser.ParserFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.BaseFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.BaseFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(com.sun.tools.javac.util.Context,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.ParserFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.ParserFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.ImportOrderer: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavacTokens: com.google.common.collect.ImmutableList readAllTokens(java.lang.String,com.sun.tools.javac.util.Context,java.util.Set)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavacTokens: com.google.common.collect.ImmutableList readAllTokens(java.lang.String,com.sun.tools.javac.util.Context,java.util.Set)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.ScannerFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.ScannerFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavacTokens: com.google.common.collect.ImmutableList readAllTokens(java.lang.String,com.sun.tools.javac.util.Context,java.util.Set)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.parser.ScannerFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.parser.ScannerFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavacTokens: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavacTokens: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.RemoveUnusedImports: java.lang.String removeUnusedImports(java.lang.String)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.api.JavacTrees from package com.sun.tools.javac.api
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.api.JavacTrees only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.JavacFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.JavacFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.parser.ParserFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.parser.ParserFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.BaseFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.BaseFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Formatter: void format(com.google.googlejavaformat.java.JavaInput,com.google.googlejavaformat.java.JavaOutput,com.google.googlejavaformat.java.JavaFormatterOptions)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.ParserFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.ParserFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Trees: java.lang.String operatorName(com.sun.source.tree.ExpressionTree)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.tree.JCTree$Tag from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.tree.JCTree$Tag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInputAstVisitor: com.sun.tools.javac.tree.JCTree$Tag unaryTag(com.sun.source.tree.ExpressionTree)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.tree.JCTree$Tag from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.tree.JCTree$Tag only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.ModifierOrderer$1: void <clinit>()>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.ModifierOrderer$1: void <clinit>()>; Involved Target Method: values() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method values() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.JavacFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.JavacFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.parser.ParserFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.parser.ParserFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.BaseFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.BaseFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.StringWrapper: com.sun.tools.javac.tree.JCTree$JCCompilationUnit parse(java.lang.String,boolean)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.ParserFactory from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.ParserFactory only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.JavacFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.JavacFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.file.BaseFileManager from package com.sun.tools.javac.file
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.file.BaseFileManager only exports to [jdk.javadoc, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Log from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Log only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavaInput: com.google.common.collect.ImmutableList buildToks(java.lang.String,com.google.common.collect.ImmutableSet)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.Trees: int precedence(com.sun.source.tree.ExpressionTree)>; Involved Target Method: opPrec(com.sun.tools.javac.tree.JCTree$Tag) in target class: com.sun.tools.javac.tree.TreeInfo from package com.sun.tools.javac.tree
+Abuse Reason: The project tries to invoke target method opPrec(com.sun.tools.javac.tree.JCTree$Tag) at compile time, but com.sun.tools.javac.tree.TreeInfo only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <com.google.googlejavaformat.java.JavacTokens: com.google.common.collect.ImmutableList getTokens(java.lang.String,com.sun.tools.javac.util.Context,java.util.Set)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.parser.Tokens$TokenKind from package com.sun.tools.javac.parser
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.parser.Tokens$TokenKind only exports to [jdk.jshell]
+-------------------------------------------------
+Total Compile-Time Abuses: 44

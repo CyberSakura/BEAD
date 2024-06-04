@@ -1,6 +1,25 @@
-Found abuse under compile-time invoke: com.sun.tools.javac.util.Options, because the project tries to statically invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
-Found abuse under compile-time invoke: com.sun.tools.javac.util.List, because the project tries to statically invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
-Found abuse under compile-time invoke: com.sun.tools.javac.util.List, because the project tries to statically invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
-Found abuse under compile-time invoke: com.sun.tools.javac.util.List.nil(), because the project tries to statically invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
-Found abuse under compile-time invoke: com.sun.tools.javac.util.Options, because the project tries to statically invoke this method, but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
-Found abuse under compile-time invoke: com.sun.tools.javac.main.JavaCompiler, because the project tries to statically invoke this method, but com.sun.tools.javac.main only exports to [jdk.javadoc, jdk.jshell]
+Detected abuse under module jdk.compiler
+Involved Source Method: <org.checkerframework.dataflow.cfg.visualize.CFGVisualizeLauncher: org.checkerframework.dataflow.cfg.ControlFlowGraph generateMethodCFG(java.lang.String,java.lang.String,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <org.checkerframework.dataflow.cfg.visualize.CFGVisualizeLauncher: org.checkerframework.dataflow.cfg.ControlFlowGraph generateMethodCFG(java.lang.String,java.lang.String,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <org.checkerframework.dataflow.cfg.visualize.CFGVisualizeLauncher: org.checkerframework.dataflow.cfg.ControlFlowGraph generateMethodCFG(java.lang.String,java.lang.String,java.lang.String)>; Involved Target Method: of(java.lang.Object) in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method of(java.lang.Object) at compile time, but com.sun.tools.javac.util.List only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <org.checkerframework.dataflow.cfg.visualize.CFGVisualizeLauncher: org.checkerframework.dataflow.cfg.ControlFlowGraph generateMethodCFG(java.lang.String,java.lang.String,java.lang.String)>; Involved Target Method: nil() in target class: com.sun.tools.javac.util.List from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method nil() at compile time,  but com.sun.tools.javac.util only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <org.checkerframework.dataflow.cfg.visualize.CFGVisualizeLauncher: org.checkerframework.dataflow.cfg.ControlFlowGraph generateMethodCFG(java.lang.String,java.lang.String,java.lang.String)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <org.checkerframework.dataflow.cfg.visualize.CFGVisualizeLauncher: org.checkerframework.dataflow.cfg.ControlFlowGraph generateMethodCFG(java.lang.String,java.lang.String,java.lang.String)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.main.JavaCompiler from package com.sun.tools.javac.main
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.main.JavaCompiler only exports to [jdk.javadoc, jdk.jshell]
+-------------------------------------------------
+Total Compile-Time Abuses: 6

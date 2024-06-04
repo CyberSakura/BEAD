@@ -15,7 +15,8 @@ Total Non-String Constant Method Names: 0
 Total Method Names without Class Name: 6
 Total Full Method Names: 2
 Full Method Invoke:
-Method Ljava/net/URLClassLoader;.addURL: 2
+Class <org.gridkit.lab.jvm.attach.AttachAPI: void <clinit>()> invokes:
+	Method Ljava/net/URLClassLoader;.addURL: 2
 Partial Method Invoke:
 Method executeJCmd: 2
 Method executeCommand: 2

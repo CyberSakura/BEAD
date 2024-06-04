@@ -1,0 +1,9 @@
+Detected abuse under module jdk.compiler
+Involved Source Method: <lombok.javac.apt.Processor: void listOptions(java.lang.StringBuilder,javax.'annotation'.processing.ProcessingEnvironment)>; Involved Target Method: <clinit>() in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method <clinit>() at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Detected abuse under module jdk.compiler
+Involved Source Method: <lombok.javac.apt.Processor: void listOptions(java.lang.StringBuilder,javax.'annotation'.processing.ProcessingEnvironment)>; Involved Target Method: instance(com.sun.tools.javac.util.Context) in target class: com.sun.tools.javac.util.Options from package com.sun.tools.javac.util
+Abuse Reason: The project tries to invoke target method instance(com.sun.tools.javac.util.Context) at compile time, but com.sun.tools.javac.util.Options only exports to [jdk.javadoc, jdk.jshell, jdk.jdeps]
+-------------------------------------------------
+Total Compile-Time Abuses: 2

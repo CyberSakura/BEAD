@@ -20,7 +20,7 @@ public class AbuseAnalyzer {
         double reflectDuration, compileTimeDuration, reflectAbuseDuration, compileTimeAbuseDuration;
         String moduleInfoPath = Paths.get(userDir, "ModuleInfo.txt").toString();
         String pkgInfoPath = Paths.get(userDir, "PkgInfo.txt").toString();
-        String classFileDir = Paths.get(userDir, "TestJar", "error_prone_check_api-2.5.1.jar").toString();    // Modify this line to the path of the input jar file directory
+        String classFileDir = Paths.get(userDir, "TestJar", "lombok-1.18.6.jar").toString();    // Modify this line to the path of the input jar file directory
                                                                                                                     //  The input Jar File should be placed in the TestJar folder
 
         try {

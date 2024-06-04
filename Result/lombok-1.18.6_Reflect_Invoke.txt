@@ -18,8 +18,11 @@ Total Non-String Constant Method Names: 0
 Total Method Names without Class Name: 1
 Total Full Method Names: 4
 Full Method Invoke:
-Method lombok.launch.Main.getShadowClassLoader: 2
-Method lombok.core.AgentLauncher.runAgents: 1
-Method lombok.core.Main.main: 1
+Class <lombok.delombok.ant.Tasks$Delombok: java.lang.Class shadowLoadClass(java.lang.String)> invokes:
+	Method lombok.launch.Main.getShadowClassLoader: 2
+Class <lombok.launch.Agent: void runLauncher(java.lang.String,java.lang.instrument.Instrumentation,boolean)> invokes:
+	Method lombok.core.AgentLauncher.runAgents: 1
+Class <lombok.launch.Main: void main(java.lang.String[])> invokes:
+	Method lombok.core.Main.main: 1
 Partial Method Invoke:
 Method execute: 1

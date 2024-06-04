@@ -1,1 +1,0 @@
-Found inconsistent reflective method invoke: javax.swing.PopupFactory.getPopup, because the project tries to reflectively invoke this method, but javax.swing.PopupFactory.getPopup is protected
