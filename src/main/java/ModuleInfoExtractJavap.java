@@ -7,6 +7,10 @@ import java.util.regex.*;
 public class ModuleInfoExtractJavap {
 
     public static void main(String[] args) {
+        run();
+    }
+
+    public static void run() {
         String userDir = System.getProperty("user.dir");
         String modules_dir = Paths.get(userDir, "Extracted Module Classes").toString();
         String outputPath = Paths.get(userDir, "directives").toString();
@@ -51,7 +55,7 @@ public class ModuleInfoExtractJavap {
     private static List<String> decompileModuleInfo(File moduleFile) {
         try {
             ProcessBuilder pb = new ProcessBuilder(
-                    "javap", "-p", moduleFile.getAbsolutePath()
+                    javapCommand(), "-p", moduleFile.getAbsolutePath()
             );
             pb.redirectErrorStream(true);
 
@@ -110,6 +114,18 @@ public class ModuleInfoExtractJavap {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static String javapCommand() {
+        Path bundled = Paths.get(System.getProperty("java.home"), "bin", "javap");
+        if (Files.isRegularFile(bundled)) {
+            return bundled.toString();
+        }
+        Path windows = Paths.get(System.getProperty("java.home"), "bin", "javap.exe");
+        if (Files.isRegularFile(windows)) {
+            return windows.toString();
+        }
+        return "javap";
     }
 
 }

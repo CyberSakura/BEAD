@@ -3,6 +3,8 @@ import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
+import component.Utils;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.*;
@@ -40,7 +42,7 @@ public class CompileTimeAnalyzer {
 
     private String createFileName(List<String> classPaths) {
         return classPaths.stream()
-                .map(path -> path.substring(path.lastIndexOf('\\') + 1).replace(".jar", ""))
+                .map(Utils::artifactBaseName)
                 .reduce("", (acc, name) -> acc + name + "_") + "Compile_Time_Invoke.txt";
     }
 

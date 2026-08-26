@@ -27,13 +27,21 @@ public class ReflectionAnalyzer extends SceneTransformer {
     private static Map<String, Integer> partMethodCounts = new LinkedHashMap<>();
 
     public static void main(String[] args) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(CLASS_FILE_LIST))) {
-            String path;
-            while ((path = reader.readLine()) != null) {
-                paths.add(path);
+        if (args.length > 0) {
+            Collections.addAll(paths, args);
+        } else {
+            try (BufferedReader reader = new BufferedReader(new FileReader(CLASS_FILE_LIST))) {
+                String path;
+                while ((path = reader.readLine()) != null) {
+                    paths.add(path);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        if (paths.isEmpty()) {
+            System.err.println("Usage: java ReflectionAnalyzer <jar-path> [<jar-path>...]");
+            return;
         }
 
         outputFileName = createFileName(paths);
@@ -55,7 +63,7 @@ public class ReflectionAnalyzer extends SceneTransformer {
 
     private static String createFileName(List<String> classPaths) {
         return classPaths.stream()
-                .map(path -> path.substring(path.lastIndexOf('\\') + 1).replace(".jar", ""))
+                .map(Utils::artifactBaseName)
                 .reduce("", (acc, name) -> acc + name + "_") + "Reflect_Invoke.txt";
     }
 

@@ -16,16 +16,19 @@ public class ModuleAccessParser {
             return;
         }
 
-        String rootDirectoryPath = args[0];
-        ModuleAccessRecorder accessRecorder = new ModuleAccessRecorder();
         try {
-            parseDirectives(rootDirectoryPath, accessRecorder);
-            System.out.println("Parsing complete.");
-            validateAccessRules(accessRecorder);
-            writeAccessRecorderDataToFile(accessRecorder);
+            run(args[0]);
         } catch (IOException e) {
             System.out.println("Error reading files: " + e.getMessage());
         }
+    }
+
+    public static void run(String rootDirectoryPath) throws IOException {
+        ModuleAccessRecorder accessRecorder = new ModuleAccessRecorder();
+        parseDirectives(rootDirectoryPath, accessRecorder);
+        System.out.println("Parsing complete.");
+        validateAccessRules(accessRecorder);
+        writeAccessRecorderDataToFile(accessRecorder);
     }
 
     private static void parseDirectives(String rootDirectoryPath, ModuleAccessRecorder accessRecorder) throws IOException {

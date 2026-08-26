@@ -1,4 +1,5 @@
 import component.JDKPackage;
+import component.Utils;
 import soot.SootMethod;
 
 import java.io.File;
@@ -14,14 +15,21 @@ public class AbuseAnalyzer {
     private static String outputCompileTimeFileName;
 
     public static void main(String[] args) {
+        if (args.length < 1) {
+            System.err.println("Usage: java AbuseAnalyzer <jar-path>");
+            System.err.println("Or:    java Bead --jar <jar-path>");
+            System.exit(1);
+        }
+        run(args[0]);
+    }
+
+    public static void run(String classFileDir) {
         String userDir = System.getProperty("user.dir");
         JDKDataCombiner combiner = new JDKDataCombiner();
         long startTime, endTime;
         double reflectDuration, compileTimeDuration, reflectAbuseDuration, compileTimeAbuseDuration;
         String moduleInfoPath = Paths.get(userDir, "ModuleInfo.txt").toString();
         String pkgInfoPath = Paths.get(userDir, "PkgInfo.txt").toString();
-        String classFileDir = Paths.get(userDir, "TestJar", "lombok-1.18.6.jar").toString();    // Modify this line to the path of the input jar file directory
-                                                                                                                    //  The input Jar File should be placed in the TestJar folder
 
         try {
             combiner.parseModuleInfoFile(moduleInfoPath);
@@ -97,21 +105,25 @@ public class AbuseAnalyzer {
             System.out.println("Inconsistency analysis done");
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (reflectWriter != null) {
+                reflectWriter.close();
+            }
+            if (compileTimeWriter != null) {
+                compileTimeWriter.close();
+            }
         }
-
-        reflectWriter.close();
-        compileTimeWriter.close();
     }
 
     private static String createReflectFileName(List<String> classPaths) {
         return classPaths.stream()
-                .map(path -> path.substring(path.lastIndexOf('\\') + 1).replace(".jar", ""))
+                .map(Utils::artifactBaseName)
                 .reduce("", (acc, name) -> acc + name + "_") + "Reflect_Abuse.txt";
     }
 
     private static String createCompileTimeFileName(List<String> classPaths) {
         return classPaths.stream()
-                .map(path -> path.substring(path.lastIndexOf('\\') + 1).replace(".jar", ""))
+                .map(Utils::artifactBaseName)
                 .reduce("", (acc, name) -> acc + name + "_") + "Compile_Time_Abuse.txt";
     }
 

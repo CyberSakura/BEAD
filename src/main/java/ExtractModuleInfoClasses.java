@@ -6,23 +6,40 @@ import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
 public class ExtractModuleInfoClasses {
-    private static final String JDK_JMODS_PATH = "C:\\Program Files\\Java\\jdk-17\\jmods";
 
     public static void main(String[] args) {
+        String jmodsPath = args.length > 0 ? args[0] : defaultJmodsPath();
+        run(jmodsPath);
+    }
+
+    public static void run(String jmodsPath) {
         String userDir = System.getProperty("user.dir");
         String outputPath = Paths.get(userDir, "Extracted Module Classes").toString();
-        File jmodsDir = new File(JDK_JMODS_PATH);
+        File jmodsDir = new File(jmodsPath);
         File[] jmodFiles = jmodsDir.listFiles((dir, name) -> name.endsWith(".jmod"));
 
         if (jmodFiles == null) {
-            System.out.println("No .jmod files found in the directory.");
-            return;
+            throw new IllegalArgumentException("No .jmod files found in: " + jmodsPath);
+        }
+
+        try {
+            Files.createDirectories(Paths.get(outputPath));
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to create output directory: " + outputPath, e);
         }
 
         System.out.println("Found " + jmodFiles.length + " .jmod files.");
         for (File jmodFile : jmodFiles) {
             extractModuleInfoClass(jmodFile, outputPath);
         }
+    }
+
+    static String defaultJmodsPath() {
+        String home = System.getenv("JAVA_HOME");
+        if (home == null || home.isEmpty()) {
+            home = System.getProperty("java.home");
+        }
+        return Paths.get(home, "jmods").toString();
     }
 
     private static void extractModuleInfoClass(File jmodFile, String outputDir) {

@@ -1,13 +1,12 @@
 package component;
 
+import java.nio.file.Paths;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
-
 import soot.util.Chain;
 
 public class Utils {
@@ -30,4 +29,11 @@ public class Utils {
         return appMethods;
     }
 
+    public static String artifactBaseName(String path) {
+        String name = Paths.get(path).getFileName().toString();
+        if (name.length() > 4 && name.regionMatches(true, name.length() - 4, ".jar", 0, 4)) {
+            return name.substring(0, name.length() - 4);
+        }
+        return name;
+    }
 }

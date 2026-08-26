@@ -16,7 +16,12 @@ public class JavaSourceAnalyzer {
 
     public static void main(String[] args) throws Exception {
         String userDir = System.getProperty("user.dir");
-        String zipFilePath = Paths.get(userDir, "src.zip").toString();
+        String zipFilePath = args.length > 0 ? args[0] : Paths.get(userDir, "src.zip").toString();
+        run(zipFilePath);
+    }
+
+    public static void run(String zipFilePath) throws Exception {
+        String userDir = System.getProperty("user.dir");
         String outputPath = Paths.get(userDir, "PkgInfo.txt").toString();
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
